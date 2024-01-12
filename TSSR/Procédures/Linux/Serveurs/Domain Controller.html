@@ -1,0 +1,81 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <base target="_parent">
+    <title data-trilium-title>Domain Controller</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Domain Controller</h1>
+
+      <div class="ck-content">
+        <p>Renommer la machine</p><pre><code class="language-text-plain">hostnamectl set-hostname dc1</code></pre>
+        <p>Ajouter la ligne dans le fichier /etc/hosts à la place de la ligne qui
+          pointe vers le dc (127.0.1.1)</p><pre><code class="language-text-plain">/etc/hosts
+
+192.168.240.10 dc1.tssr.local dc1</code></pre>
+        <p>Vérifier le FQDN</p><pre><code class="language-text-plain">hostname -f</code></pre>
+        <p>Désactiver la résolution DNS de la machine</p><pre><code class="language-text-plain">sudo systemctl disable --now systemd-resolved
+
+sudo unlink /etc/resolv.conf</code></pre>
+        <p>Créer un nouveau /etc/resolv.conf</p><pre><code class="language-text-plain">nano /etc/resolv.conf
+
+nameserver 192.168.240.10
+
+
+
+nameserver 1.1.1.1
+
+
+
+search tssr.local</code></pre><pre><code class="language-text-plain">chattr +i /etc/resolv.conf</code></pre>
+        <p>Installer les paquets</p><pre><code class="language-text-plain">apt update
+apt install -y acl attr samba samba-dsdb-modules samba-vfs-modules smbclient winbind libpam-winbind libnss-winbind libpam-krb5 krb5-config krb5-user dnsutils chrony net-tools
+
+TSSR.LOCAL
+dc1.tssr.local
+dc1.tssr.local</code></pre>
+        <p>Désactiver les services non nécessaires</p><pre><code class="language-text-plain">sudo systemctl disable --now smbd nmbd winbind</code></pre>
+        <p>Activer le service samba-ad-dc</p><pre><code class="language-text-plain">systemctl unmask samba-ad-dc
+systemctl enable samba-ad-dc</code></pre>
+        <p>Faire un backup du fichier</p><pre><code class="language-text-plain">mv /etc/samba/smb.conf /etc/samba/smb.conf.old</code></pre>
+        <p>Utiliser samba-tool</p><pre><code class="language-text-plain">samba-tool domain provision
+
+Realm TSSR.LOCAL
+Domain TSSR
+Server role dc
+DNS backend SAMBA_INTERNAL
+DNS forwarder IP address 1.1.1.1</code></pre>
+        <p>Faire une backup du fichier</p><pre><code class="language-text-plain">mv /etc/krb5.conf /etc/krb5.conf.old
+cp /var/lib/samba/private/krb5.conf /etc/krb5.conf</code></pre>
+        <p>Démarrer le service samba-ad-dc</p><pre><code class="language-text-plain">systemctl start samba-ad-dc
+systemctl status samba-ad-dc</code></pre>
+        <p>Vérifier le domaine</p><pre><code class="language-text-plain">smbclient //localhost/netlogon -U Administrator -c 'ls'
+host -t A tssr.local
+
+host -t A dc1.tssr.local
+host -t SRV _kerberos._udp.tssr.local
+host -t SRV _ldap._tcp.tssr.local</code></pre>
+        <p>Tester kerberos</p><pre><code class="language-text-plain">kinit administrator
+klist</code></pre>
+        <p>Ajouter un utilisateur</p><pre><code class="language-text-plain">samba-tool user create olivier Greta37!
+samba-tool user list</code></pre>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>Sur windows, en powershell</p>
+        <p>Récupérer le nom de l'interface réseau</p><pre><code class="language-text-plain">Get-NetAdapter -Name "*"</code></pre>
+        <p>Changer le serveur DNS pour joindre le domaine</p><pre><code class="language-text-plain">DNSClientServerAddress "Ethernet0" –ServerAddresses ("192.168.240.10","1.1.1.1")</code></pre>
+        <p>Vérifier la résolution DNS</p><pre><code class="language-text-plain">Get-DnsClientServerAddress</code></pre>
+        <p>Ajouter le client au domaine</p><pre><code class="language-text-plain">Add-Computer -DomainName "tssr.local" -Restart</code></pre>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

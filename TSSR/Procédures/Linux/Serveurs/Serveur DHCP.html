@@ -1,0 +1,59 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <base target="_parent">
+    <title data-trilium-title>Serveur DHCP</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Serveur DHCP</h1>
+
+      <div class="ck-content">
+        <p>Mettre ip fixe sur serveur</p>
+        <p>Installer isc-dhcp-server</p>
+        <p>configuration =&gt; /etc/default/isc-dhcp-server</p><pre><code class="language-text-plain"># décommenter ligne 4
+DHCPDv4_CONF=/etc/dhcp/dhcpd.conf
+
+
+# Ligne 17 et 18 mettre l'interface
+# Commenter INTERFACESv6 si on utilise pas ip v6
+INTERFACESv4="ens33"
+#INTERFACESv6="ens2"</code></pre>
+        <p>&nbsp;</p>
+        <p>configurer dhcp =&gt; /etc/dhcp/dhcpd.conf</p><pre><code class="language-text-plain">#Ligne 7 -&gt; nom de domaine
+option domain-name"tssr.local";
+
+
+# Ligne 8 serveur dns ou adresse IP dns
+option domain-name-servers 1.1.1.1;
+
+
+# Décommenter ligne 21
+authoritative;
+
+
+# Ajouter à la fin
+# Préciser adresse réseau et masque
+subnet 192.168.240.0 netmask 255.255.255.0 {
+   
+	# Passerelle par défaut   
+	option routers      192.168.240.2;
+   	
+	# Masque de sous réseau
+	option subnet-mask  255.255.255.0;
+   	
+	# Plage d'adresses
+	range dynamic-bootp 192.168.240.200 192.168.240.254;
+
+}</code></pre>
+        <p>redémarrer le dhcp server =&gt; restart isc-dhcp-server</p>
+      </div>
+    </div>
+  </body>
+
+</html>

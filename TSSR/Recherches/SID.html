@@ -1,0 +1,61 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <base target="_parent">
+    <title data-trilium-title>SID</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>SID</h1>
+
+      <div class="ck-content">
+        <p>S.I.D → Security identifier</p>
+        <p>Identificateur de sécurité</p>
+        <p>&nbsp;</p>
+        <h3><strong>Qu'est-ce que c'est ?</strong></h3>
+        <p>L'identificateur de sécurité est utilisé pour identifier un principal
+          de sécurité (toute entité qui peut être authentifiée par le système d'exploitation
+          (compte utilisateur, compte d'ordinateur, thread, processus) qui s'exécute
+          dans le contexte de sécurité d'un compte utilisateur ou d'ordinateur) ou
+          un groupe de sécurité de manière unique.</p>
+        <p>Chaque compte ou groupe, ou processus, possède un SID unique, qui est
+          émis par une autorité, comme un contrôleur de domaine Windows. Le SID est
+          stocké dans une base de données de sécurité. Le système le génère au moment
+          de la création du compte ou du groupe. Lorsqu'il est utilisé comme identificateur
+          d'un compte ou d'un groupe, il ne peut pas être utilisé pour identifier
+          un autre utilisateur ou un autre compte.</p>
+        <p>Les SID constituent un module fondamental du modèle de sécurité Windows.
+          Ils fonctionnent avec des composants spécifiques des technologies d'autorisation
+          et de contrôle d'accès dans l'infrastructure de sécurité des systèmes d'exploitation
+          Windows Server. Cela permet de protéger l'accès aux ressources réseau,
+          et fournit un environnement informatique plus sécurisé</p>
+        <h3><strong>Fonctionnement</strong></h3>
+        <p>Chaque fois qu'un utillisateur se connecte, un jeton d'accès est crée
+          par le système pour cet utilisateur. Le jeton contient, le SID, les droits
+          de l'utilisateur et les SID des groupes aux quels l'utilisateur appartient.
+          Il fournit le contexte de sécurité pour toutes les actions effectuées par
+          l'utilisateur sur cet ordinateur.</p>
+        <p>Les utilisateurs font référence à un compte en utilisant le nom de celui-ci
+          mais le système d'exploitation fait référence aux comptes et processus
+          qui s'exécute dans le contexte de sécurité à l'aide de leur SID.</p>
+        <p>Le SID d'un compte ou d'un groupe est générer au moment de sa création.
+          Il est généré par l'autorité de sécurité locale(LSA) sur l'ordinateur et
+          il est stocké avec d'autres informations de compte dans une zone sécurisée
+          du registre. Le SID d'un compte ou d'un groupe de domaine est généré par
+          l'autorité de sécurité du domaine et il est stocké en tant qu'attirbut
+          de l'objet Utilisateur ou Groupe dans services de domaine Active Directory.</p>
+        <figure
+        class="image image_resized image-style-align-center" style="width:50%;">
+          <img src="SID/image.png">
+          </figure>
+          <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

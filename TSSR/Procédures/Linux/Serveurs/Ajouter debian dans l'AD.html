@@ -1,0 +1,92 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <base target="_parent">
+    <title data-trilium-title>Ajouter debian dans l&#39;AD</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Ajouter debian dans l&#39;AD</h1>
+
+      <div class="ck-content">
+        <h3><strong><u>Contexte</u></strong></h3>
+        <p>AD → 192.168.240.3</p>
+        <p>Domaine → tssr.local</p>
+        <p>Interface réseau → eth0</p>
+        <p>Nom de la machine → debian</p>
+        <p>identifiant utilisateur AD → olivier</p>
+        <p>&nbsp;</p>
+        <h3><strong><u>Configuration réseau sur Debian</u></strong></h3>
+        <p>Choisir le nom de la machine</p><pre><code class="language-text-plain">hostnamectl set-hostname debian</code></pre>
+        <p>&nbsp;</p>
+        <p>Mettre à jour la liste des paquets</p><pre><code class="language-text-plain">apt update</code></pre>
+        <p>&nbsp;</p>
+        <p>Installer les paquets nécessaires</p><pre><code class="language-text-plain">apt -y install realmd libnss-sss libpam-sss sssd sssd-tools adcli samba-common-bin oddjob oddjob-mkhomedir packagekit</code></pre>
+        <p>&nbsp;</p>
+        <p>Modifier la configuration IP</p><pre><code class="language-text-plain">nano /etc/network/interfaces
+
+auto eth0
+allow-hotplug eth0
+iface eth0 inet static
+	address 192.168.240.102
+	netmask 255.255.255.0
+	gateway 192.168.240.2
+	dns-nameservers 192.168.240.3</code></pre>
+        <p>&nbsp;</p>
+        <p>Redémarrer le réseau</p><pre><code class="language-text-plain">systemctl restart netowrking</code></pre>
+        <p>&nbsp;</p>
+        <p>Modifier les paramètres DNS pour accéder à l'AD</p><pre><code class="language-text-plain">nano /etc/resolv.conf
+
+
+domain tssr.local
+search tssr.local
+
+nameserver 192.168.240.3</code></pre>
+        <p>&nbsp;</p>
+        <p>Ajouter un lien vers l'AD dans le fichiers hosts</p><pre><code class="language-text-plain">nano /etc/hosts
+
+127.0.0.1		localhost
+127.0.1.1		debian.local_domain		debian
+192.168.240.3	tssr.local</code></pre>
+        <p>&nbsp;</p>
+        <h3><strong><u>Joindre le debian à l'AD</u></strong></h3>
+        <p>Voir la liste des domaines avec lesquels on peut communiquer</p>
+        <p>Vérifier que l'on peut joindre le domaine local</p><pre><code class="language-text-plain">realm discover tssr.local</code></pre>
+        <p>&nbsp;</p>
+        <p>Rejoindre le domaine local avec un compte de celui-ci</p>
+        <p>Afficher la liste des domaines</p><pre><code class="language-text-plain">realm join -U Administrateur tssr.local
+realm list</code></pre>
+        <p>Si ça ne fonctionne pas, installer krb5-config et krb5-user</p>
+        <p>modifier /etc/krb5.conf et ajouter rdns=false dans la categorie libdefaults</p>
+        <p>&nbsp;</p>
+        <p>Créer un dossier pour les utilisateurs autorisés dans le domaine</p><pre><code class="language-text-plain">bash -c "cat &gt; /usr/share/pam-configs/mkhomedir" &lt;&lt;EOF
+Name: activate mkhomedir
+Default: yes
+Priority: 900
+Session-Type: Additional
+Session:
+        required                        pam_mkhomedir.so umask=0022 skel=/etc/skel
+EOF</code></pre>
+        <p>&nbsp;</p>
+        <p>Mettre à jour&nbsp;</p><pre><code class="language-text-plain">pam-auth-update</code></pre>
+        <p>&nbsp;</p>
+        <p>Redémarrer le service sssd</p>
+        <p>Vérifier qu'il est en fonctionnement</p><pre><code class="language-text-plain">systemctl restart sssd
+systemctl status sssd</code></pre>
+        <p>&nbsp;</p>
+        <p>Vérifier que l'on est bien dans le domaine en essayant de récupérer des
+          infos sur un utilisateur</p><pre><code class="language-text-plain">id olivier@tssr.local </code></pre>
+        <p>&nbsp;</p>
+        <p>Autoriser l'utilisateur à se connecter sur la machine</p><pre><code class="language-text-plain">realm permit olivier@tssr.local</code></pre>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

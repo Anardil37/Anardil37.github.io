@@ -1,0 +1,119 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <base target="_parent">
+    <title data-trilium-title>Veille techno</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Veille techno</h1>
+
+      <div class="ck-content">
+        <p><a href="https://fr.wikipedia.org/wiki/Wine">https://fr.wikipedia.org/wiki/Wine</a>
+        </p>
+        <p><a href="https://fr.wikipedia.org/wiki/Proton_(logiciel)">https://fr.wikipedia.org/wiki/Proton_(logiciel)</a>
+        </p>
+        <p><a href="https://docs.fedoraproject.org/en-US/gaming/proton/">https://docs.fedoraproject.org/en-US/gaming/proton/</a>
+        </p>
+        <p><a href="https://heroicgameslauncher.com/">https://heroicgameslauncher.com/</a>
+        </p>
+        <p><a href="https://aws.amazon.com/fr/what-is/kvm/#:~:text=KVM%20offre%20aux%20entreprises%20de,suppl%C3%A9mentaires%20%C3%A0%20une%20machine%20virtuelle.">https://aws.amazon.com/fr/what-is/kvm/#:~:text=KVM%20offre%20aux%20entreprises%20de,suppl%C3%A9mentaires%20%C3%A0%20une%20machine%20virtuelle.</a>
+        </p>
+        <p>&nbsp;</p>
+        <p>Ordre du diapo:</p>
+        <ul>
+          <li>Introduction
+            <br>Présenter le sujet, donner le nom des technologies disponibles</li>
+          <li>Présentation wine
+            <br>Présenter wine, l'utilité, le fonctionnement</li>
+          <li>Présentation proton
+            <br>Présenter proton, l'utilité, le fonctionnement</li>
+          <li>Avec Steam
+            <br>Utilisation de proton</li>
+          <li>Heroic Games Launcher
+            <br>Installation, fonctionnement</li>
+          <li>Démonstration
+            <br>&nbsp;</li>
+          <li>Conclusion
+            <br>KVM</li>
+        </ul>
+        <p>&nbsp;</p>
+        <h3>Wine</h3>
+        <p>Logiciel libre qui permet à des logiciels conçus pour windows de fonctionner
+          dans d'autres environnements. Pour ce faire, il implémente une interface
+          technique de type Windows.</p>
+        <p>Il n'a pas besoin de l'OS Windows pour fonctionner. Il se différencie
+          donc des émulateurs de machines comme QEMU et Bochs.&nbsp;</p>
+        <p>Il est sous licence LGPL, après avoir été sous licence WineHQ, puis X11.</p>
+        <p>Il fournit les outils de développement pour porter du code source Windows
+          et un chargeur de programmes permettant à de nombreux binaires de fonctionner
+          sans modifications.</p>
+        <p>Acronyme de Wine Is Not an Emulator, avant 1997 WINdows Emulator.</p>
+        <p>Première version en Juin 1993.</p>
+        <p>&nbsp;</p>
+        <h3>Proton</h3>
+        <p>Logiciel gratuit et open-source qui permet aux logiciels conçus pour Windows
+          de s'exécuter sur d'autres systèmes d'exploitation.</p>
+        <p>Il est développé par Valve, et basé sur un fork de Wine.</p>
+        <p>Il comprend plusieurs correctifs et bibliothèques pour améliorer les performances
+          et la compatibilité avec les jeux Windows.</p>
+        <p>Proton lui même est conçu pour être intégré au client Steam, sous le nom
+          de ‘Steam play’, permettant le fonctionnement transparent des jeux et logiciels
+          Windows dans steam, mais il peut être utilisé comme une application autonome.</p>
+        <p>Il intègre plusieurs bibliothèques qui améliorent les performances 3D.
+          Les couches de transcription Direct3D vers Vulcan, à savoir D9VK pour Direct3D
+          9, …</p>
+        <p>Sorti initialement le 21 aôut 2018.</p>
+        <p>&nbsp;</p>
+        <h3>Steam</h3>
+        <p>Dans steam, cliquer sur le menu steam, puis sur paramètres.</p>
+        <p>Dans les paramètres, cliquer sur Steam play, puis cocher la case Autoriser
+          Steam Play pour tous les titres et choisir la version de proton que l'on
+          souhaite utiliser.</p>
+        <p>Redémarrer Steam.</p>
+        <p>Cela permet d'utiliser tous les jeux, même ceux qui ne sont pas dans la
+          liste des applications compatibles.</p>
+        <p>&nbsp;</p>
+        <h3>Heroic Game Launcher</h3>
+        <p>Un programme open source qui permet d'accéder aux bibliothèques de jeux
+          Epic, GoG et Amazon prime.</p>
+        <p>Existe pour Windows, Linux, MacOS, mais aussi disponible sur SteamDeck.</p>
+        <p>Contient une partie Wine Manager, qui permet de choisir la version de
+          wine/proton que l'on souhaite utiliser.</p>
+        <p>Permet de gérer la compatibilité pour certaines applications.</p>
+        <p>Permet également de gérer les paramètres de wine/proton</p>
+        <p>&nbsp;</p>
+        <h3>KVM</h3>
+        <p>C'est une machine virtuelle basée sur le noyau. C'est un logiciel que
+          l'on peut installer sur des machines linux physiques pour créer des machines
+          virtuelles.</p>
+        <p>Une machine virtuelle est une application logicielle qui agit comme un
+          ordinateur indépendant au sein d'un autre ordinateur physique.</p>
+        <p>Il partage avec la machine physique des ressources telles que les cycles
+          du processeur, la bande passante du réseau et la mémoire.</p>
+        <p>KVM est un composant du système d'exploitation Linux, qui fournit un support
+          natif pour les machines virtuelles sur linux. Disponible sur les distributions
+          depuis 2007.</p>
+        <p>Pourquoi KVM ?</p>
+        <p>La machine virtuelle basée sur le noyau peut transformer toute machine
+          Linux en hyperviseur de matériel nu. Cela permet aux développeurs de mettre
+          à l'échelle l'infrastructure de calcul pour différents systèmes &nbsp;d'exploitation,
+          sans investir dans de nouveaux matériels.</p>
+        <p>Conçu pour gérer harmonieusement les applications très exigeantes. Tous
+          les systèmes d'exploitation invités héritent des hautes performances du
+          système d'exploitation hôte.</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

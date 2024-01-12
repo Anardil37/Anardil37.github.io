@@ -1,0 +1,25 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <base target="_parent">
+    <title data-trilium-title>Redirection de port</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Redirection de port</h1>
+
+      <div class="ck-content">
+        <p>Pour rediriger une requête sur une interface sur un port, sur une autre
+          interface et un autre port</p><pre><code class="language-text-plain">iptables -A PREROUTING -t nat -i &lt;interface&gt; -p tcp --dport &lt;port entree&gt; -j DNAT --to-destination &lt;ip destination&gt;:&lt;port destination&gt;
+iptables -A FORWARD -p tcp -d &lt;ip destination&gt; --dport &lt;port destination&gt; -j ACCEPT
+iptables -A POSTROUTING -t nat -s &lt;ip destination&gt; -o &lt;interface&gt; -j MASQUERADE</code></pre>
+      </div>
+    </div>
+  </body>
+
+</html>
