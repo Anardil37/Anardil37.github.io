@@ -1,0 +1,33 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>EMS</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>EMS</h1>
+
+      <div class="ck-content">
+        <p>Ajouter utilisateur:</p><pre><code class="language-text-plain">$password = Read-Host &lt;mot de pass&gt; -AsSecureString
+
+
+
+New-Mailbox -UserPrincipalName &lt;adresse mail&gt; -Alias &lt;alias&gt; -Name &lt;Nom du user&gt; -OrganizationalUnit &lt;OU&gt; -Password $password -FirstName &lt;Prenom&gt; -LastName &lt;Nom&gt; -DisplayName &lt;Nom Prenom&gt; -ResetPasswordOnNextLogon $false</code></pre>
+        <p>Supprimer utilisateur:</p><pre><code class="language-text-plain">Remove-Mailbox -Identity &lt;Nom Prenom&gt;</code></pre>
+        <p>Ajouter groupe:</p><pre><code class="language-text-plain">New-DistributionGroup -Name &lt;Nom du groupe&gt; -Type "Distribution" -Members &lt;liste des mails&gt;
+Add-DistributionGroupMember -Identity &lt;Nom du groupe&gt; -Member &lt;mail du membre&gt;</code></pre>
+        <p>Ajouter contact:</p><pre><code class="language-text-plain">New-MailContact -Name &lt;Nom du contact&gt; -ExternalEmailAddress &lt;Adresse mail&gt;</code></pre>
+        <p>Ajouter BDD:</p><pre><code class="language-text-plain">New-MailboxDatabase -Server &lt;Nom du serveur&gt; -Name &lt;nom de BDD&gt; -EdbFilePath &lt;Chemin vers dossier BDD&gt;\&lt;nom de BDD&gt;\&lt;nom de BDD&gt;.edb</code></pre>
+        <p>Supprimer BDD:</p><pre><code class="language-text-plain">Remove-MailboxDatabase -Identity &lt;Nom de BDD&gt;</code></pre>
+        <p>Monter BDD:</p><pre><code class="language-text-plain">Mount-Database -Identity &lt;Nom du serveur&gt;.&lt;domaine&gt;\&lt;Nom de BDD&gt;</code></pre>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

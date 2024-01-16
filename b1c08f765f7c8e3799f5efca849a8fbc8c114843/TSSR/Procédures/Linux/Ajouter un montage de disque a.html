@@ -1,0 +1,39 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Ajouter un montage de disque au démarrage</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Ajouter un montage de disque au démarrage</h1>
+
+      <div class="ck-content">
+        <h2><strong><u>Pour ajouter un montage automatique de disque:</u></strong></h2>
+        <p>&nbsp;</p>
+        <p>Afficher la liste des disques (Vérifier que le disque apparaît)</p><pre><code class="language-text-plain">fdisk -l</code></pre>
+        <p>&nbsp;</p>
+        <p>Afficher les UUID des disques</p><pre><code class="language-text-plain">blkid</code></pre>
+        <p>&nbsp;</p>
+        <p>Afficher et manipuler la table de partition du disque</p><pre><code class="language-text-plain">cfdisk /dev/sdX</code></pre>
+        <p>&nbsp;</p>
+        <p>Formatter la partition dans le format voulu</p><pre><code class="language-text-plain">mkfs.ext4 /dev/sdXn</code></pre>
+        <p>&nbsp;</p>
+        <p>Editer le fichier fstab pour ajouter le montage du disque au démarrage</p><pre><code class="language-text-plain">nano /etc/fstab</code></pre>
+        <p>&nbsp;</p>
+        <p>Pour recharger la nouvelle version de fstab</p><pre><code class="language-text-plain">systemctl daemon-reload</code></pre>
+        <p>&nbsp;</p>
+        <p>Pour vérifier que le fichier fstab est correct</p><pre><code class="language-text-plain">findmnt --verify</code></pre>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p><pre><code class="language-text-plain">/etc/fstab
+
+UUID=fce6c43c-c02b-41bd-b42c-b2db7a9f9071  /mnt/data       auto rw,user,auto 0 0</code></pre>
+      </div>
+    </div>
+  </body>
+
+</html>

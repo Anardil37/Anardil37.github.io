@@ -1,0 +1,68 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Ajouter une GPO</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Ajouter une GPO</h1>
+
+      <div class="ck-content">
+        <h3><strong>Créer la GPO</strong></h3>
+        <p>Dans le gestionnaire de serveur, cliquer sur <strong>Outils</strong> puis
+          sur <strong>Gestion des stratégies de groupe</strong>.</p>
+        <p>
+          <img src="Ajouter%20une%20GPO/image.png">
+        </p>
+        <p>Dans la nouvelle fenêtre, faire un clic droit sur <strong>Objets de stratégie de groupe</strong> puis
+          cliquer sur <strong>Nouveau…</strong>
+        </p>
+        <p>
+          <img src="Ajouter%20une%20GPO/1_image.png">
+        </p>
+        <h3><strong>Modifier les paramètres de la GPO</strong></h3>
+        <p>Dans le gestionnaire de stratégie de groupe, clic droit sur la stratégie,
+          puis cliquer sur <strong>Modifier…</strong>
+        </p>
+        <p>
+          <img src="Ajouter%20une%20GPO/2_image.png">
+        </p>
+        <p>Séléctionner le paramètres que l'on souhaite modifier. Faire un double
+          clic dessus pour ouvrir une nouvelle fenêtre.</p>
+        <p>
+          <img src="Ajouter%20une%20GPO/3_image.png">
+        </p>
+        <p>Dans cette nouvelle fenêtre, on peut choisir la valeur que l'on souhaite
+          donner à ce paramètre. On peut également trouver une aide qui explique
+          ce que fait le paramètre, ainsi que les versions de windows sur les quelles
+          le paramètre fonctionne.</p>
+        <p>Cliquer sur <strong>Appliquer </strong>puis <strong>OK</strong>.</p>
+        <p>
+          <img src="Ajouter%20une%20GPO/4_image.png">
+        </p>
+        <p>Cliquer sur OK pour valider.</p>
+        <h3><strong>Lier la GPO</strong></h3>
+        <p>Faire un clic droit sur l'OU et cliquer sur <strong>Lier un objet de stratégie de groupe existant...</strong>
+        </p>
+        <p>
+          <img src="Ajouter%20une%20GPO/5_image.png">
+        </p>
+        <p>Sélectionner la GPO que l'on souhaite lier à l'OU puis cliquer sur OK.</p>
+        <p>
+          <img src="Ajouter%20une%20GPO/6_image.png">
+        </p>
+        <p>La GPO est maintenant liée à l'OU.</p>
+        <p>Appliquer les GPO → gpupdate /force</p>
+        <p>Afficher les GPO → gpresul /R</p>
+        <p>\WIN-SRV\Dev</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

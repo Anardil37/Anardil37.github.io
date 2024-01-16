@@ -1,0 +1,79 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Dossiers documents utilisateur</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Dossiers documents utilisateur</h1>
+
+      <div class="ck-content">
+        <h3>Créer le partage</h3>
+        <p>Dans le gestionnaire de serveur, aller dans <strong>Services de fichiers</strong>.
+          Aller dans l'onglet <strong>Partages</strong>.</p>
+        <p>
+          <img src="Dossiers%20documents%20utilisateur/image.png">
+        </p>
+        <p>Cliquer sur tâches puis sur <strong>Nouveau partage</strong>…</p>
+        <p>
+          <img src="Dossiers%20documents%20utilisateur/1_image.png">
+        </p>
+        <p>Sélectionner <strong>Partage SMB - Rapide</strong>.</p>
+        <p>
+          <img src="Dossiers%20documents%20utilisateur/2_image.png">
+        </p>
+        <p>Ajouter le Nom du partage et vérifier que les chemins d'accès sont corrects.</p>
+        <p>
+          <img src="Dossiers%20documents%20utilisateur/3_image.png">
+        </p>
+        <p>Cocher les paramètres que l'on souhaite pour le partage.</p>
+        <p>
+          <img src="Dossiers%20documents%20utilisateur/4_image.png">
+        </p>
+        <p>Personnaliser les <strong>autorisations</strong>.</p>
+        <p>Commencer par <strong>désactiver l'héritage</strong>, puis cliquer sur <strong>Convertir les autorisations héritées</strong>.</p>
+        <p>
+          <img src="Dossiers%20documents%20utilisateur/5_image.png">
+        </p>
+        <p>Enlever les autorisation présentes pour n'avoir que celles-ci.</p>
+        <p>
+          <img src="Dossiers%20documents%20utilisateur/7_image.png">
+        </p>
+        <p>Ajouter ensuite les autorisations pour les utilisateurs, groupes que l'on
+          souhaite.</p>
+        <p>
+          <img src="Dossiers%20documents%20utilisateur/6_image.png">
+        </p>
+        <p>Finir le partage.</p>
+        <p>Dans le profil de l'utilisateur, mettre le chemin vers le dossier que
+          l'on souhaite.&nbsp;</p>
+        <p>Le dossier est donc mappé automatiquement pour l'utilisateur.</p>
+        <p>
+          <img src="Dossiers%20documents%20utilisateur/8_image.png">
+        </p>
+        <h3>Mettre en place avec une GPO</h3>
+        <p>Configuration utilisateur → Préférences → Paramètres Windows → Dossiers</p>
+        <p>
+          <img src="Dossiers%20documents%20utilisateur/9_image.png">
+        </p>
+        <p>Indiquer le chemin d'accès en précisant %username% pour qu'il s'adapte
+          à chaque utilisateur.</p>
+        <p>
+          <img src="Dossiers%20documents%20utilisateur/10_image.png">
+        </p>
+        <p>Créer ensuite un mappage pour que le dossier soit accessible pour l'utilisateur.</p>
+        <p>
+          <img src="Dossiers%20documents%20utilisateur/11_image.png">
+        </p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

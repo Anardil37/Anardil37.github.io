@@ -1,0 +1,54 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Linux</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Linux</h1>
+
+      <div class="ck-content">
+        <h5><strong><u>Commandes</u></strong></h5>
+        <p>fdisk -l → liste les disques et infos</p>
+        <p>lsblk → liste partitions + type (disk/part) + taille + point montage</p>
+        <p>blkid → liste des partitions avec UUID, le type et PARTUUID</p>
+        <p>umount → démontage</p>
+        <p>cat /etc/fstab → affiche les différentes partitions du disque et les points
+          de montage.</p>
+        <p>cfdisk → utilitaire pour gérer les partitions</p>
+        <p>df -h → indique l'espace utilisé par les systèmes de fichier</p>
+        <p>fsck → analyser et réparer un disque</p>
+        <p>&nbsp;</p>
+        <p>systemd-analyze → voir le temps de démarrage</p>
+        <p>systemd-analyze blame → voir le temps de démarrage par service</p>
+        <p>&nbsp;</p>
+        <p>stat filename → Afficher un max d'infos sur un fichier</p>
+        <p>df -T filenamecat filename → Afficher le nom du système de fichier et
+          le point de montage</p>
+        <p>hexdump -C filename → Afficher les données contenues dans un fichier en
+          hexa ou ascii</p>
+        <p>du -hs /home/user → &nbsp;Afficher la taille occupée par le répertoire
+          perso de user</p>
+        <p>du -h -d 1 /home/user → Afficher la taille des répertoires contenus dans
+          le rép. personnel du user</p>
+        <p>ls -hl filename → Afficher les infos de base</p>
+        <p>&nbsp;</p>
+        <h5><strong>Pour faire une sauvegarde</strong></h5>
+        <p>dossier utilisateur → /home/user</p>
+        <p>dossier config → /home/user/.config</p>
+        <p>fichiers système → /etc</p>
+        <p>profil firefox → .mozilla/firefox</p>
+        <p>réseaux → /etc/NetworkManager/system-connections</p>
+        <p>paquets debian installés → dpkg --get-selections &gt; dpkg-list.txt</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

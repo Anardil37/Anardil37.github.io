@@ -1,0 +1,100 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Exchange</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Exchange</h1>
+
+      <div class="ck-content">
+        <p><strong>Record DNS</strong>
+        </p>
+        <p>
+          <img class="image_resized" style="width:50%;" src="Exchange/1_image.png">
+        </p>
+        <p>MX → Mail exchange → Localiser les serveurs de messagerie associés à un
+          nom de domaine.</p>
+        <p>→ Va permettre le routage des messages.</p>
+        <p>A → Indiquer l'IP v4 du serveur.</p>
+        <p>CNAME → Création d'alias.</p>
+        <p>TXT</p>
+        <p>&nbsp;</p>
+        <p><strong>SPF, DKIM, DMARC ?</strong>
+        </p>
+        <p>Ce sont trois méthodes d'authentification du courrier électronique.</p>
+        <p>DKIM et SPF peuvent être comparés à une licence d'entreprise ou un diplôme
+          de médecin accroché au mur. Ils aident à démontrer la légitimité.</p>
+        <p>DMARC indique aux serveurs de messagerie ce qu'ils doivent faire en cas
+          d'échec de DKIM ou SPF, les marquer comme spam et les livrer, ou les abandonner.</p>
+        <p>Les domaines sans configuration SPF,DKIM,DMARC peuvent constater que leurs
+          courriels sont mis en quarantaine comme spam ou ne sont pas remis à leurs
+          destinataires. Ils risquent également de se faire usurper leur identité
+          par des spammeurs.</p>
+        <p>&nbsp;</p>
+        <p><strong>Comment fonctionne le FPS ?</strong>
+        </p>
+        <p>Le cadre Sender Policy Framework (SPF) est un moyen pour un domaine de
+          répertorier tous les serveurs à partir desquels il envoie des e-mails.
+          Considérez-le comme un annuaire des employés accessible au public qui permet
+          de confirmer si un employé travaille pour une organisation.</p>
+        <p>Les enregistrements SPF répertorient toutes les adresses IP de tous les
+          serveurs qui sont autorisés à envoyer des courriels à partir du domaine,
+          tout comme un annuaire des employés répertorie les noms de tous les employés
+          d'une organisation. Les serveurs de messagerie qui reçoivent un message
+          électronique peuvent le comparer à l'enregistrement SPF avant de le transmettre
+          à la boîte de réception du destinataire.</p>
+        <p>&nbsp;</p>
+        <p><strong>Comment fonctionne la norme DKIM&nbsp;?</strong>
+        </p>
+        <p>DomainKeys Identified Mail (DKIM) permet aux propriétaires de domaines
+          de signer automatiquement "les courriels" provenant de leur domaine, tout
+          comme la signature d'un chèque permet de confirmer l'identité de son auteur.
+          La signature DKIM "" est une signature numérique qui utilise la cryptographie
+          pour vérifier mathématiquement que le courriel provient du domaine.</p>
+        <p>Plus précisément, DKIM utilise la cryptographie à clé publique :</p>
+        <ul>
+          <li>Un enregistrement DKIM stocke la clé publique <i>du domaine</i>, et les
+            serveurs de messagerie qui reçoivent des e-mails du domaine peuvent vérifier
+            cet enregistrement pour obtenir la clé publique.</li>
+          <li>La <i>clé privée</i> est gardée secrète par l'expéditeur, qui signe l'en-tête
+            du courriel avec cette clé</li>
+          <li>Les serveurs de messagerie qui reçoivent le courrier électronique peuvent
+            vérifier que la clé privée de l'expéditeur a été utilisée en appliquant
+            la clé publique.</li>
+        </ul>
+        <p>&nbsp;</p>
+        <p><strong>Comment fonctionne DMARC ?</strong>
+        </p>
+        <p>Le système DMARC (Domain-based Message Authentication Reporting and Conformance)
+          indique au serveur de messagerie récepteur ce qu'il doit faire en fonction
+          des résultats de la vérification de SPF et DKIM. La politique DMARC d'un
+          domaine peut être définie de différentes manières : elle peut demander
+          aux serveurs de messagerie de mettre en quarantaine les courriels qui ne
+          répondent pas aux critères SPF ou DKIM (ou les deux), de les rejeter ou
+          de les distribuer.</p>
+        <p>Les politiques DMARC sont stockées dans enregistrements DMARC. Un enregistrement
+          DMARC peut également contenir des instructions permettant d'envoyer des
+          rapports aux administrateurs de domaines sur les courriels qui passent
+          ou échouent ces contrôles. Les rapports DMARC fournissent aux administrateurs
+          les informations dont ils ont besoin pour décider de l'ajustement de leurs
+          politiques DMARC (par exemple, que faire si des e-mails légitimes sont
+          marqués par erreur comme spam).</p>
+        <p>&nbsp;</p>
+        <p><strong>Connecter Exchange sur internet</strong>
+        </p>
+        <p><a href="https://learn.microsoft.com/en-us/exchange/mail-flow/connectors/internet-mail-send-connectors?view=exchserver-2019">https://learn.microsoft.com/en-us/exchange/mail-flow/connectors/internet-mail-send-connectors?view=exchserver-2019</a>
+        </p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

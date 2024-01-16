@@ -1,0 +1,113 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Rôles FSMO</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Rôles FSMO</h1>
+
+      <div class="ck-content">
+        <p>FSMO → Flexible Single Master Operation</p>
+        <p>Conseillé d'avoir plusieurs contrôleurs de domaine lorsque l'on a un Active
+          Directory.</p>
+        <p>Les contrôleurs de domaine “normaux” disposent d'un accès en écriture
+          dans l'annuaire.</p>
+        <p>Microsoft a implémenté les rôles FSMO pour limiter la modification de
+          certaines données internes à l'annuaire Active Directory.</p>
+        <p>Maître d'opération → contrôleur de domaine qui détient un ou plusieurs
+          rôles FSMO.</p>
+        <p>Détenir un rôle signifie pour un contrôleur de domaine qu’il est capable
+          de « réaliser une action particulière au sein de l’annuaire ».</p>
+        <p>Il ne peut pas y avoir plusieurs maîtres d'opération pour un même rôle.</p>
+        <p>Les cinq rôles :&nbsp;</p>
+        <ul>
+          <li>Maître d'attribution des noms de domaine (DNM)</li>
+          <li>Contrôleur de schéma (SM)</li>
+          <li>Maître RID (RID)</li>
+          <li>Maître d'infrastructure (IM)</li>
+          <li>Emulateur PDC (PDC)</li>
+        </ul>
+        <h2>Maître d’attribution des noms de domaine</h2>
+        <p>Le seul autorisé à distribuer des noms de domaine aux contrôleurs de domaine
+          lors de la création d'un nouveau domaine.</p>
+        <p>Notamment utilisé lors de la création d'un nouveau domaine. Le contrôleur
+          à l'initiative de la création doit absolument être en mesure d'entrer en
+          contact avec le contrôleur possédant le rôle.</p>
+        <p><strong>En résumé, il est unique au sein d'une forêt et attribue les noms de domaine.&nbsp;</strong>
+        </p>
+        <p>&nbsp;</p>
+        <h2>Contrôleur de schéma</h2>
+        <p>Le schéma désigne la structure de l'annuaire Active Directory. C'est donc
+          un élément critique au sein de l'environnement Active Directory.&nbsp;</p>
+        <p><strong>En résumé, il est unique au sein d’une forêt et gère la structure du schéma.</strong>
+        </p>
+        <p>&nbsp;</p>
+        <h2>Maître RID</h2>
+        <p>Les objets créés au sein de l’annuaire Active Directory dispose de plusieurs
+          identifiants uniques. Parmi eux, il y a notamment le GUID et le DistinguishedName
+          mais aussi l’identifiant de sécurité « SID », c’est ce dernier qui nous
+          intéresse dans le cadre du maître RID.</p>
+        <p>RID est un identifiant relatif qui est unique au sein de chaque SID afin
+          d'être sûr d'avoir un SID unique pour chaque objet de l'annuaire. Le SID
+          étant constitué d'une partie commune qui correspond au domaine. Le RID
+          est essentiel pour rendre unique chaque SID .</p>
+        <p>Le maître RID devra allouer des blocs d'identificateurs relatifs à chaque
+          contrôleur de domaine du domaine. Ainsi, chaque contrôleur aura un bloc
+          de RID unique qu'il pourra attribuer aux futurs objets crées dans l'annuaire.</p>
+        <p>Chaque contrôleur n'épuise pas son bloc de RID à la même vitesse. Un contrôleur
+          qui atteint un certain niveau d'épuisement contacte le maître RID pour
+          en obtenir de nouveaux.</p>
+        <p><strong>En résumé, il est unique au sein d’un domaine et attribue des blocs de RID aux contrôleurs de domaine pour assurer que les SID des objets soient unique.</strong>
+        </p>
+        <p>&nbsp;</p>
+        <h2>Maître d’infrastructure</h2>
+        <p>Il a pour objectif de gérer les références entre plusieurs objets.</p>
+        <p>Imaginons qu’un utilisateur d’un domaine A soit ajouté au sein d’un groupe
+          du domaine B. Le contrôleur de domaine « <i>Maître d’infrastructure</i> »
+          deviendra responsable de cette référence et devra s’assurer de la réplication
+          de cette information sur tous les contrôleurs de domaine du domaine.</p>
+        <p>Les références d'objets sont également appelés “objets fantômes” et permettent
+          au contrôleur de faciliter les lien entre différents objets. Cet objet
+          fantôme contiendra peu d'informations au sujet de l'objet auquel il fait
+          référence.</p>
+        <p>De ce fait, si l’objet est modifié ou supprimé à l’avenir, le Maître d’infrastructure
+          devra se charger de déclencher la mise à jour de l’objet fantôme auprès
+          des autres contrôleurs de domaine. En quelque sorte, il accélère les processus
+          de réplication et la communication entre les contrôleurs de domaine.</p>
+        <p><strong>En résumé, il est unique au sein d’un domaine et doit gérer les références d’objets au sein du domaine.</strong>
+        </p>
+        <p>&nbsp;</p>
+        <h2>Émulateur PDC</h2>
+        <p>PDC → Primary Domain Controller</p>
+        <p>Il assure cinq missions principales :&nbsp;</p>
+        <ul>
+          <li>Modification des stratégies de groupe du domaine (éviter les conflits
+            et les écrasements)</li>
+          <li>Synchroniser les horloges sur tous les contrôleurs de domaine (heure et
+            date)</li>
+          <li>Gérer le verrouillage des comptes</li>
+          <li>Changer les mots de passe</li>
+          <li>Assure la compatibilité avec les contrôleurs de domaine Windows NT</li>
+        </ul>
+        <p><strong>En résumé, il est unique au sein d’un domaine et assure diverses missions liées à la sécurité et par défaut il joue le rôle de serveur de temps pour l’ensemble du domaine.</strong>
+        </p>
+        <p>&nbsp;</p>
+        <h2>La gestion des maîtres d’opération</h2>
+        <p>Par défaut, le premier contrôleur détient tous les rôles FSMO. Cependant,
+          il est possible de transférer les rôles si vous souhaitez les répartir
+          entre plusieurs contrôleurs de domaine.</p>
+        <p>Pour transférer un rôle vers un autre contrôleur, on pourra utiliser l'interface
+          graphique de Windows ou encore l'utilitaire “ntdsutil”.</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

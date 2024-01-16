@@ -1,0 +1,40 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Serveur FTP</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Serveur FTP</h1>
+
+      <div class="ck-content">
+        <p>Installer proftpd</p><pre><code class="language-text-plain">apt install proftpd</code></pre>
+        <p>Configurer le serveur ftp</p><pre><code class="language-text-plain">nano /etc/proftpd/proftpd.conf
+
+DefaultRoot ~
+
+
+PassivePorts 49152 65534</code></pre>
+        <p>Redémarrer le service</p><pre><code class="language-text-plain">systemctl restart proftpd</code></pre>
+        <p>Créer un utilisateur pour le ftp</p><pre><code class="language-text-plain">useradd -m -s /bin/bash ftpuser
+passwd ftpuser
+mkdir /home/ftpuser/upload
+mkdir /home/ftpuser/download
+chown -R ftpuser:ftpuser /home/ftpuser
+
+chmod 755 /home/ftpuser/upload
+
+chmod 755 /home/ftpuser/download</code></pre>
+        <p>Pour tester</p><pre><code class="language-text-plain">ftp localhost</code></pre>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

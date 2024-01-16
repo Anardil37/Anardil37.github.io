@@ -1,0 +1,112 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Ajout Users Choix OU</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Ajout Users Choix OU</h1>
+
+      <div class="ck-content"><pre><code class="language-application-x-powershell"># Importer le CSV
+
+$CSVFile = "C:\Scripts\test_data.csv"
+
+$CSVData = Import-CSV -Path $CSVFile -Delimiter ";" -Encoding UTF8
+
+
+
+# Initialisation variables
+
+$nbou = Read-Host -Prompt "Nombre d OU"
+
+$ous = New-Object string[] $nbou
+
+For($i=0;$i -lt $nbou;$i++) 
+
+{ 
+
+    $ous[$i] =  Read-Host -Prompt "Nom de l OU"
+
+}
+
+$ous
+
+$countou = 0
+
+
+
+# Pour chaque utilisateur
+
+Foreach($Utilisateur in $CSVData){
+
+    # On formate les données
+
+    $UtilisateurPrenom = $Utilisateur.Prenom
+
+    $UtilisateurNom = $Utilisateur.Nom
+
+    $UtilisateurLogin = $UtilisateurNom.ToLower()
+
+    $UtilisateurMotDePasse = "Greta37!"
+
+    # Vérifier la présence de l'utilisateur dans l'AD
+
+    if (Get-ADUser -Filter {SamAccountName -eq $UtilisateurLogin}){
+
+        Write-Warning "L'identifiant $UtilisateurLogin existe déjà dans l'AD"
+
+    }
+
+    else{
+
+    $currentou = $ous[$countou]
+
+        # Ajouter l'utilisateur dans l'AD
+
+        New-ADUser -Name "$UtilisateurNom $UtilisateurPrenom" `
+
+                   -DisplayName "$UtilisateurNom $UtilisateurPrenom" `
+
+                   -GivenName $UtilisateurPrenom `
+
+                   -Surname $UtilisateurNom `
+
+                   -SamAccountName $UtilisateurLogin `
+
+                   -UserPrincipalName "$UtilisateurLogin@tssr.local" `
+
+                   -Path "OU=$currentou,OU=Utilisateurs,DC=tssr,DC=local" `
+
+                   -AccountPassword(ConvertTo-SecureString $UtilisateurMotDePasse -AsPlainText -Force) `
+
+                   -ChangePasswordAtLogon $false `
+
+                   -Enabled $true
+
+
+
+        Write-Output "Création de l'utilisateur : $UtilisateurLogin ($UtilisateurNom $UtilisateurPrenom)"
+
+        $countou = $countou + 1
+
+        if($countou -eq $nbou){
+
+        $countou = 0
+
+        }
+
+    }
+
+}
+
+</code></pre>
+      </div>
+    </div>
+  </body>
+
+</html>

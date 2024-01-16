@@ -1,0 +1,48 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>over the wire</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>over the wire</h1>
+
+      <div class="ck-content">
+        <p>du -b -a | grep 1033 → trouver les fichiers de 1033b</p>
+        <p>find / -type f -user bandit7 -group bandit6 -size 33c → trouver des fichiers
+          de 33b appartenant à bandit7 et au groupe bandit6</p>
+        <p>sort data.txt | uniq -u → trie les lignes du fichier en les regroupant
+          puis donne toutes les lignes uniques</p>
+        <p>strings → trouver des chaînes imprimables dans un fichier texte, binaire,
+          ..</p>
+        <p>cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m' → permet de lire une chaine
+          de caracteres en remplaçant les caracteres</p>
+        <p>xxd -r hexdump_data compressed_data → passer d'un hexdump a un fichier</p>
+        <p>&nbsp;</p>
+        <p>For <code>gzip</code> compressed files the header is <code>\x1F\x8B\x08</code>.
+          Looking at the first line, we see that these are the first bytes of the
+          file.</p>
+        <p>00000000: 1f8b 0808 0650 b45e 0203 6461 7461 322e &nbsp;.....P.^..data2.</p>
+        <p>&nbsp;</p>
+        <p>This time we have a different magic number. Quick googling tells us that <code>BZ</code> (=
+          ‘425a’) is the file signature for <code>bzip</code> and the next two bytes <code>h</code> (=
+          ‘68’) indicate the version, in this case, it is version 2. So we can rename
+          the file with the appropriate file ending (.bz2) and decompress it with <code>bzip2 -d</code>
+        </p>
+        <p>&nbsp;</p>
+        <p>nc(netcat) ip port &lt; fichier → lire et écrire des données en ligne</p>
+        <p>openssl s_client -connect localhost:30001 → connexion a un service via
+          ssl</p>
+        <p>&nbsp;</p>
+        <p>echo “NvEJF7oVjkddltPSrdKEFOllh9V1IBcq” | nc -l -p 6000</p>
+        <p>./suconnect 6000</p>
+      </div>
+    </div>
+  </body>
+
+</html>

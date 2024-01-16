@@ -1,0 +1,83 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>DNS</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>DNS</h1>
+
+      <div class="ck-content">
+        <p>DNS → Domain Name System</p>
+        <p>Port : UDP <strong>53</strong>
+        </p>
+        <h4><strong>Qu'est ce que c'est</strong></h4>
+        <p>Le DNS a été inventé pour faciliter la recherche d'un site donné sur internet.
+          Il permet d'associer un nom compréhensible à une adresse IP. On associe
+          donc une adresse logique, le nom de domaine, à une adresse physique, l'adresse
+          IP.</p>
+        <p>L'adresse IP et le nom de domaine sont uniques et cela permet donc à un
+          message d'atteindre son destinataire.</p>
+        <p>&nbsp;</p>
+        <h4><strong>Fonctionnement</strong></h4>
+        <p>Lorsque l'on saisie une adresse dans le navigateur, c'est un serveur DNS
+          qui traduit cette adresse en adresse IP compréhensible par les ordinateurs
+          et les réseaux. C'est ce qu'on appelle la résolution DNS. Ce temps est
+          d'autant plus faible sur le serveur est performant.</p>
+        <p>L'architecture logique du DNS est similaire à la structure hiérarchique
+          des noms de domaine. Le DNS d'un niveau hiérarchique donné délègue au sous-niveau
+          le soin de traiter le sous-domaine suivant, jusqu'au dernier niveau qui
+          lui connaît l'adresse IP correspondant au nom de domaine demandé.</p>
+        <p>&nbsp;</p>
+        <p>Il existe plusieurs types de services DNS:</p>
+        <p><strong>DNS officiel</strong> : il fournit un mécanisme de mise à jour
+          que les développeurs utilisent pour gérer les noms publics de DNS. Il répond
+          ensuite aux requêtes DNS, en traduisant des noms de domaine en adresses
+          IP. Le DNS officiel est le principal gestionnaire d'un domaine. Il est
+          chargé de répondre aux serveurs DNS récursifs en leur communiquant l'adresse
+          IP désirée.</p>
+        <p><strong>DNS récursif</strong> : Les clients n'adressent géneralement pas
+          leur requêtes aux services de DNS officiels. Ils se connectent à un résolveur,
+          ou DNS récursif. Il ne possède pas d'enregistrement DNS mais il sert d'intermédiaire
+          pour obtenir les informations pour le client. Si la réference de DNS est
+          mise en cache ou stockée, il répond à la requête DNS en communiquant les
+          informations au client, sinon, il transmet la requête à un ou plusieurs
+          serveurs DNS officiels pour récupérer les informations demandées.</p>
+        <figure
+        class="image">
+          <img src="DNS/image.png">
+          </figure>
+          <ol>
+            <li>L'utilisateur saisit une adresse dans un navigateur web. La requête est
+              acheminée via internet et est reçue par un résolveur DNS récursif.</li>
+            <li>Le résolveur interroge alors un serveur de noms racine DNS</li>
+            <li>Ce dernier répond au résolveur avec l'adresse d'un serveur DNS de domaine
+              de premier niveau sur lequel sont conservées les informations relatives
+              à ses domaines. Ainsi lors d'une recherche, la requête est redirigée.</li>
+            <li>Le résolveur émet ensuite une requête vers le TLD</li>
+            <li>Le serveur TLD répond alors avec l'adresse IP du serveur de noms de domaine</li>
+            <li>Enfin le résolveur récursif envoie une requête au serveur de noms de domaine</li>
+            <li>Le serveur de noms de domaine envoie ensuite l'adresse IP du site vers
+              le résolveur</li>
+            <li>Le résolveur DNS répond alors au navigateur web avec l'adresse IP du domaine
+              initialement demandé</li>
+            <li>Le navigateur envoie une requête HTTP à l'adresse IP</li>
+            <li>Le serveur situé à cette adresse IP renvoie la page à affcher</li>
+          </ol>
+          <figure class="image">
+            <img src="DNS/1_image.png">
+          </figure>
+          <h4><strong>En entreprise</strong></h4>
+          <p>Le DNS permet de faire correspondre des noms de machine avec des adresses
+            IP.</p>
+          <p>Il permet de bloquer certains contenus</p>
+      </div>
+    </div>
+  </body>
+
+</html>

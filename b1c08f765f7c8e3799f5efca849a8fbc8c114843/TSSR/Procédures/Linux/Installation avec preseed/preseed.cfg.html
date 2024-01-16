@@ -1,0 +1,235 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>preseed.cfg</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>preseed.cfg</h1>
+
+      <div class="ck-content"><pre><code class="language-text-plain">#-----------------------------------------------------------------
+# LANGUES
+#-----------------------------------------------------------------
+# Langue : français
+d-i debian-installer/language string fr
+# Pays : france
+d-i debian-installer/country string FR
+# Localisation : affichage caractères français code UTF-8
+d-i debian-installer/locale string fr_FR.UTF-8
+# Locales supplémentaires à générer (optionnel)
+d-i localechooser/supported-locales multiselect en_US.UTF-8, en_GB.UTF-8
+# Clavier : français latin9
+d-i keyboard-configuration/xkb-keymap select fr(latin9)
+# Possibilité de changer de disposition de clavier (optionnel)
+d-i keyboard-configuration/toggle select No toggling
+#-----------------------------------------------------------------
+# HEURES
+#-----------------------------------------------------------------
+# Horloge en mode UTC
+d-i clock-setup/utc boolean true
+# Fuseau horaire
+d-i time/zone select Europe/Paris
+# Utilisation du service ntp pour mettre à l'heure pendant l'install
+d-i clock-setup/ntp boolean false
+#-----------------------------------------------------------------
+# RÉSEAU
+#-----------------------------------------------------------------
+# Active la config réseau (mettre à false si install sans réseau)
+#d-i netcfg/enable boolean false
+# Sélection réseau automatique (si une interface est disponible)
+d-i netcfg/choose_interface select auto
+# Nom d'hôte : Entrer le nom d'hôte
+# Remarque : Le nom obtenu par DHCP sera prioritaire sur ce champ.
+d-i netcfg/get_hostname string hostname
+# Nom de domaine (peut-être laissé non défini, mais la ligne doit apparaître)
+# Remarque : Le nom obtenu par DHCP sera prioritaire sur ce champ.
+d-i netcfg/get_domain string
+# Désactive la question sur la clé WEP (en laissant ce champ vide)
+d-i netcfg/wireless_wep string
+# Téléchargement de firmware non-libres sans demander : oui
+d-i hw-detect/load_firmware boolean true
+#-----------------------------------------------------------------
+# COMPTES UTILISATEURS
+#-----------------------------------------------------------------
+# Mot de passe administrateur
+d-i passwd/root-password password *****************
+d-i passwd/root-password-again password *****************
+# ou bien un mot de passe chiffré sous forme de hash :
+#d-i passwd/root-password-crypted password [crypt(3) hash]
+# Active/désactive la création d'un utilisateur
+# d-i passwd/make-user boolean false
+# Nom utilisateur
+d-i passwd/user-fullname string user
+d-i passwd/username string user
+# Mot de passe utilisateur
+d-i passwd/user-password password *****************
+d-i passwd/user-password-again password *****************
+# Create the first user with the specified UID instead of the default
+#d-i passwd/user-uid string 1010
+#-----------------------------------------------------------------
+# PARTITIONNEMENT
+#-----------------------------------------------------------------
+# Deux méthodes :
+### 1 - Méthode de partitionnement complètement automatisée
+# Si le système possède un espace libre, on peut ne partitionner que cet espace.
+# Mais il faut que partman-auto/method (ci-dessous) ne soit pas définie.
+#d-i partman-auto/init_automatically_partition select biggest_free
+### 2 - Méthode de partitionnement précisée
+# On peut choisir un disque entier. Si le système ne possède qu’un seul
+# disque, l’installateur le choisira automatiquement. S'il y a plusieurs disques,
+# le nom du disque doit être donné selon le format traditionnel ( /dev/sda, mais
+# pas /dev/discs/disc0/disc ).
+# Par exemple, pour utiliser le premier disque SCSI/SATA :
+d-i partman-auto/disk string /dev/sda
+# Il faudra aussi indiquer la méthode à utiliser parmi :
+# - regular : utilisation des types de partition habituels.
+# - lvm : utilisation de LVM pour le partitionnement.
+# - crypto : utilisation de LVM à l’intérieur d’une partition chiffrée.
+d-i partman-auto/method string lvm
+# On peut définir la quantité d’espace qui sera utilisée par le groupe LVM.
+# Cela peut être une taille associée à son unité (20 GB),
+# un pourcentage d’espace libre ou le mot ”max”.
+d-i partman-auto-lvm/guided_size string max
+# Si l’un des disques à partitionner automatiquement contient une ancienne
+# configuration LVM, l’utilisateur recevra normalement un avertissement.
+# Cet avertissement peut être évité :
+d-i partman-lvm/device_remove_lvm boolean true
+# De même pour un Raid logiciel existant déjà :
+d-i partman-md/device_remove_md boolean true
+# Et aussi pour la confirmation concernant la création de partitions lvm :
+d-i partman-lvm/confirm boolean true
+d-i partman-lvm/confirm_nooverwrite boolean true
+# On peut choisir l’un des trois schémas prédéfinis :
+# - atomic : tous les fichiers dans une seule partition
+# - home : partition /home distincte
+# - multi : partitions /home, /var et /tmp séparées
+d-i partman-auto/choose_recipe select multi
+### ...ou donner son propre schéma, expliqué ci-dessous.
+#d-i partman-auto/expert_recipe string \
+# boot-root :: \
+# 40 50 100 ext3 \
+# $primary{ } $bootable{ } \
+# method{ format } format{ } \
+# use_filesystem{ } filesystem{ ext3 } \
+# mountpoint{ /boot } \
+# . \
+# 500 10000 1000000000 ext3 \
+# method{ format } format{ } \
+# use_filesystem{ } filesystem{ ext3 } \
+# mountpoint{ / } \
+# . \
+# 64 512 300% linux-swap \
+# method{ swap } format{ } \
+# .
+# Les partitions vont-être crées. Faut-il continuer ? oui
+d-i partman-partitioning/confirm_write_new_label boolean true
+# Partitionnement : Terminer le partitionnement et appliquer les changements
+d-i partman/choose_partition select finish
+# Faut-il appliquer le changemet sur les disques ? oui
+d-i partman/confirm boolean true
+# Les partitions existantes vont être écrasées ? oui
+d-i partman/confirm_nooverwrite boolean true
+# Option pour ne pas effacer les partitions avant, quand le chiffrement est activé,
+#d-i partman-auto-crypto/erase_disks boolean false
+# Par défaut, les UUID sont utilisés, mais vous pouvez choisir traditional pour utiliser les noms traditionnels des périphériques, ou label pour utiliser des étiquettes. En l'absence d'étiquette, l'UUID est utilisé.
+#d-i partman/mount_style select uuid
+#-----------------------------------------------------------------
+# MIROIRS
+#-----------------------------------------------------------------
+# Distribution à installer: bullseye
+# d-i mirror/suite string bullseye
+# Suite to use for loading installer components (optional).
+# d-i mirror/udeb/suite string testing
+# Miroir protocol : https, ftp (optionnel)
+# If you select ftp, the mirror/country string does not need to be set.
+#d-i mirror/protocol string https
+# Miroir pays : Entrée manuelle
+d-i mirror/country string manual
+# Miroir nom d'hôte
+d-i mirror/http/hostname string deb.debian.org
+# Miroir - répertoire : debian
+d-i mirror/http/directory string /debian
+# Faut-il utiliser un proxy (peut être laissé vide)
+d-i mirror/http/proxy string
+# Miroir pays pour HTTPS : Entrée manuelle
+#d-i mirror/https/country string manual
+# Miroir nom d'hôte
+#d-i mirror/https/hostname string deb.debian.org
+# Miroir - répertoire : debian
+#d-i mirror/https/directory string /debian
+# Faut-il utiliser un proxy (peut être laissé vide)
+#d-i mirror/https/proxy string
+#-----------------------------------------------------------------
+# GESTION DES PAQUETS
+#-----------------------------------------------------------------
+# Apt setup nonfree : oui
+d-i apt-setup/non-free boolean true
+# apt-setup contrib : oui
+d-i apt-setup/contrib boolean true
+# apt-setup services : security,updates,backports
+d-i apt-setup/services-select multiselect security, updates, backports
+# Apt-setup, utilisation miroir réseau : oui
+d-i apt-setup/use_mirror boolean true
+# Supprimer apt-cdrom dans sources.list
+apt-cdrom-setup apt-setup/disable-cdrom-entries boolean true
+# Autres dépots locaux disponibles, local[0-9] (le premier démarre à 0)
+#d-i apt-setup/local0/repository string http://debian.example.com/debian stable main contrib
+# Commentaire qui sera inséré dans le fichier sources.list
+#d-i apt-setup/local0/comment string Serveur de paquets locaux de l'organisation
+# Activer des lignes deb-src
+d-i apt-setup/local0/source boolean false
+#Pour ne pas analyser d'autres images de CD
+d-i apt-setup/cdrom/set-first boolean false
+d-i apt-setup/cdrom/set-next boolean false
+d-i apt-setup/cdrom/set-failed boolean false
+#-----------------------------------------------------------------
+# PAQUETS INSTALLÉS
+#-----------------------------------------------------------------
+# Tâches à installer : au minimum standard
+# Possibilités : desktop, xfce-desktop, web-server, print-server, ssh-server,...
+tasksel tasksel/first multiselect standard, xfce-desktop
+# Paquets supplémentaires à installer (exemples)
+# d-i pkgsel/include string aptitude, hwinfo, lshw, xfce4-goodies
+# Paquets à supprimer (exemples)
+# d-i preseed/late_command string \
+# in-target apt-get -y purge vim-tiny; \
+# in-target apt-get -y purge vim-common
+# Mise à jour à la fin de l'install : none, safe-upgrade, full-upgrade
+d-i pkgsel/upgrade select full-upgrade
+# Participer au suivi statistique des paquets installés
+popularity-contest popularity-contest/participate boolean false
+#-----------------------------------------------------------------
+# BOOTLOADER
+#-----------------------------------------------------------------
+# Le paramètre suivant est sans danger : il installe grub sur le
+# secteur d'amorçage principal s'il n'existe aucun autre système
+# d'exploitation sur la machine.
+d-i grub-installer/only_debian boolean true
+# Installation GRUB : /dev/sdx (doit être renseigné)
+# En raison, entre autres, des clés USB, la position du MBR ne peut pas
+# être déterminée de façon sûre dans le cas général,
+# elle doit donc être spécifiée :
+d-i grub-installer/bootdev string /dev/sda
+# Pour installer grub sur le premier périphérique
+# (présumant que ce n'est pas une clé USB) :
+#d-i grub-installer/bootdev string default
+#-----------------------------------------------------------------
+# FINALISATION
+#-----------------------------------------------------------------
+# Désactiver le message indiquant la fin de l'installation
+d-i finish-install/reboot_in_progress note
+# This is how to make the installer shutdown when finished, but not
+# reboot into the installed system.
+#d-i debian-installer/exit/halt boolean true
+# Eteindre la machine après l'installation
+d-i debian-installer/exit/poweroff boolean true</code></pre>
+      </div>
+    </div>
+  </body>
+
+</html>

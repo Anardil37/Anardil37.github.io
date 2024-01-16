@@ -1,0 +1,59 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Cache des identifiants Active Directory</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Cache des identifiants Active Directory</h1>
+
+      <div class="ck-content">
+        <p>Quand un utilisateur s'authentifie sur un ordinateur Windows (ou un serveur)
+          membre du domaine, ses identifiants sont automatiquement mis en cache en
+          local. On parle de Cached credentials. L'utilisateur peu alors grâce à
+          ce cache se connecter à sa session même si le contrôleur de domaine est
+          injoignable, si l'ordinateur n'est pas sur le réseau ou s'il est connecté
+          à un réseau différent.</p>
+        <p>La mise en cache peut être pratique pour les ordinateurs portables car
+          ils sont susceptibles d'être utilisés dans des conditions diverses, lors
+          desquelles l'utilisateur aura besoin d'accéder à sa session et à ses données.</p>
+        <p>&nbsp;</p>
+        <p>C'est l'action de connexion qui alimente le cache. Lorsque l'utilisateur
+          se connecte, une entrée est ajoutée dans le cache des identifiants. Si
+          l'utilisateur se connecte avec un autre mot de passe, le cache est actualisé.
+          Le cache est ensuite utilisé lorsque l'utilisateur veut se connecter sans
+          être en mesure de joindre l'AD. Le cache est stocké dans le registre, sans
+          limite de temps.</p>
+        <p>Si le domaine AD n'est pas joignable lors de la connexion de l'utilisateur,
+          Windows vérifie si le nom d'utilisateur et le mot de passe saisis correspondent
+          à des identifiants dans le cache local.</p>
+        <p>Le cache est stocké directement dans le registre Windows, au sein de la
+          clé:</p>
+        <p><code>HKEY_LOCAL_MACHINE\Security\Cache</code>
+        </p>
+        <p>Il est impossible même en tant qu'administrateur de voir la clé Cache
+          mais il est simple d'accéder à ces informations en utilisant PsExec qui
+          va permettre d'ouvrir le registre Windows avec les droits Système.</p>
+        <p><code>.\PsExec.exe -s -i -d regedit.exe</code>
+        </p>
+        <p>Windows ne stocke pas un nombre illimité d'identifiants dans son cache.
+          Il se limite aux identifiants de 10 utilisateurs. Ce seuil est déterminé
+          dans une valeur du Registre nommée CachedLogonsCount:</p>
+        <p><code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon</code>
+        </p>
+        <p>Même en modifiant cette valeur, il y a tout de même un maximum de 50 entrées
+          dans le cache.</p>
+        <p>On peut modifier cette valeur avec une GPO:</p>
+        <p>Configuration ordinateur → Stratégie → Paramètres Windows → Paramètres
+          de sécurité → Stratégies locales → Options de sécurité</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

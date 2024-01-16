@@ -1,0 +1,30 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Enlever mdp root</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Enlever mdp root</h1>
+
+      <div class="ck-content">
+        <p>Dans le grub, appuyer sur “e” pour l'éditeur de menu grub</p>
+        <p>Dans la ligne qui commence par linux, ajouter " rw init=/bin/bash " à
+          la fin</p><pre><code class="language-text-plain">rw init=/bin/bash</code></pre>
+        <p>Appuyer sur F10 pour redémarrer la machine et arriver sur un prompt root</p><pre><code class="language-text-plain">mount | grep -w /</code></pre>
+        <p>Vérifier que la ligne possède <strong>rw,realtime</strong>
+        </p>
+        <p>Reset le mot de passe root</p><pre><code class="language-text-plain">passwd</code></pre>
+        <p>Redémarrer le système</p><pre><code class="language-text-plain">exec /sbin/init</code></pre>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

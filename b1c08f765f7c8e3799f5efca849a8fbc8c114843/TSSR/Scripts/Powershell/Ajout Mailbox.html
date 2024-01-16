@@ -1,0 +1,53 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Ajout Mailbox</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Ajout Mailbox</h1>
+
+      <div class="ck-content"><pre><code class="language-application-x-powershell">Add-PSSnapin Microsoft.Exchange.Management.PowerShell.SnapIn;
+Import-Module ActiveDirectory
+# Importer le CSV
+$CSVFile = "C:\Scripts\mock_data_full.csv"
+$CSVData = Import-CSV -Path $CSVFile -Delimiter ";" -Encoding UTF8
+$UtilisateurMotDePasse = Read-Host -Prompt "Mot de Passe "
+$UtilisateurOu = Read-Host -Prompt "OU "
+
+# Pour chaque utilisateur
+Foreach($Utilisateur in $CSVData){
+    # On formate les données
+    $UtilisateurPrenom = $Utilisateur.Prenom
+    $UtilisateurNom = $Utilisateur.Nom
+    $UtilisateurLogin = $UtilisateurNom.ToLower()
+	$UtilisateurIdentite = $UtilisateurNom + " " + $UtilisateurPrenom
+	$UtilisateurMail = $Utilisateur.Mail
+
+		New-Mailbox -UserPrincipalName $UtilisateurMail `
+					-Name "$UtilisateurNom $UtilisateurPrenom" `
+					-DisplayName "$UtilisateurNom $UtilisateurPrenom" `
+					-FirstName $UtilisateurPrenom `
+					-Lastname $UtilisateurNom `
+					-OrganizationalUnit $UtilisateurOu `
+					-Password (ConvertTo-SecureString $UtilisateurMotDePasse -AsPlainText -Force) `
+					-ResetPasswordOnNextLogon $false `
+                    -SamAccountName $UtilisateurLogin `
+
+        Write-Output "Création de l'utilisateur : $UtilisateurLogin ($UtilisateurNom $UtilisateurPrenom)"
+
+}
+Read-Host -Prompt "Press Enter to exit"
+
+
+</code></pre>
+      </div>
+    </div>
+  </body>
+
+</html>
