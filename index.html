@@ -1,11 +1,60 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script
+			  src="https://code.jquery.com/jquery-3.7.1.min.js"
+			  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+			  crossorigin="anonymous"></script>
+<script type="text/javascript">
+	function addBootstrapMenu(){
+		var cssSheet = document.createElement("link");
+		cssSheet.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css";
+		cssSheet.rel = "stylesheet";
+		frames["navigation"].document.head.appendChild(cssSheet);
+	}
+	function addBootstrapContent(){
+		var cssSheet = document.createElement("link");
+		cssSheet.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css";
+		cssSheet.rel = "stylesheet";
+		frames["detail"].document.head.appendChild(cssSheet);
+	}
+	function addStyle(){
+		var cssSheet = document.createElement("link");
+		cssSheet.href = "customStyle.css";
+		cssSheet.rel = "stylesheet";
+		cssSheet.type = "text/css";
+		frames["navigation"].document.head.appendChild(cssSheet);
+	}
+	function addScript(){
+		var newScript = document.createElement("script");
+		newScript.src = "script.js";
+		newScript.crossOrigin = "anonymous";
+		frames["navigation"].document.body.appendChild(newScript);
+	}
+	function addJquery(){
+		var newScript = document.createElement("script");
+		newScript.src = "jquery.js";
+		newScript.crossOrigin = "anonymous";
+		frames["navigation"].document.body.appendChild(newScript);
+	}
+	function editMenu(){
+		addBootstrapMenu();
+		addStyle();
+		addJquery();
+		setTimeout(function() {
+			addScript();
+		}, 1000);
+	}
+	function editContent(){
+		addBootstrapContent();
+	}
+</script>
 </head>
 <frameset cols="25%,75%">
-    <frame name="navigation" src="navigation.html">
-    <frame name="detail" src="TSSR/Proc%C3%A9dures/Linux/Ajouter%20un%20montage%20de%20disque%20a.html">
+    <frame name="navigation" src="navigation.html" onload="editMenu()">
+    <frame name="detail" src="TSSR/Proc%C3%A9dures/Linux/Ajouter%20un%20montage%20de%20disque%20a.html" onload="editContent()">
 </frameset>
 </html>

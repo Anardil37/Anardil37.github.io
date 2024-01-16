@@ -28,7 +28,7 @@
 					"title": "Procédures",
 					"notePosition": 0,
 					"prefix": null,
-					"isExpanded": true,
+					"isExpanded": false,
 					"type": "text",
 					"mime": "text/html",
 					"attributes": [
@@ -54,7 +54,7 @@
 							"title": "Linux",
 							"notePosition": 130,
 							"prefix": null,
-							"isExpanded": true,
+							"isExpanded": false,
 							"type": "text",
 							"mime": "text/html",
 							"attributes": [
@@ -100,7 +100,7 @@
 									"title": "Serveurs",
 									"notePosition": 70,
 									"prefix": null,
-									"isExpanded": true,
+									"isExpanded": false,
 									"type": "text",
 									"mime": "text/html",
 									"attributes": [
@@ -2447,6 +2447,283 @@
 											"attributes": [],
 											"format": "html",
 											"dataFileName": "preseed.cfg.html"
+										}
+									]
+								},
+								{
+									"isClone": false,
+									"noteId": "tKLzeaWogT2z",
+									"notePath": [
+										"JLT8K674XFty",
+										"i3j1jhLbLsmW",
+										"YCzy60wh0hmx",
+										"tKLzeaWogT2z"
+									],
+									"title": "Zabbix",
+									"notePosition": 200,
+									"prefix": null,
+									"isExpanded": false,
+									"type": "text",
+									"mime": "text/html",
+									"attributes": [],
+									"format": "html",
+									"dataFileName": "Zabbix.html",
+									"dirFileName": "Zabbix",
+									"children": [
+										{
+											"isClone": false,
+											"noteId": "3rw3z8vwEMCa",
+											"notePath": [
+												"JLT8K674XFty",
+												"i3j1jhLbLsmW",
+												"YCzy60wh0hmx",
+												"tKLzeaWogT2z",
+												"3rw3z8vwEMCa"
+											],
+											"title": "Template WSUS",
+											"notePosition": 10,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "text",
+											"mime": "text/html",
+											"attributes": [
+												{
+													"type": "relation",
+													"name": "imageLink",
+													"value": "ncjHlKUxe2U5",
+													"isInheritable": false,
+													"position": 1
+												},
+												{
+													"type": "relation",
+													"name": "imageLink",
+													"value": "WJEu6WcYRYrn",
+													"isInheritable": false,
+													"position": 2
+												},
+												{
+													"type": "relation",
+													"name": "imageLink",
+													"value": "joBjvJvxDfe3",
+													"isInheritable": false,
+													"position": 3
+												},
+												{
+													"type": "relation",
+													"name": "imageLink",
+													"value": "f9GW6xhnjDTU",
+													"isInheritable": false,
+													"position": 4
+												},
+												{
+													"type": "relation",
+													"name": "imageLink",
+													"value": "agKGe4jjc3AL",
+													"isInheritable": false,
+													"position": 5
+												},
+												{
+													"type": "relation",
+													"name": "imageLink",
+													"value": "AWkoIqdennuG",
+													"isInheritable": false,
+													"position": 6
+												}
+											],
+											"format": "html",
+											"dataFileName": "Template WSUS.html",
+											"dirFileName": "Template WSUS",
+											"children": [
+												{
+													"isClone": false,
+													"noteId": "ncjHlKUxe2U5",
+													"notePath": [
+														"JLT8K674XFty",
+														"i3j1jhLbLsmW",
+														"YCzy60wh0hmx",
+														"tKLzeaWogT2z",
+														"3rw3z8vwEMCa",
+														"ncjHlKUxe2U5"
+													],
+													"title": "image.png",
+													"notePosition": 10,
+													"prefix": null,
+													"isExpanded": false,
+													"type": "image",
+													"mime": "image/jpg",
+													"attributes": [
+														{
+															"type": "label",
+															"name": "originalFileName",
+															"value": "image.png",
+															"isInheritable": false,
+															"position": 1000
+														}
+													],
+													"dataFileName": "image.png"
+												},
+												{
+													"isClone": false,
+													"noteId": "WJEu6WcYRYrn",
+													"notePath": [
+														"JLT8K674XFty",
+														"i3j1jhLbLsmW",
+														"YCzy60wh0hmx",
+														"tKLzeaWogT2z",
+														"3rw3z8vwEMCa",
+														"WJEu6WcYRYrn"
+													],
+													"title": "image.png",
+													"notePosition": 20,
+													"prefix": null,
+													"isExpanded": false,
+													"type": "image",
+													"mime": "image/jpg",
+													"attributes": [
+														{
+															"type": "label",
+															"name": "originalFileName",
+															"value": "image.png",
+															"isInheritable": false,
+															"position": 1000
+														}
+													],
+													"dataFileName": "1_image.png"
+												},
+												{
+													"isClone": false,
+													"noteId": "R78HZbDHLtX1",
+													"notePath": [
+														"JLT8K674XFty",
+														"i3j1jhLbLsmW",
+														"YCzy60wh0hmx",
+														"tKLzeaWogT2z",
+														"3rw3z8vwEMCa",
+														"R78HZbDHLtX1"
+													],
+													"title": "Windows-WSUS.xml",
+													"notePosition": 30,
+													"prefix": null,
+													"isExpanded": false,
+													"type": "text",
+													"mime": "text/html",
+													"attributes": [],
+													"format": "html",
+													"dataFileName": "Windows-WSUS.xml.html"
+												},
+												{
+													"isClone": false,
+													"noteId": "joBjvJvxDfe3",
+													"notePath": [
+														"JLT8K674XFty",
+														"i3j1jhLbLsmW",
+														"YCzy60wh0hmx",
+														"tKLzeaWogT2z",
+														"3rw3z8vwEMCa",
+														"joBjvJvxDfe3"
+													],
+													"title": "image.png",
+													"notePosition": 40,
+													"prefix": null,
+													"isExpanded": false,
+													"type": "image",
+													"mime": "image/jpg",
+													"attributes": [
+														{
+															"type": "label",
+															"name": "originalFileName",
+															"value": "image.png",
+															"isInheritable": false,
+															"position": 1000
+														}
+													],
+													"dataFileName": "2_image.png"
+												},
+												{
+													"isClone": false,
+													"noteId": "f9GW6xhnjDTU",
+													"notePath": [
+														"JLT8K674XFty",
+														"i3j1jhLbLsmW",
+														"YCzy60wh0hmx",
+														"tKLzeaWogT2z",
+														"3rw3z8vwEMCa",
+														"f9GW6xhnjDTU"
+													],
+													"title": "image.png",
+													"notePosition": 50,
+													"prefix": null,
+													"isExpanded": false,
+													"type": "image",
+													"mime": "image/jpg",
+													"attributes": [
+														{
+															"type": "label",
+															"name": "originalFileName",
+															"value": "image.png",
+															"isInheritable": false,
+															"position": 1000
+														}
+													],
+													"dataFileName": "3_image.png"
+												},
+												{
+													"isClone": false,
+													"noteId": "agKGe4jjc3AL",
+													"notePath": [
+														"JLT8K674XFty",
+														"i3j1jhLbLsmW",
+														"YCzy60wh0hmx",
+														"tKLzeaWogT2z",
+														"3rw3z8vwEMCa",
+														"agKGe4jjc3AL"
+													],
+													"title": "image.png",
+													"notePosition": 60,
+													"prefix": null,
+													"isExpanded": false,
+													"type": "image",
+													"mime": "image/png",
+													"attributes": [
+														{
+															"type": "label",
+															"name": "originalFileName",
+															"value": "image.png",
+															"isInheritable": false,
+															"position": 1000
+														}
+													],
+													"dataFileName": "4_image.png"
+												},
+												{
+													"isClone": false,
+													"noteId": "AWkoIqdennuG",
+													"notePath": [
+														"JLT8K674XFty",
+														"i3j1jhLbLsmW",
+														"YCzy60wh0hmx",
+														"tKLzeaWogT2z",
+														"3rw3z8vwEMCa",
+														"AWkoIqdennuG"
+													],
+													"title": "image.png",
+													"notePosition": 70,
+													"prefix": null,
+													"isExpanded": false,
+													"type": "image",
+													"mime": "image/png",
+													"attributes": [
+														{
+															"type": "label",
+															"name": "originalFileName",
+															"value": "image.png",
+															"isInheritable": false,
+															"position": 1000
+														}
+													],
+													"dataFileName": "5_image.png"
+												}
+											]
 										}
 									]
 								}
@@ -13004,6 +13281,24 @@
 									"dataFileName": "1_image.png"
 								}
 							]
+						},
+						{
+							"isClone": false,
+							"noteId": "JDuFcCG4NYhP",
+							"notePath": [
+								"JLT8K674XFty",
+								"10EELAYA859N",
+								"JDuFcCG4NYhP"
+							],
+							"title": "Monitoring",
+							"notePosition": 180,
+							"prefix": null,
+							"isExpanded": false,
+							"type": "text",
+							"mime": "text/html",
+							"attributes": [],
+							"format": "html",
+							"dataFileName": "Monitoring.html"
 						}
 					]
 				},
@@ -13281,281 +13576,6 @@
 						},
 						{
 							"isClone": false,
-							"noteId": "QYCgI3F1RGR5",
-							"notePath": [
-								"JLT8K674XFty",
-								"WxX4CbLb7v1M",
-								"QYCgI3F1RGR5"
-							],
-							"title": "Stage",
-							"notePosition": 90,
-							"prefix": null,
-							"isExpanded": false,
-							"type": "text",
-							"mime": "text/html",
-							"attributes": [
-								{
-									"type": "label",
-									"name": "iconClass",
-									"value": "bx bx-buildings",
-									"isInheritable": false,
-									"position": 1
-								}
-							],
-							"format": "html",
-							"dirFileName": "Stage",
-							"children": [
-								{
-									"isClone": false,
-									"noteId": "6URlDJyWXSn4",
-									"notePath": [
-										"JLT8K674XFty",
-										"WxX4CbLb7v1M",
-										"QYCgI3F1RGR5",
-										"6URlDJyWXSn4"
-									],
-									"title": "Astiweb",
-									"notePosition": 10,
-									"prefix": null,
-									"isExpanded": false,
-									"type": "text",
-									"mime": "text/html",
-									"attributes": [],
-									"format": "html",
-									"dataFileName": "Astiweb.html"
-								},
-								{
-									"isClone": false,
-									"noteId": "Bo4a3ognXEp5",
-									"notePath": [
-										"JLT8K674XFty",
-										"WxX4CbLb7v1M",
-										"QYCgI3F1RGR5",
-										"Bo4a3ognXEp5"
-									],
-									"title": "Metsys",
-									"notePosition": 20,
-									"prefix": null,
-									"isExpanded": false,
-									"type": "text",
-									"mime": "text/html",
-									"attributes": [],
-									"format": "html",
-									"dataFileName": "Metsys.html"
-								},
-								{
-									"isClone": false,
-									"noteId": "SPVyHEmZvhGQ",
-									"notePath": [
-										"JLT8K674XFty",
-										"WxX4CbLb7v1M",
-										"QYCgI3F1RGR5",
-										"SPVyHEmZvhGQ"
-									],
-									"title": "skf",
-									"notePosition": 40,
-									"prefix": null,
-									"isExpanded": false,
-									"type": "text",
-									"mime": "text/html",
-									"attributes": [],
-									"format": "html",
-									"dataFileName": "skf.html"
-								},
-								{
-									"isClone": false,
-									"noteId": "GYtzLNbUw5bz",
-									"notePath": [
-										"JLT8K674XFty",
-										"WxX4CbLb7v1M",
-										"QYCgI3F1RGR5",
-										"GYtzLNbUw5bz"
-									],
-									"title": "Open",
-									"notePosition": 50,
-									"prefix": null,
-									"isExpanded": false,
-									"type": "text",
-									"mime": "text/html",
-									"attributes": [],
-									"format": "html",
-									"dataFileName": "Open.html"
-								},
-								{
-									"isClone": false,
-									"noteId": "XUq5ctNdjygE",
-									"notePath": [
-										"JLT8K674XFty",
-										"WxX4CbLb7v1M",
-										"QYCgI3F1RGR5",
-										"XUq5ctNdjygE"
-									],
-									"title": "ctl",
-									"notePosition": 60,
-									"prefix": null,
-									"isExpanded": false,
-									"type": "text",
-									"mime": "text/html",
-									"attributes": [],
-									"format": "html",
-									"dataFileName": "ctl.html"
-								},
-								{
-									"isClone": false,
-									"noteId": "Rpx4Ly7Rniyr",
-									"notePath": [
-										"JLT8K674XFty",
-										"WxX4CbLb7v1M",
-										"QYCgI3F1RGR5",
-										"Rpx4Ly7Rniyr"
-									],
-									"title": "Harmonie Mutuelle",
-									"notePosition": 90,
-									"prefix": null,
-									"isExpanded": false,
-									"type": "text",
-									"mime": "text/html",
-									"attributes": [],
-									"format": "html",
-									"dataFileName": "Harmonie Mutuelle.html"
-								},
-								{
-									"isClone": false,
-									"noteId": "ZWsdtsB38PUt",
-									"notePath": [
-										"JLT8K674XFty",
-										"WxX4CbLb7v1M",
-										"QYCgI3F1RGR5",
-										"ZWsdtsB38PUt"
-									],
-									"title": "Techni Co Phone",
-									"notePosition": 100,
-									"prefix": null,
-									"isExpanded": false,
-									"type": "text",
-									"mime": "text/html",
-									"attributes": [],
-									"format": "html",
-									"dataFileName": "Techni Co Phone.html"
-								},
-								{
-									"isClone": false,
-									"noteId": "4slTJh36nwJm",
-									"notePath": [
-										"JLT8K674XFty",
-										"WxX4CbLb7v1M",
-										"QYCgI3F1RGR5",
-										"4slTJh36nwJm"
-									],
-									"title": "Dstny",
-									"notePosition": 130,
-									"prefix": null,
-									"isExpanded": false,
-									"type": "text",
-									"mime": "text/html",
-									"attributes": [],
-									"format": "html",
-									"dataFileName": "Dstny.html"
-								},
-								{
-									"isClone": false,
-									"noteId": "v3lHgMMUn9wj",
-									"notePath": [
-										"JLT8K674XFty",
-										"WxX4CbLb7v1M",
-										"QYCgI3F1RGR5",
-										"v3lHgMMUn9wj"
-									],
-									"title": "Go Systèmes",
-									"notePosition": 140,
-									"prefix": null,
-									"isExpanded": false,
-									"type": "text",
-									"mime": "text/html",
-									"attributes": [],
-									"format": "html",
-									"dataFileName": "Go Systèmes.html"
-								},
-								{
-									"isClone": false,
-									"noteId": "4gGnJkzqnA20",
-									"notePath": [
-										"JLT8K674XFty",
-										"WxX4CbLb7v1M",
-										"QYCgI3F1RGR5",
-										"4gGnJkzqnA20"
-									],
-									"title": "Castle IT",
-									"notePosition": 150,
-									"prefix": null,
-									"isExpanded": false,
-									"type": "text",
-									"mime": "text/html",
-									"attributes": [],
-									"format": "html",
-									"dataFileName": "Castle IT.html"
-								},
-								{
-									"isClone": false,
-									"noteId": "9ck5Du4EcQIA",
-									"notePath": [
-										"JLT8K674XFty",
-										"WxX4CbLb7v1M",
-										"QYCgI3F1RGR5",
-										"9ck5Du4EcQIA"
-									],
-									"title": "Eskape",
-									"notePosition": 160,
-									"prefix": null,
-									"isExpanded": false,
-									"type": "text",
-									"mime": "text/html",
-									"attributes": [],
-									"format": "html",
-									"dataFileName": "Eskape.html"
-								},
-								{
-									"isClone": false,
-									"noteId": "3EWo4NZnf8aT",
-									"notePath": [
-										"JLT8K674XFty",
-										"WxX4CbLb7v1M",
-										"QYCgI3F1RGR5",
-										"3EWo4NZnf8aT"
-									],
-									"title": "Tekin",
-									"notePosition": 170,
-									"prefix": null,
-									"isExpanded": false,
-									"type": "text",
-									"mime": "text/html",
-									"attributes": [],
-									"format": "html",
-									"dataFileName": "Tekin.html"
-								},
-								{
-									"isClone": false,
-									"noteId": "zl93io4KiUOw",
-									"notePath": [
-										"JLT8K674XFty",
-										"WxX4CbLb7v1M",
-										"QYCgI3F1RGR5",
-										"zl93io4KiUOw"
-									],
-									"title": "Cloud Temple",
-									"notePosition": 180,
-									"prefix": null,
-									"isExpanded": false,
-									"type": "text",
-									"mime": "text/html",
-									"attributes": [],
-									"format": "html",
-									"dataFileName": "Cloud Temple.html"
-								}
-							]
-						},
-						{
-							"isClone": false,
 							"noteId": "RDGhdjxByZrp",
 							"notePath": [
 								"JLT8K674XFty",
@@ -13820,6 +13840,24 @@
 							"attributes": [],
 							"format": "html",
 							"dataFileName": "Wsus.html"
+						},
+						{
+							"isClone": false,
+							"noteId": "rQOIvEK4NJCv",
+							"notePath": [
+								"JLT8K674XFty",
+								"WxX4CbLb7v1M",
+								"rQOIvEK4NJCv"
+							],
+							"title": "over the wire",
+							"notePosition": 140,
+							"prefix": null,
+							"isExpanded": false,
+							"type": "text",
+							"mime": "text/html",
+							"attributes": [],
+							"format": "html",
+							"dataFileName": "over the wire.html"
 						}
 					]
 				},
