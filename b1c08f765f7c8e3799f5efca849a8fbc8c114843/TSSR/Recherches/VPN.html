@@ -1,0 +1,111 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>VPN</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>VPN</h1>
+
+      <div class="ck-content">
+        <h3>Qu'est-ce qu'un VPN ?</h3>
+        <p>VPN → Virtual Private Network</p>
+        <p>Décrit la possibilité d'établir une connexion réseau protégée lors de
+          l'utilisation de réseaux publics.</p>
+        <figure class="image image_resized"
+        style="width:50%;">
+          <img src="VPN/image.png">
+        </figure>
+        <p>&nbsp;</p>
+        <h3>A quoi ça sert ?</h3>
+        <p>Les VPN chiffrent votre trafic internet et camouflent votre identité en
+          ligne.</p>
+        <p>Il est ainsi plus difficile pour des tiers de suivre votre activité en
+          ligne et de voler des données. Le chiffrement est effectué en temps réel.</p>
+        <p>Le Virtual Private Network va chiffrer vos données et sécuriser vos informations,
+          mais également vous donner une nouvelle adresse IP.</p>
+        <p>Protéger ses données sur Internet, Naviguer de manière anonyme, Changer
+          son IP, Télécharger en toute sécurité, Se protéger face aux DDoS.</p>
+        <p>&nbsp;</p>
+        <h3>Comment travaille t-il ?</h3>
+        <p>La connexion VPN chiffre le trafic de données, c'est donc plus difficile
+          pour les pirates ou les autorités d’intercepter et d’accéder aux données
+          personnelles.&nbsp;</p>
+        <p>La connexion sécurisée renforce &nbsp;l’anonymat de l’utilisateur, car
+          le trafic internet est redirigé vers un serveur VPN externe. En allant
+          sur internet en utilisant l’adresse IP du serveur VPN, l'adresse IP restera
+          masquée.</p>
+        <p>La localisation et l'identité pourraient être révélées par l'adresse IP
+          qui est propre à votre connexion Internet. Cependant, en utilisant l'adresse
+          fournit par le VPN, aucune des activités en ligne ne peut être tracée.</p>
+        <p>&nbsp;</p>
+        <h3>Les 2 types de VPN ?</h3>
+        <p>VPN site à site</p>
+        <p>Un réseau privé destiné à camoufler les intranets privés et permettre
+          aux utilisateurs de ces réseaux sécurisés d'accéder aux ressources de chacun.</p>
+        <p>Utile si plusieurs sites dans une entreprise ayant chacun son propre réseau.</p>
+        <p>Principalement utilisé dans les grandes entreprise mais mise en place
+          complexe et moins souple que le VPN SSL. Cependant, reste le moyen le plus
+          sécurisé pour les communications entre de grands services.</p>
+        <p>&nbsp;</p>
+        <p>VPN de client à site</p>
+        <p>Permet aux utilisateurs de se connecter au réseau de l'entreprise depuis
+          chez eux, comme s'ils étaient au bureau.</p>
+        <p>L'utilisateur n'est donc pas connecté via son propre FAI mais par l'intermédiaire
+          de son fournisseur VPN.</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <h3>Types de protocoles de chiffrement ?</h3>
+        <p>SSL/TLS : déjà utilisé pour les connexions HTTPS, permet également l'utilisation
+          du navigateur comme client VPN. Utilisé par OpenVPN.</p>
+        <p>PPTP : Point to Point Tunnelling Protocol</p>
+        <p>A éviter à tout prix.</p>
+        <p>Vieux et a des problèmes de sécurité pour être utilisé.&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>L2TP : Layer 2 Tunnel Protocol</p>
+        <p>Protocole VPN qui n'offre aucun chiffrement.</p>
+        <p>Il est intégré dans la plupart des systèmes d'exploitation PC et mobiles.
+          Il est facile à configurer.</p>
+        <p>Malheureusement, solution plus lente que OpenVPN, et utilise uniquement
+          le port 500.</p>
+        <p>&nbsp;</p>
+        <p>SSTP : Secure Socket Tunneling Protocol</p>
+        <p>Introduit dans Windows Vista</p>
+        <p>Protocole propriétaire de Windows, donc plus stable sur celui-ci. Directement
+          intégré à l'OS.</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <h3>Types de tunnels ?</h3>
+        <p>Split Tunneling</p>
+        <p>Tout le trafic réseau ne passe pas par le VPN. Certains flux seront redirigés
+          vers le tunnel VPN, tandis que les autres vont utiliser la connexion locale
+          de la machine.</p>
+        <p>&nbsp;</p>
+        <p>Full Tunneling</p>
+        <p>Tout le trafic réseau passe par le tunnel VPN. Si le client veut aller
+          sur internet, il passera par le tunnel VPN.</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <h3>OpenVPN ?</h3>
+        <p>OpenVPN est un logiciel libre permettant de créer un réseau privé virtuel.</p>
+        <p>Son développement a commencé le 31 mai 2001 grâce à James Yonan.</p>
+        <p>Il permet à des pairs de s'authentifier entre eux grâce à une clé privée
+          partagée à l'avance, de certificats électroniques ou de couples de noms
+          d'utilisateur/mot de passe. Il utilise la bibliothèque OpenSSL ainsi que
+          le protocole SSL v3/TLS v1.</p>
+        <p>Il est disponible dans une multitude d'environnements tels que Solaris,
+          OpenBSD, FreeBSD, NetBSD, Linux, Mac OS, Windows.</p>
+        <p>OpenVPN n'est pas compatible avec IPSec ou d'autres VPN. Il contient un
+          exécutable pour les connexions du client et du serveur, un fichier de configuration
+          et une ou plusieurs clés d'authentification.</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

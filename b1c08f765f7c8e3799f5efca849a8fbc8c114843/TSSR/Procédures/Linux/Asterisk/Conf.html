@@ -1,0 +1,174 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Conf</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Conf</h1>
+
+      <div class="ck-content">
+        <h4>Ajouter un utilisateur</h4>
+        <p><strong>/etc/sip.conf</strong>
+        </p>
+        <p>[100]
+          <br>secret=1234
+          <br>callerid= 'Tom' &lt;100&gt;
+          <br>mailbox=100@default
+          <br>type=friend
+          <br>host=dynamic
+          <br>nat=no
+          <br>context=compta</p>
+        <p>&nbsp;</p>
+        <p><strong>/etc/extensions.conf</strong>
+        </p>
+        <p>[default]</p>
+        <p>[compta]</p>
+        <p>exten =&gt; _1XX, 1, Answer()
+          <br>exten =&gt; _1XX, n, Playback(hello-world)
+          <br>exten =&gt; _1XX, n, Dial(SIP/${EXTEN},10)
+          <br>exten =&gt; _1XX, n, VoiceMail(${EXTEN})
+          <br>exten =&gt; _1XX, n, Hangup()</p>
+        <p>&nbsp;</p>
+        <h4>Ajouter une boîte vocale</h4>
+        <p><strong>/etc/voicemail.conf</strong>
+        </p>
+        <p>[default]
+          <br>100 = 123, Tom, tom@default</p>
+        <p>&nbsp;</p>
+        <h4>Appel de groupe</h4>
+        <p>&nbsp;</p>
+        <h5>A la suite</h5>
+        <p><strong>/etc/extensions.conf</strong>
+        </p>
+        <p>exten =&gt; 222, 1, Dial(SIP/100,15)
+          <br>exten =&gt; 222, 2, Dial(SIP/101,15)
+          <br>exten =&gt; 222, 3, Hangup()</p>
+        <p>&nbsp;</p>
+        <h5>En même temps</h5>
+        <p><strong>/etc/extensions.conf</strong>
+        </p>
+        <p>exten =&gt; 223, 1, Dial(SIP/100&amp;SIP/101,30)
+          <br>exten =&gt; 223, n, Hangup()</p>
+        <p>&nbsp;</p>
+        <h4>Créer des contextes</h4>
+        <p><strong>/etc/sip.conf</strong>
+        </p>
+        <p>[100]
+          <br>secret=1234
+          <br>callerid= 'Tom' &lt;100&gt;
+          <br>mailbox=100@default
+          <br>type=friend
+          <br>host=dynamic
+          <br>nat=no
+          <br>context=compta</p>
+        <p>&nbsp;</p>
+        <p><strong>/etc/extensions.conf</strong>
+        </p>
+        <p>[compta]</p>
+        <p>exten =&gt; _1XX, 1, Answer()
+          <br>exten =&gt; _1XX, n, Playback(hello-world)
+          <br>exten =&gt; _1XX, n, Dial(SIP/${EXTEN},10)
+          <br>exten =&gt; _1XX, n, VoiceMail(${EXTEN})
+          <br>exten =&gt; _1XX, n, Hangup()</p>
+        <p>&nbsp;</p>
+        <h4>Appel conférence</h4>
+        <p><strong>/etc/extensions.conf</strong>
+        </p>
+        <p>exten =&gt; 333, 1, Answer()
+          <br>exten =&gt; 333, n, ConfBridge(4444,testbridge,testuser,testmenu)</p>
+        <p>&nbsp;</p>
+        <p><strong>/etc/confbridge.conf</strong>
+        </p>
+        <p>[general]
+          <br>
+          <br>[testbridge]
+          <br>type=bridge
+          <br>max_members=20
+          <br>mixing_interval=10
+          <br>internal_sample_rate=auto
+          <br>record_conference=no
+          <br>video_mode=follow_talker
+          <br>
+          <br>[testuser]</p>
+        <p>type=user
+          <br>music_on_hold_when_empty=yes
+          <br>music_on_hold_class=default
+          <br>announce_user_count_all=yes
+          <br>announce_join_leave=yes
+          <br>dsp_drop_silence=yes
+          <br>denoise=yes
+          <br>
+          <br>[testmenu]
+          <br>
+          <br>type=menu
+          <br>*=playback_and_continue(conf-usermenu)
+          <br>*1=toggle_mute
+          <br>1=toggle_mute
+          <br>*4=decrease_listening_volume
+          <br>4=decrease_listening_volume
+          <br>*6=increase_listening_volume
+          <br>6=increase_listening_volume
+          <br>*7=decrease_talking_volume
+          <br>7=decrease_talking_volume
+          <br>*8=leave_conference
+          <br>8=leave_conference
+          <br>&nbsp;</p>
+        <h4>IVR</h4>
+        <p><strong>/etc/extensions.conf</strong>
+        </p>
+        <p>[IVR]</p>
+        <p>exten =&gt; 11, 1, Log(NOTICE, Debut IVR)
+          <br>exten =&gt; 11, 2, Answer()
+          <br>exten =&gt; 11, 3, Set(TIMEOUT(response)=10)
+          <br>exten =&gt; 11, 4, agi(googletts.agi, "Bienvenue dans notre entreprise",
+          fr, any)
+          <br>exten =&gt; 11, 5, agi(googletts.agi, "Qui souhaitez vous joindre ?",
+          fr, any)
+          <br>exten =&gt; 11, 6, agi(googletts.agi, "Pour le 100, tappez 1", fr, any)
+          <br>exten =&gt; 11, 7, agi(googletts.agi, "Pour le 101, tappez 2", fr, any)
+          <br>exten =&gt; 11, 8, agi(googletts.agi, "Appuyez sur dièse si vous souhaitez
+          réécouter ce message", fr, any)
+          <br>exten =&gt; 1, 9, WaitExten()</p>
+        <p>exten =&gt; 1, 1, Goto(local,100,1)
+          <br>exten =&gt; 2, 1, Goto(local,101,1)
+          <br>exten =&gt; _[3-9#], 1, Goto(IVR,11,4)
+          <br>exten =&gt; t, 1, Goto(local,100,3)
+          <br>&nbsp;</p>
+        <h4>Fichiers sons</h4>
+        <p><strong>/var/lib/asterisk/sounds</strong>
+        </p>
+        <p>&nbsp;</p>
+        <h4>Captures d'écran</h4>
+        <p>&nbsp;</p>
+        <h5>/etc/extensions.conf</h5>
+        <p>
+          <img src="Conf/3_image.png">
+        </p>
+        <p>&nbsp;</p>
+        <h5>/etc/sip.conf</h5>
+        <p>
+          <img src="Conf/1_image.png">
+        </p>
+        <p>&nbsp;</p>
+        <h5>/etc/voicemail.conf</h5>
+        <p>
+          <img src="Conf/2_image.png">
+        </p>
+        <p>&nbsp;</p>
+        <h5>/etc/confbridge.conf</h5>
+        <p>
+          <img src="Conf/image.png">
+        </p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

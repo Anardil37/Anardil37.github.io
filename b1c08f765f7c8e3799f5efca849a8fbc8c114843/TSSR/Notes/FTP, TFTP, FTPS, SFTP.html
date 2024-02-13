@@ -1,0 +1,64 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>FTP, TFTP, FTPS, SFTP</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>FTP, TFTP, FTPS, SFTP</h1>
+
+      <div class="ck-content">
+        <h5><strong>FTP (File Transfer Protocol) :</strong></h5>
+        <ul>
+          <li><strong>Signification</strong> : FTP est un protocole de transfert de fichiers
+            qui permet d'envoyer et de recevoir des fichiers entre un client et un
+            serveur.</li>
+          <li>&nbsp;<strong>Mode de fonctionnement</strong> : Il fonctionne en mode client/serveur,
+            avec un canal de contrôle pour l'authentification et les commandes FTP,
+            et un canal de données pour le transfert des fichiers.</li>
+          <li><strong>Inconvénient</strong> : Le principal inconvénient est qu'il n'est
+            pas sécurisé. Les informations telles que les identifiants et les commandes
+            transitent en clair sur le réseau.</li>
+        </ul>
+        <p>&nbsp;</p>
+        <h5><strong>FTPS (FTP sécurisé) :</strong></h5>
+        <ul>
+          <li><strong>Signification</strong> : FTPS est une version sécurisée de FTP.</li>
+          <li><strong>Sécurité</strong> : Il utilise le protocole SSL/TLS pour chiffrer
+            les données et sécuriser les échanges.</li>
+          <li><strong>Ports</strong> : Il utilise plusieurs ports (21 pour le contrôle
+            et un port défini pour les données).</li>
+        </ul>
+        <p>&nbsp;</p>
+        <h5><strong>SFTP (SSH File Transfer Protocol) :</strong></h5>
+        <ul>
+          <li><strong>Signification</strong> : SFTP est un protocole basé sur SSH qui
+            permet le transfert sécurisé de fichiers.</li>
+          <li><strong>Sécurité</strong> : Il offre un niveau élevé de sécurité grâce
+            au chiffrement et à l'authentification basée sur clés.</li>
+          <li><strong>Port</strong> : Il utilise un seul port (généralement 22) pour
+            toutes les communications.</li>
+        </ul>
+        <p>&nbsp;</p>
+        <h5><strong>TFTP (Trivial File Transfer Protocol) :</strong></h5>
+        <ul>
+          <li><strong>Signification</strong> : TFTP est un protocole simple de transfert
+            de fichiers, mais il ne permet pas de lister, supprimer, renommer ou modifier
+            les répertoires.</li>
+          <li><strong>Gestion</strong> : Contrairement à FTP, il ne possède pas de fonctionnalités
+            de gestion et d'édition de fichiers.</li>
+        </ul>
+        <p>&nbsp;</p>
+        <p>En résumé, FTP est le plus ancien et le moins sécurisé, FTPS ajoute une
+          couche de sécurité avec SSL/TLS, SFTP est basé sur SSH et très sécurisé,
+          tandis que TFTP est simple mais limité en fonctionnalité.</p>
+      </div>
+    </div>
+  </body>
+
+</html>

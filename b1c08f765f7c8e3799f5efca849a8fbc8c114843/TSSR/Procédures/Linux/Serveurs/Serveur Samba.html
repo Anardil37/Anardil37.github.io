@@ -18,6 +18,7 @@
 
 workgroup = WORKGROUP</code></pre>
         <p>Créer les répertoires à partager avec samba</p><pre><code class="language-text-plain">mkdir /public
+
 mkdir /private</code></pre><pre><code class="language-text-plain">vim /etc/samba/smb.conf
 
 [public]
@@ -97,7 +98,8 @@ touch /private/demo1.txt /public/demo2.txt</code></pre>
         <p>Activer SMBv2</p><pre><code class="language-text-plain">vim /etc/samba/smb.conf
 
 [global]
-min protocol = SMB2</code></pre>
+min protocol = SMB2
+client min protocol = SMB2</code></pre>
         <p>Redémarrer le service</p><pre><code class="language-text-plain">systemctl restart smbd.service</code></pre>
         <p>&nbsp;</p>
         <p>&nbsp;</p>

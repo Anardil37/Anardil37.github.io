@@ -1,0 +1,67 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Création certificats pour OpenVPN</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Création certificats pour OpenVPN</h1>
+
+      <div class="ck-content">
+        <p>Source : <a href="https://neptunet.fr/openvpn-pfsense/">https://neptunet.fr/openvpn-pfsense/</a>
+        </p>
+        <p>&nbsp;</p>
+        <p>Dans l'interface web, aller ans VPN, puis OpenVPN</p>
+        <p>
+          <img src="Cr%C3%A9ation%20certificats%20pour%20OpenVPN/openvpn_pfsense5.png">
+        </p>
+        <p>Cliquer sur Wizards</p>
+        <p>
+          <img src="Cr%C3%A9ation%20certificats%20pour%20OpenVPN/openvpn_pfsense6.png">
+        </p>
+        <p>Dans type de serveur, choisir Local User Access</p>
+        <p>
+          <img src="Cr%C3%A9ation%20certificats%20pour%20OpenVPN/openvpn_pfsense7-768x274.png">
+        </p>
+        <p>On entre les informations nécessaires, puis on clique sur Add new CA</p>
+        <p>
+          <img src="Cr%C3%A9ation%20certificats%20pour%20OpenVPN/openvpn_pfsense8-768x544.png">
+        </p>
+        <p>Maintenant, on créer un certificat pour le serveur VPN. Il faut laisser
+          les champs préremplis selon les informations précédentes</p>
+        <p>Ajouter juste une description puis cliquer sur Create new Certificate.</p>
+        <p>
+          <img src="Cr%C3%A9ation%20certificats%20pour%20OpenVPN/openvpn_pfsense9-768x478.png">
+        </p>
+        <p>Il faut vérifier que l'interface sélectionnée soit l'interface WAN.</p>
+        <p>
+          <img src="Cr%C3%A9ation%20certificats%20pour%20OpenVPN/openvpn_pfsense10-768x377.png">
+        </p>
+        <p>Sur la même page, on sélectionne l'algorithme de chiffrement, ainsi que
+          l'algorithme de hachage que l'on souhaite.</p>
+        <p>
+          <img src="Cr%C3%A9ation%20certificats%20pour%20OpenVPN/openvpn_pfsense13-768x493.png">
+        </p>
+        <p>Toujours sur la même page, on Ajoute une adresse de réseau que l'on souhaite
+          utiliser pour le tunnel, puis on ajoute l'adresse de notre réseau en host
+          only.</p>
+        <p>
+          <img src="Cr%C3%A9ation%20certificats%20pour%20OpenVPN/openvpn_pfsense14-768x463.png">
+        </p>
+        <p>Continuer, puis arrivé à l'étape 10, cocher les deux cases tout en bas
+          pour créer automatiquement les règles dans le pare-feu.</p>
+        <p>
+          <img src="Cr%C3%A9ation%20certificats%20pour%20OpenVPN/openvpn_pfsense16-768x370.png">
+        </p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

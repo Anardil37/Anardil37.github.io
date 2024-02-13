@@ -1,0 +1,39 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Zabbix Agent sur debian</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Zabbix Agent sur debian</h1>
+
+      <div class="ck-content">
+        <h3>Installation</h3>
+        <p>&nbsp;</p>
+        <p>Ajouter le repository.</p><pre><code class="language-text-plain">wget https://repo.zabbix.com/zabbix/5.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_5.0-1%2Bfocal_all.deb</code></pre>
+        <p>&nbsp;</p>
+        <p>Faire un apt update puis installer l'agent.</p><pre><code class="language-text-plain">apt update
+apt install -y zabbix-agent</code></pre>
+        <p>&nbsp;</p>
+        <h3>Configuration</h3>
+        <p>&nbsp;</p>
+        <p>On modifie le fichier de configuration pour indiquer l'ip du serveur zabbix.</p><pre><code class="language-text-plain">nano /etc/zabbix/zabbix_agentd.conf
+
+
+Server=192.168.240.250
+Hostname=debian</code></pre>
+        <p>&nbsp;</p>
+        <p>On redémarre le service, puis on vérifie qu'il est en fonctionnement.</p><pre><code class="language-text-plain">systemctl restart zabbix-agent
+systemctl status zabbix-agent</code></pre>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

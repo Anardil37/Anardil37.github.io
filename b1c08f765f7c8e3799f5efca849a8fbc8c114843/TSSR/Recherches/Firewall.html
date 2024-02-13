@@ -1,0 +1,125 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Firewall</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Firewall</h1>
+
+      <div class="ck-content">
+        <h3><strong>Qu'est ce que le firewall ?</strong></h3>
+        <h3><strong>Distributeurs principaux</strong></h3>
+        <p>&nbsp;</p>
+        <h3><strong>Qu'est-ce qu'une règle ?</strong></h3>
+        <p>Dans de nombreux cas, une des premières étapes pour un administrateur
+          consiste à personnaliser les profils du firewall en établissant des règles,
+          afin qu'il puisse fonctionner avec des applications ou d'autres types de
+          logiciels. Une règle peut être ajoutée pour autoriser un logiciel, ouvrir
+          un port ou un protocole, ou autoriser un type de trafic prédéfini.</p>
+        <h4><strong>Règles de trafic entrant</strong></h4>
+        <p>Dans beaucoup de cas, pour que des applications fonctionnent dans le réseau,
+          il est nécessaire d'autoriser des types spécifiques de trafic entrant.</p>
+        <ul>
+          <li>Les règles d'autorisation définies explicitement sont prioritaires sur
+            le paramètre par défaut</li>
+          <li>Elles sont prioritaires sur les règles d'autorisation en conflit</li>
+          <li>Plus une règle est spécifique, précise, plus elle est prioritaire</li>
+        </ul>
+        <h4><strong>Règles d'application</strong></h4>
+        <p>Une fois installés, les applications et services réseau émettent un appel
+          d'écoute, spécifiant les ports et protocoles nécessaires pour son fonctionnement.
+          Etant donné qu'il existe une action de blocage par défaut, il faut créer
+          une règle d'exception de trafic entrant, pour autoriser le trafic. L'application
+          peut parfois ajouter cette règle de par elle-même, sinon, l'administrateur
+          doit lui-même créer cette règle.</p>
+        <p>Si aucune règle d'autorisation définie par l'administrateur, ou d'application
+          active, n'existe, une boîte de dialogue invitera l'utilisateur à accepter
+          ou bloquer les paquets d'une application.</p>
+        <h4><strong>Règles d'application et de fusion des stratégies locales</strong></h4>
+        <p>Elles contrôlent la façon dont les différentes sources de stratégie peuvent
+          être combinées. Les administrateurs peuvent configurer différents comportements
+          de fusion pour les profils Domaine, Privé et Public.&nbsp;</p>
+        <p>Les paramètres de stratégie de fusion de règles autorisent ou empêchent
+          les administrateurs locaux de créer leurs propres règles en plus de celles
+          obtenues à partir du fournisseur de solutions Cloud, ou de l'objet de stratégie
+          de groupe.</p>
+        <h4><strong>Recommandations relatives aux règles de pare-feu</strong></h4>
+        <ul>
+          <li>Conserver le plus possible les paramètres par défaut. Ces paramètres sont
+            conçus pour sécuriser les appareils pour une utilisation dans la plupart
+            des scénarios réseau. Par exemple, le comportement de blocage par défaut
+            des connexions entrantes.</li>
+          <li>Créer les règles dans les trois scénarios, mais utiliser uniquement celui
+            qui convient aux scénarios. Par exemple, pour une application de partage
+            utilisée uniquement sur le réseau privé, on crée une règle pour les trois
+            profils, mais on active que celle sur le profil privé.</li>
+          <li>Etre le plus spécifique possible lors de la création de règles. Cependant,
+            lorsque de nouvelle règles sont établies et utilisent des adresses IP ou
+            des ports, utiliser des plages d'adresses ou des sous-réseaux consécutifs
+            le plus possible. Cela évite la création de plusieurs filtres et réduit
+            la complexité et donc évite la dégradation des performances.</li>
+          <li>Déployer des exceptions uniquement pour les applications et services déterminés
+            à des fins légitimes.</li>
+        </ul>
+        <p>&nbsp;</p>
+        <h4><strong>Considérations relatives aux règles de trafic sortant</strong></h4>
+        <ul>
+          <li>La modification des règles de trafic sortant en bloqué peut être envisagée
+            pour certains environnements hautement sécurisés, toutefois la configuration
+            de règles de trafic entrant ne doit jamais être modifiée de façon à autoriser
+            tout le trafic.</li>
+          <li>Il est recommandé d'autoriser le trafic sortant par défaut pour la plupart
+            des déploiements afin de simplifier les déploiements d'applications, sauf
+            si l'organisation préfère un contrôle plus strict.</li>
+          <li>Dans les environnements très sécurisées, il y a un inventaire de toutes
+            les applications. Ils indiquent si une application utilisée nécessite une
+            connexion réseau.</li>
+        </ul>
+        <p>&nbsp;</p>
+        <h3><strong>Comment la créer ?</strong></h3>
+        <p>Bien qu'il existe des logiciels variés, les règles ont sensiblement la
+          même sémantique. Ceci vient du fait qu'elles prennent comme arguments les
+          différentes parties des en-têtes IP et UDP ou TCP. Voici les trois étapes
+          à suivre :&nbsp;</p>
+        <ul>
+          <li>Autoriser ou interdire le trafic</li>
+          <li>Définir les adresses source et destination</li>
+          <li>Définir les ports source et destination</li>
+        </ul>
+        <p>Ce sont les trois éléments minimums qu'il faut pour créer une règle.</p>
+        <p>Création sur linux avec iptables :&nbsp;</p>
+        <p>
+          <img src="Firewall/2_image.png">
+        </p>
+        <p>Création sur le pare-feu de windows :&nbsp;</p><pre><code class="language-text-plain">New-NetFirewallRule -DisplayName "Allow Inbound Telnet" -Direction Inbound -Program %SystemRoot%\System32\tlntsvr.exe -RemoteAddress LocalSubnet -Action Allow</code></pre>
+        <h3><strong>Comment la lire ?</strong></h3>
+        <p>Dans le cas de l'ouverture des ports HTTP et HTTPS :&nbsp;</p>
+        <p>Voici une règle qui autoriserait le trafic HTTP et HTTPS :</p>
+        <p>
+          <img class="image_resized" style="width:50%;" src="Firewall/image.png">
+        </p>
+        <p>Les deux premières règles autorisent tout le monde à se diriger vers une
+          autre adresse, vers le port 80 ou 443.</p>
+        <p>La dernière règle interdit tout autre type de trafic.</p>
+        <p>Si maintenant, on veut autoriser la connexion au serveur en utilisant
+          le protocole SSH :</p>
+        <p>
+          <img class="image_resized" style="width:50%;" src="Firewall/1_image.png">
+        </p>
+        <p>On autorise donc ici le trafic depuis la machine de l'administrateur vers
+          le serveur sur le port 22.</p>
+        <p>Tout le reste du trafic est interdit.</p>
+        <p>&nbsp;</p>
+        <h4><strong>Qu'est-ce que PFSense ?</strong></h4>
+        <h4><strong>Avantages PFSense</strong></h4>
+      </div>
+    </div>
+  </body>
+
+</html>

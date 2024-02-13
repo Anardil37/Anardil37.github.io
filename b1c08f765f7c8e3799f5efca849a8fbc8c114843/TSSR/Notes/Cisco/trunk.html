@@ -1,0 +1,109 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>trunk</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>trunk</h1>
+
+      <div class="ck-content">
+        <h5><strong>Faire un trunk</strong></h5>
+        <p>Il faut tout d'abord utiliser les commandes <strong>enable </strong>puis <strong>configure terminal</strong> pour
+          entrer en mode de configuration.</p>
+        <p>On choisit ensuite l'interface que l'on souhaite configurer, puis on la
+          met en mode trunk.</p>
+        <p>On fait la même chose sur l'autre switch, puis on passe les interfaces
+          en nonegotiate sur les deux switchs.</p>
+        <p>&nbsp;</p><pre><code class="language-text-plain">Switch1&gt;enable
+
+Switch1#configure terminal
+
+Switch1(config)#interface g0/1
+
+Switch1(config-if)#switchport mode trunk
+
+
+
+
+Switch2&gt;enable
+
+Switch2#configure terminal
+
+Switch2(config)#interface g0/1
+
+Switch2(config-if)#switchport mode trunk
+
+
+
+
+Switch1(config-if)#switchport nonegotiate
+
+
+
+
+Switch2(config-if)#switchport nonegotiate</code></pre>
+        <p>&nbsp;</p>
+        <h4><strong>Config routeur vlan</strong></h4>
+        <p>&nbsp;</p>
+        <p>Il faut tout d'abord utiliser les commandes <strong>enable </strong>puis <strong>configure terminal</strong> pour
+          entrer en mode de configuration.</p>
+        <p>On crée une interface virtuelle sur le routeur puis on change l'encapsulation
+          en dot1Q puis on ajoute l'adresse ip sur l'interface.</p>
+        <p>On configure ensuite le switch, en mettant l'interface de celui-ci en
+          mode trunk.</p>
+        <p>&nbsp;</p><pre><code class="language-text-plain">Router&gt;enable
+
+Router#configure terminal
+
+Router(config)#interface g0/0.&lt;nombre&gt;
+
+Router(config-if)#encapsulation dot1Q &lt;nombre vlan&gt;
+
+Router(config-if)#ip address &lt;adresse&gt; &lt;masque&gt;
+
+
+
+
+Switch&gt;enable
+
+Switch#configure terminal
+
+Switch(config)#interface fa0/&lt;nombre&gt;
+
+Switch(config-if)#switchport mode trunk</code></pre>
+        <p>&nbsp;</p>
+        <h4><strong>Config Switch multi-layer</strong></h4>
+        <p>&nbsp;</p>
+        <p>Il faut tout d'abord utiliser les commandes <strong>enable </strong>puis <strong>configure terminal</strong> pour
+          entrer en mode de configuration.</p>
+        <p>On met les interfaces reliées aux switchs en mode trunk.</p>
+        <p>On utilise ensuite la commande interface avec un vlan, puis on configure
+          l'adresse IP de l'interface pour ce vlan.</p>
+        <p>&nbsp;</p><pre><code class="language-text-plain">Switch&gt;enable
+
+Switch#configure terminal
+
+Switch(config)#interface g1/0/&lt;nombre&gt;
+
+Switch(config-if)#switchport mode trunk
+
+
+
+
+Switch(config)#vlan &lt;nombre&gt;
+
+Switch(config)#interface vlan &lt;nombre&gt;
+
+Switch(config-if)#ip address &lt;adresse&gt; &lt;masque&gt;</code></pre>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,273 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Cloud 2</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Cloud 2</h1>
+
+      <div class="ck-content">
+        <p>Microsoft Azure</p>
+        <p>Avec azure :</p>
+        <ul>
+          <li><strong>Préparer le futur</strong> : innovation continue pour soutenir
+            les projets de développement</li>
+          <li><strong>Développer selon vos conditions</strong> : Open source, prise en
+            charge de l'ensemble des langages et des frameworks</li>
+          <li><strong>Travail en hybride et en continu</strong> : localement, dans le
+            cloud et en périphérie. Intégrer et gérer les environnements avec des outils
+            et des services</li>
+          <li><strong>Faire confiance au cloud</strong> : Bénéficier d'une sécurité de
+            bout en bout</li>
+        </ul>
+        <p>&nbsp;</p>
+        <p><strong>Infrastructure physique</strong> :&nbsp;</p>
+        <p>A la base de l'infrastructure physique se trouvent les centres de données.
+          Ils s'apparentent à des centres de données de grandes entreprises. Il s'agit
+          d'installations dont les ressources sont organisées dans des racks, avec
+          une alimentation, un système de refroidissement et une infrastructure réseau
+          dédiés.</p>
+        <p>ces centres de données sont disposés dans le monde entier. Cependant,
+          ils ne sont pas directement accessibles. Ils sont regroupé dans des régions
+          Azure conçues pour bénéficier d'une résilience et d'une fiabilité.</p>
+        <p>&nbsp;</p>
+        <p><strong>Régions</strong> :&nbsp;</p>
+        <p>Une zone géographique constituée d'au moins un centre de données, mais
+          qui peut en contenir plusieurs proches les uns des autres et reliés par
+          un réseau à faible latence. Azure assigne et contrôle intelligemment les
+          ressources au sein de chaque région pour que les charges de travail soient
+          équilibrées.</p>
+        <p><strong>Zones de disponibilité</strong> :</p>
+        <p>Centres de données physiquement séparés au sein d'une région. Chaque zone
+          de disponibilité est composée d'un ou de plusieurs centre de données équipés
+          d'une alimentation, d'un refroidissement et d'un réseau indépendants. Si
+          une zone tombe en panne, l'autre continue à fonctionner.</p>
+        <p><strong>Ressources et groupes de ressources Azure :</strong>
+        </p>
+        <p>Une ressource est le bloc de construction de base d'Azure. Tout ce qui
+          est créé, provisionné, déployé est une ressource. Les machine virtuelles,
+          les réseaux virtuels, les base de données, les services cognitifs sont
+          tous considérés comme des ressources dans Azure.</p>
+        <p>&nbsp;</p>
+        <p>Les groupes de ressources sont simplement des regroupements de ressources.
+          Une ressource doit être placée dans un groupe de ressources. Un groupe
+          de ressources peut contenir plusieurs ressources, mais celles-ci ne peuvent
+          être que dans un seul groupe. Les groupes ne peuvent pas être imbriqués.</p>
+        <p><strong>Abonnements Azure</strong>
+        </p>
+        <p>Dans Azure, les abonnements sont une unité de gestion, de facturation
+          et de mise à l'échelle. Comme les groupes de ressources offrent un moyen
+          d'organiser logiquement les ressources, les abonnements permettent d'organiser
+          logiquement les groupes de ressources.</p>
+        <p>Un abonnement donne un accès authentifié et autorisé aux produits et services
+          Azure. Il permet également de provisionner des ressources.</p>
+        <p>Un compte peut comporter plusieurs abonnements mais il est seulement nécessaire
+          d'en posséder un.</p>
+        <ul>
+          <li>Limites de facturation : La façon dont l'utilisation d'Azure est facturée
+            à un compte Azure. Peut créer plusieurs abonnements en fonction des conditions
+            de facturation.</li>
+          <li>Limites de contrôle d'accès : Azure applique des stratégies de gestion
+            des accès au niveau de l'abonnement. Permet d'avoir des abonnements distincts
+            pour les différentes structures organisationnelles.</li>
+        </ul>
+        <p><strong>Groupes d'administration Azure</strong>
+        </p>
+        <p>Le dernier élément est le groupe d'administration. Les ressources sont
+          rassemblées dans des groupes de ressources, et les groupes de ressources
+          sont rassemblés dans des abonnements.</p>
+        <p>Un moyen de gérer efficacement l'accès, les stratégies et la conformité
+          de ces abonnements. Ils fournissent un niveau d'étendue au-delà des abonnements.</p>
+        <p><strong>Machines virtuelles Azure</strong>
+        </p>
+        <p>Avec les machines virtuelles Azure, il est possible de créer et d'utiliser
+          des machines virtuelles dans le cloud. Elles fournissent une infrastructure
+          IaaS sous la frome d'un serveur virtualisé et peuvent être utilisées de
+          nombreuses façons.</p>
+        <p>Donne la flexibilité de la virtualisation en évitant d'acheter et de maintenir
+          le matériel physique qui exécute la machine virtuelle. Cependant, s'agissant
+          d'une offre IaaS, vous devez quand même configurer, mettre à jour et maintenir
+          les logiciels qui s'exécutent sur la machine virtuelle.</p>
+        <p><strong>Groupes identiques de machines virtuelles</strong>
+        </p>
+        <p>Les groupes de machines virtuelles identiques permettent de créer un groupe
+          de machines virtuelles identiques à charge équilibrée. Si plusieurs machines
+          virtuelles ont été créées dans le même but, il faut qu'elles soient configurées
+          de la même façon et que le routage réseau soit configuré pour garantir
+          l'efficacité.</p>
+        <p><strong>Groupes à haute disponibilité de machines virtuelles</strong>
+        </p>
+        <p>Les groupes à haute disponibilité de machines virtuelles permettent de
+          créer un environnement plus résilient et hautement disponible. Ils sont
+          conçus pour que les machines virtuelles échelonnent les mises à jour, et
+          qu'elles disposent d'une alimentation et d'une connectivité réseau différenciées,
+          pour éviter de perdre toutes les machines en cas de panne de réseau ou
+          d'alimentation :&nbsp;</p>
+        <ul>
+          <li><strong>Domaine de mise à jour : </strong>Appliquer des mises à jour tout
+            en sachant qu'un seul regroupement de domaine de mise à jour sera hors
+            connexion à la fois.</li>
+          <li><strong>Domaine d'erreur : </strong>Le domaine d'erreur regroupe les machines
+            selon une source d'alimentation et un commutateur réseau communs.&nbsp;</li>
+        </ul>
+        <p><strong>Azure Virtual Desktop</strong>
+        </p>
+        <p>Un autre type de machine virtuelle. C'est un service de virtualisation
+          des postes de travail et des applications qui s'exécute dans le cloud.
+          Il permet d'utiliser une version de Windows se trouvant sur le cloud depuis
+          n'importe quel endroit. Fonctionne sur différents appareils et systèmes
+          d'exploitation, et est compatible avec des applications de bureau à distance.</p>
+        <p><strong>Conteneurs Azure</strong>
+        </p>
+        <p>Constituent un environnement de virtualisation. Comme plusieurs machines
+          peuvent s'exécuter sur un seul hôte physique, plusieurs conteneurs peuvent
+          exister sur un seul hôte physique. On ne gère pas le système d'exploitation
+          d'un conteneur. Les machines virtuelles sont une instance d'un système
+          à laquelle on se connecte et que l'on peut gérer. Les conteneurs sont légers
+          et sont conçus pour être créés, mis à l'échelle et arrêtés de façon dynamique.</p>
+        <p>Avec les conteneur, on peut redémarrer rapidement en cas de plantage ou
+          d'interruption matérielle. L'un des moteurs de conteneur les plus connus
+          est Docker, qu'Azure prend en charge.</p>
+        <p><strong>Azure functions</strong>
+        </p>
+        <p>Elles sont utilisées quand il y a un besoin d'effectuer un travail en
+          réponse à un événement, un minuteur ou un message d'un autre service Azure,
+          et que ce travail peut être effectué rapidement, en quelques secondes ou
+          moins.</p>
+        <p>Functions se met à l'échelle automatiquement en fonction de la demande.
+          C'est un bon choix quand la demande es variable.</p>
+        <p>Function éxecute le code, quand il est déclenché et libère automatiquement
+          les ressources lorsque la fonction est terminée.</p>
+        <p><strong>Azure App Service</strong>
+        </p>
+        <p>Un service qui permet de créer et d'héberger des applications web, des
+          tâches en arrière-plan, des back-ends mobiles et des API RESTful, sans
+          devoir gérer l'infrastructure. Permet des déploiements automatisés à partir
+          de GitHub, Azre DevOps ou n'importe quel dépôt Git.</p>
+        <ul>
+          <li>Applications web</li>
+          <li>Applications API</li>
+          <li>WebJobs</li>
+          <li>Applications mobiles</li>
+        </ul>
+        <p><strong>Mise en réseau virtuel</strong>
+        </p>
+        <p>Les réseaux et sous-réseaux virtuels Azure permettent à des ressources
+          de communiquer entre elles, avec des utilisateurs, ainsi qu'avec des ordinateurs.
+          Un réseau peut être vu comme une extension du réseau local, avec des ressources
+          qui lient d'autres ressources.</p>
+        <p><strong>Réseaux privés virtuels Azure</strong>
+        </p>
+        <p>Un réseau privé utilise le tunnel chiffré d'un autre réseau. Les VPN sont
+          généralement déployés pour connecter plusieurs réseaux privés de confiance
+          via un réseau non fiable. Le trafic est chiffré lors de son déplacement
+          sur le réseau non fiable pour empêcher les attaques. Peut permettre de
+          partager de manière sûre et sécurisée.</p>
+        <p><strong>Azure ExpressRoute</strong>
+        </p>
+        <p>Permet d'étendre vos réseaux sur site dans le Cloud Microsoft via une
+          connexion priée, avec l'aide d'un fournisseur de connectivité. Cette connexion
+          est appelée un Circuit ExpressRoute. Cela permet de connecter des bureaux,
+          ou d'autres installations, au Cloud Microsoft.</p>
+        <p><strong>Azure DNS</strong>
+        </p>
+        <p>Service d'hébergement pour les domaines DNS qui offre une résolution de
+          noms à l'aide de l'infrastructure Microsoft Azure. En hébergeant des domaines
+          dans Azure, on peut gérer les enregistrement DNS en utilisant les mêmes
+          identifiants, API, outils et facturation que les les autres services Azure.</p>
+        <p><strong>Stockage Azure</strong>
+        </p>
+        <p>Un compte de stockage vous offre un nom d'espace unique pour vos données
+          sur Stockage Azure. Il est accessible partout via protocoles HTTP et HTTPS.
+          Les données stockées dans ce compte sont sécurisées, hautement disponibles,
+          durables et évolutives.</p>
+        <p>Les données d'un compte de stockage Azure sont toujours répliquées à trois
+          reprises dans la région primaire. Deux options sont disponibles : le stockage
+          redondant localement et le stockage redondant interzone.</p>
+        <p><strong>Objets blob Azure</strong>
+        </p>
+        <p>Le stockage Blob Azure est la solution de stockage d'objets pour le cloud.
+          Permet de stocker de grandes quantités de données, telles que des données
+          textuelles ou binaires. Il est non structuré, et n'a donc aucune restriction
+          sur les types de données qu'il peut contenir.</p>
+        <p><strong>Azure Files</strong>
+        </p>
+        <p>Partages de fichiers pleinement managés dans le cloud, avec une accessibilité
+          par les protocoles SMB ou NFS standard.</p>
+        <p><strong>Files d'attente Azure</strong>
+        </p>
+        <p>Service permettant de stocker un grand nombre de messages, et d'y accéder
+          depuis n'import où dans le monde en utilisant des appels authentifiés via
+          le protocole HTTP ou HTTPS.</p>
+        <p><strong>Disques Azure</strong>
+        </p>
+        <p>Des volumes de stockage de niveau bloc gérés par Azure, pour une utilisation
+          avec des machines virtuelles Azure. Se comporte de la même façon qu'un
+          disque physique.</p>
+        <p><strong>Tables Azure</strong>
+        </p>
+        <p>Permet de stocker de grandes quantités de données structurées. Magasin
+          de données NoSQL, qui accepte les appels authentifiés provenant de l'intérieur
+          et de l'extérieur du cloud Azure.</p>
+        <p><strong>Azure Migrate</strong>
+        </p>
+        <p>Service qui facilite la migration de votre environnement local vers le
+          cloud. Il agit comme un hub central pour gérer l'évaluation de votre centre
+          de données local et la migration vers Azure. Il offre les fonctionnalités
+          suivantes.</p>
+        <p><strong>Azure Data Box</strong>
+        </p>
+        <p>Service de migration physique pour transférer rapidement de manière économique
+          et fiable, de grandes quantités de données. Pour accélérer le transfert
+          sécurisé de données, Azure envoie un appareil de stockage propriétaire
+          appelé Data Box, d'une capacité maximale de stockage de 80 téraoctets.</p>
+        <p><strong>AzCopy</strong>
+        </p>
+        <p>Utilitaire de ligne de commande que vous pouvez utiliser pour copier des
+          blobs ou des fichiers vers ou depuis votre compte de stockage. Avec AzCopy,
+          on peut charger, télécharger, copier et même synchroniser des fichiers
+          entre des comptes de stockage.</p>
+        <p><strong>Explorateur de stockage Azure</strong>
+        </p>
+        <p>Application autonome qui fournit une interface graphique pour gérer les
+          fichiers et les objets blob dans votre compte de stockage Azure. Utilise
+          AzCopy pour effectuer les tâches de gestion de fichiers et d'objets blob.</p>
+        <p><strong>Azure File Sync</strong>
+        </p>
+        <p>Outil qui permet de centraliser vos partages de fichiers dans Azure Files
+          tout en conservant la flexibilité, les performances et la compatibilité
+          d'un serveur de fichiers Windows. Se synchronise automatiquement de manière
+          bidirectionnelle avec vos fichiers dans Azure.</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

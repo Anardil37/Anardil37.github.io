@@ -1,0 +1,140 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Radius</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Radius</h1>
+
+      <div class="ck-content">
+        <p>Radius Remote Authentication Dial-In User Service</p>
+        <p>Protocole client-serveur qui permet de centraliser les données d'authentification.</p>
+        <p>inventé et développé en 1991 par la société Linvingston entreprise</p>
+        <p>&nbsp;</p>
+        <h4>Qu'est-ce que c' est ?</h4>
+        <p>&nbsp;</p>
+        <p>le but à l'origine était de permettre aux fournisseurs d'accès internet
+          d'authentifier les utilisateurs distants utilisant les connexions par modem
+          RTC à partir de multiples serveurs mais d'une seule base utilisateurs.</p>
+        <p>L'identification sur les sites Web par un nom et un mot de passe est aussi
+          gérée en RADIUS, le serveur Apache est un des clients Radius les plus répandus.
+          C'est toujours l'utilisation la plus courante du protocole RADIUS&nbsp;:
+          nom et mot de passe de connexion à l'Internet, mais de plus en plus les
+          réseaux sans fil ou filaires y ont aussi recours pour identifier les utilisateurs.</p>
+        <p>&nbsp;</p>
+        <h4>Pourquoi le mettre en place ?</h4>
+        <p>&nbsp;</p>
+        <p><strong>Avantages :&nbsp;</strong>
+        </p>
+        <ul>
+          <li><strong>Avantages supplémentaires en matière de sécurité : </strong>permet
+            d’obtenir des informations d’identification uniques pour chaque utilisateur,
+            ce qui diminue la menace de pirates informatiques infiltrant le réseau
+            (par exemple WiFi) puisqu’il n’y a pas de mot de passe unifié partagé entre
+            plusieurs personnes.</li>
+          <li><strong>Évite les difficultés liées à la gestion des mots de passe : </strong>Les
+            identifiants uniques garantissent qu’un mot de passe partagé n’a pas besoin
+            d’être changé systématiquement, car chaque personne gère le sien. Cela
+            fait gagner du temps à un administrateur informatique, et les utilisateurs
+            n’ont pas à chercher systématiquement un mot de passe actualisé.</li>
+          <li><strong>Point central pour l'authentification des utilisateurs et des systèmes : </strong>Grâce
+            à cela, les administrateurs informatiques disposent d’un seul point de
+            contact pour la gestion des utilisateurs lorsqu’il s’agit d’authentification,
+            d’autorisation et de gestion des mots de passe.</li>
+          <li><strong>Outil idéal pour les grands réseaux gérés par plusieurs administrateurs informatiques : </strong>permet
+            de contrôler plus facilement qui ou quoi a accès, et quand. Lorsqu’il s’agit
+            de centaines ou de milliers d’utilisateurs dans de grandes entreprises,
+            seules les personnes autorisées ont accès à un réseau d’informations sensibles.
+            Le contrôle des VLAN via des attributs segmentés est une caractéristique
+            essentielle des réseaux pilotés par RADIUS.</li>
+          <li><strong>Active la norme 802.1x, crypte de manière unique les sessions utilisateurs : </strong>802.1x
+            utilise le cadre du protocole d’authentification extensible (EAP) pour
+            déplacer les paquets d’authentification entre deux composants. L’EAP est
+            extrêmement flexible, ce qui permet de l’ajouter facilement à votre infrastructure
+            existante.</li>
+          <li><strong>Authentification VPN sécurisé : </strong>Si vous comparez RADIUS
+            vs VPN, l’authentification RADIUS permet non seulement de connecter en
+            toute sécurité les utilisateurs aux réseaux WiFi, mais elle fonctionne
+            également avec les VPN. Cette flexibilité permet à tout utilisateur de
+            se connecter à un réseau facilement et en toute sécurité.</li>
+          <li><strong>Activation/désactivation facile : </strong>Le RADIUS hébergé dans
+            le cloud est particulièrement facile à utiliser, car les serveurs RADIUS
+            sont gérés par un fournisseur tiers. Les administrateurs informatiques
+            n’ont qu’à diriger leur infrastructure réseau (par exemple, les VPN, les
+            points d’accès WiFi, etc.) vers les points d’extrémité de RADIUS en cloud
+            pour l’authentification.</li>
+          <li><strong>S'intègre facilement au système actuel : </strong>Les solutions
+            RADIUS modernes de ce type s’intègrent également à tout système informatique
+            que vous avez actuellement en place. Cette flexibilité signifie que vous
+            pouvez utiliser le RADIUS en cloud en plus de l’autre infrastructure que
+            vous avez déjà mise en place, et que vous pouvez profiter des avantages
+            sans aucune configuration traditionnelle.</li>
+        </ul>
+        <p>&nbsp;</p>
+        <p><strong>Inconvénients :&nbsp;</strong>
+        </p>
+        <ul>
+          <li><strong>Traditionnellement mis en oeuvre sur site : </strong>La maintenance
+            du matériel sur site peut être laborieuse et chronophage. L’entretien et
+            la surveillance réguliers signifient qu’au fil du temps, la gestion des
+            serveurs sur site peut être plus intensive et frustrante.</li>
+          <li><strong>Configuration initiale d'un serveur RADIUS non hébergé :&nbsp;</strong> peut
+            également être difficile pour les administrateurs informatiques à mettre
+            en œuvre et à intégrer dans un paysage informatique existant, en particulier
+            si l’organisation prend déjà en charge des services hérités sur site, comme
+            Active Directory.</li>
+          <li><strong>Les vulnérabilités de sécurité si elles ne sont pas mises en oeuvre correctement : </strong>Peut
+            créer des nouvelles menaces de sécurité pour l'organisation si elle est
+            mise en oeuvre de manière incorrecte.</li>
+          <li><strong>Vaste éventail d'options de configuration : </strong>La configuration
+            peut être compliquée et décourageante en raison du large éventail de protocoles
+            et des problèmes de compatibilité.</li>
+        </ul>
+        <p>&nbsp;</p>
+        <h4>Radius fonctionne comment ?</h4>
+        <p>&nbsp;</p>
+        <p>Le poste utilisateur transmet une requête d'accès à un client RADIUS,
+          pour entrer sur le réseau. Ce client se charge de demander les informations
+          identifiant l'utilisateur: le login et le mot de passe par exemple.</p>
+        <p>Le client RADIUS génère alors une requête Access-Request contenant les
+          informations d'authentification. Le serveur RADIUS peut traiter lui-même
+          la requête ou la transmettre à un autre serveur par un mécanisme appelé
+          Proxy Radius. Le serveur Radius chargé de l'identification finale (appelé
+          Home Radius) peut traiter la demande s'il dispose de suffisamment d'éléments
+          dans l'Access-Request ou demander des informations supplémentaires par
+          un renvoi de paquet "Access Challenge", auquel le client répondra par un
+          autre «&nbsp;Access-Request&nbsp;», et ainsi de suite. Les échanges sont
+          retransmis par la chaîne de serveurs Radius proxy intermédiaires dans un
+          sens et dans l'autre.</p>
+        <p>Quand le serveur Radius dispose de suffisamment d'éléments (jusqu'à une
+          douzaine d'échanges pour les protocoles complexes de type EAP) le serveur
+          RADIUS valide ou refuse l'identification en renvoyant un paquet de type&nbsp;: <i>Access-Accept</i> ou <i>Access-Reject</i>.</p>
+        <p>&nbsp;</p>
+        <p>RADIUS connaît nativement deux protocoles de mot de passe&nbsp;: PAP (échange
+          en clair du nom et du mot de passe), et CHAP (échange basé sur un hachage
+          de part et d'autre avec échange seulement du «&nbsp;challenge&nbsp;»).
+          Le protocole prévoit deux attributs séparés&nbsp;: User-Password et CHAP-Password.</p>
+        <p>Depuis, se sont greffées les variations Microsoft: MS6CHAP et MS-CHAP-V2;
+          leur similitude avec CHAP permet de les transporter en RADIUS de la même
+          façon, à l'initiative du serveur et sous réserve de possibilité de transport
+          de bout en bout du <i>supplicant</i> au client Radius, du client au serveur
+          Radius et enfin du serveur Radius à la base de données d'identification.</p>
+        <p>C'est sur cette dernière étape que souvent le bât blesse&nbsp;: rien n'est
+          prévu par exemple en LDAP pour transporter le challenge ni les étapes spécifiques
+          de MS-CHAP ou MS-CHAP-V2 qui, du coup, se terminent exclusivement sur des
+          bases d'identification Microsoft locales pour le serveur Radius.</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

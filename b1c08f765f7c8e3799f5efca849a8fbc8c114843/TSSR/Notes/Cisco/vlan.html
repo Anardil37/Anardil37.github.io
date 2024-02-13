@@ -1,0 +1,49 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>vlan</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>vlan</h1>
+
+      <div class="ck-content">
+        <h5><strong>Créer un vlan</strong></h5>
+        <p>Il faut d'abord entrer en mode de configuration en utilisant les commandes <strong>enable </strong>puis <strong>configure terminal</strong>.</p>
+        <p>Utiliser la commande <strong>vlan</strong> pour créer un VLAN.</p>
+        <p>On peut ensuite donner un nom au VLAN avec la commande <strong>name</strong>.</p>
+        <p>&nbsp;</p><pre><code class="language-text-plain">Switch&gt;enable
+
+Switch#configure terminal
+
+Switch(config)#vlan (nombre)
+
+Switch(config-vlan)#name (Nom)</code></pre>
+        <p>&nbsp;</p>
+        <h4><strong>Mettre les ports dans le vlan</strong></h4>
+        <p>&nbsp;</p>
+        <p>Il faut tout d'abord utiliser les commandes <strong>enable </strong>puis <strong>configure terminal</strong> pour
+          entrer en mode de configuration.</p>
+        <p>On sélectionne ensuite la plage d'interfaces que l'on souhaite configurer
+          avec la commande <strong>interface range</strong>.</p>
+        <p>On change ensuite le mode en access puis on l'ajoute dans le vlan.</p>
+        <p>&nbsp;</p><pre><code class="language-text-plain">Switch&gt;enable
+
+Switch#configure terminal
+
+Switch(config)#interface range fa0/(nombre-nombre)
+
+Switch(config-if-range)#switchport mode access
+
+Switch(config-if-range)#switchport access vlan (nombre)</code></pre>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

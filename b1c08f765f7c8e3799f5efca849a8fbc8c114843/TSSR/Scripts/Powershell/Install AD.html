@@ -14,7 +14,45 @@
 
       <div class="ck-content"><pre><code class="language-application-x-powershell">Add-WindowsFeature AD-Domain-Services
 Install-WindowsFeature -name AD-Domain-Services -IncludeManagementTools
-Install-ADDSForest -DomainName tssr.local -InstallDNS</code></pre>
+Install-ADDSForest -DomainName tssr.info -InstallDNS</code></pre><pre><code class="language-text-plain">Add-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools -IncludeAllSubFeature
+
+# Création du domaine Active Directory
+
+$CreateDnsDelegation = $false
+
+$DomainName = "tssr.local"
+
+$NetbiosName = "TSSR"
+
+$DomainMode = "Default"
+
+$InstallDNS = $true
+
+$ForestMode = "Default"
+
+$NoRebootOnCompletion = $false
+
+$SafeModeClearPassword = "Greta37!"
+
+$SafeModeAdministratorPassword = ConvertTo-SecureString $SafeModeClearPassword -AsPlaintext -Force
+
+Install-ADDSForest -CreateDnsDelegation:$CreateDnsDelegation `
+
+    -DomainName $DomainName `
+
+    -DomainMode $DomainMode `
+
+    -DomainNetbiosName $NetbiosName `
+
+    -ForestMode $ForestMode `
+
+    -InstallDNS:$InstallDNS `
+
+    -NoRebootOnCompletion:$NoRebootOnCompletion `
+
+    -SafeModeAdministratorPassword $SafeModeAdministratorPassword `
+
+    -Force:$true</code></pre>
       </div>
     </div>
   </body>
