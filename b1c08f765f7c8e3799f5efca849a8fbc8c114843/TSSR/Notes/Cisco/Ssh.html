@@ -15,9 +15,9 @@
       <div class="ck-content">
         <p>Définir le nom de l'hôte et de domaine</p><pre><code class="language-text-plain"># configure terminal
 
-(config)# hostname sw1
+(config)# hostname &lt;hostname&gt;
 
-(config)# ip domain-name neoflow.fr</code></pre>
+(config)# ip domain-name &lt;domain-name&gt;</code></pre>
         <p>Générer les clés RSA</p><pre><code class="language-text-plain">(config)# crypto key generate rsa</code></pre>
         <p>&nbsp;Indiquez "2048" pour générer une paire de clé sur 2048 bits au lieu
           de 512 bits par défaut afin d'augmenter le niveau de sécurité de la clé
