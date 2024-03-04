@@ -20,26 +20,26 @@
         <p>&nbsp;</p>
         <p>Installer le ADK, en choisissant ces modules.</p>
         <p>
-          <img src="MDT/2_image.png">
+          <img src="2_MDT_image.png">
         </p>
         <p>&nbsp;</p>
         <p>Aller dans le menu démarrer, Microsoft Deployment Toolkit pour trouver
           Deployment Workbench</p>
         <p>
-          <img src="MDT/image.png">
+          <img src="MDT_image.png">
         </p>
         <p>Faire un clic droit sur Deployment Shares puis cliquer sur Deployment
           Share.</p>
         <p>
-          <img src="MDT/1_image.png">
+          <img src="1_MDT_image.png">
         </p>
         <p>Choisir un dossier de destination sur un autre disque que le C.</p>
         <p>
-          <img src="MDT/3_image.png">
+          <img src="3_MDT_image.png">
         </p>
         <p>Spécifier le chemin réseau de partage.</p>
         <p>
-          <img src="MDT/4_image.png">
+          <img src="4_MDT_image.png">
         </p>
         <p>Continuer et finir la création.</p>
         <p>On crée ensuite un utilisateur pour gérer le MDT</p><pre><code class="language-text-plain"># Spécifier le nom et le mot de passe du compte de service
@@ -61,50 +61,50 @@ Set-Acl $MDTSharePath $Acl</code></pre>
         <p>Pour importer un système d'exploitation, on fait un clic droit sur Operating
           Systems puis on clique sur Import Operating System</p>
         <p>
-          <img src="MDT/5_image.png">
+          <img src="5_MDT_image.png">
         </p>
         <p>Choisir Full Set of source files</p>
         <p>On choisit ensuite le disque d'installation de Windows 10</p>
         <p>
-          <img src="MDT/6_image.png">
+          <img src="6_MDT_image.png">
         </p>
         <p>Finir l'ajout.</p>
         <p>Supprimer les versions de Windows que l'on ne souhaite pas garder.</p>
         <p>
-          <img src="MDT/7_image.png">
+          <img src="7_MDT_image.png">
         </p>
         <p>Faire un clic droit sur Task Sequences puis cliquer sur New Task Sequence.</p>
         <p>
-          <img src="MDT/8_image.png">
+          <img src="8_MDT_image.png">
         </p>
         <p>Donner un ID et un nom à la séquence de tâches.</p>
         <p>
-          <img class="image_resized" style="width:50%;" src="MDT/9_image.png">
+          <img class="image_resized" style="width:50%;" src="9_MDT_image.png">
         </p>
         <p>Sélectionner l'OS à installer puis choisir Do not specify a product key
           this time.</p>
         <p>
-          <img src="MDT/10_image.png">
+          <img src="10_MDT_image.png">
         </p>
         <p>Donner un nom d'organisation, puis continuer et entrer un mot de passe.</p>
         <p>
-          <img src="MDT/11_image.png">
+          <img src="11_MDT_image.png">
         </p>
         <p>Finir la création de la séquence de tâches.</p>
         <p>Faire un clic droit sur la séquence de tâches puis Propriétés pour pouvoir
           la modifier.</p>
         <p>
-          <img src="MDT/12_image.png">
+          <img src="12_MDT_image.png">
         </p>
         <p>Faire un clic droit sur le déploiement, puis cliquer sur propriétés et
           aller dans l'onglet Rules.</p>
         <p>
-          <img src="MDT/13_image.png">
+          <img src="13_MDT_image.png">
         </p>
         <p>On peut ici modifier certains paramètres.</p>
         <p>Cliquer sur le bouton Edit Bootstrap.ini</p>
         <p>
-          <img src="MDT/14_image.png">
+          <img src="14_MDT_image.png">
         </p>
         <p>On ajoute les informations suivantes dans le fichier</p><pre><code class="language-text-plain">DeployRoot=\\WIN-DC\DeploymentShare$
 UserID=Service_MDT
@@ -117,7 +117,7 @@ KeyboardLocalePE=040c:0000040c</code></pre>
         <p>Laisser les valeurs par défaut et finir la génération de l'image.</p>
         <p>Retourner dans WDS et ajouter une nouvelle image de démarrage.</p>
         <p>
-          <img src="MDT/15_image.png">
+          <img src="15_MDT_image.png">
         </p>
         <p>&nbsp;</p>
         <p>&nbsp;</p>

@@ -1,0 +1,85 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Hyperviseurs</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Hyperviseurs</h1>
+
+      <div class="ck-content">
+        <h3>Hyperviseur</h3>
+        <p>&nbsp;</p>
+        <p>C'est un logiciel qui permet de créer et d'exécuter des machines virtuelles.
+          Un hyperviseur isole son système d'exploitation et ses ressources des machines
+          virtuelles.</p>
+        <p>Le matériel physique utilisé en tant qu'hyperviseur est appelé hôte, tandis
+          que toutes les machines virtuelles sont appelées invités.</p>
+        <p>L'hyperviseur traite les ressources à la manière d'un pool qui peut être
+          déplacé sans difficulté entre les invités existant ou vers de nouvelles
+          machines virtuelles.</p>
+        <p>&nbsp;</p>
+        <p>Pour exécuter des machines virtuelles, tous les hyperviseurs ont besoin
+          de certains composants au niveau du système d'exploitation&nbsp;: gestionnaire
+          de mémoire, ordonnanceur, pile d'entrées/sorties (E/S), pilotes de périphériques,
+          gestionnaire de la sécurité, pile réseau, etc.</p>
+        <p>L'hyperviseur attribue à chaque machine virtuelle les ressources qui ont
+          été allouées, et gère la planification de leurs ressources en fonction
+          des ressources physiques. Cependant, l'exécution est toujours prise en
+          charge par le matériel physique et le processeur exécute toujours les instructions
+          des machines virtuelles, par exemple, lorsque l'hyperviseur gère les tâches
+          planifiées.</p>
+        <p>Plusieurs systèmes d'exploitation différents peuvent fonctionner en parallèle
+          et partager les mêmes ressources matérielles virtualisées avec un hyperviseur.
+          C'est là l'avantage de la virtualisation. Sans la virtualisation, vous
+          ne pouvez exécuter qu'un seul système d'exploitation sur le matériel.&nbsp;</p>
+        <h4>&nbsp;</h4>
+        <h3>Les différents types</h3>
+        <p>&nbsp;</p>
+        <p>Deux types d'hyperviseurs, les hyperviseurs de type 1 et les hyperviseurs
+          de type 2.</p>
+        <p>&nbsp;</p>
+        <h3>Les différences entre les types</h3>
+        <p>&nbsp;</p>
+        <h4>Hyperviseurs type 1</h4>
+        <p>&nbsp;</p>
+        <p>C'est un système qui s'installe directement sur la couche matérielle du
+          serveur. On parle d'hyperviseur natif.</p>
+        <p>Lorsqu'il est installé, on ne peut pas utiliser la machine pour autre
+          chose que faire tourner l'hyperviseur.</p>
+        <p>On peut considérer que l'hyperviseur devient le système d'exploitation
+          de la machine.</p>
+        <p>Les ressources matérielles de la machine sont gérées directement par l'hyperviseur.</p>
+        <p>&nbsp;</p>
+        <h4>Hyperviseurs type 2</h4>
+        <p>&nbsp;</p>
+        <p>C'est un logiciel qui s'installe et s'exécute sur un système d'exploitation
+          déjà en place.</p>
+        <p>On parle d'hyperviseur hébergé. Par exemple, une machine Windows 10 sur
+          laquelle on installe un hyperviseur.</p>
+        <p>Plus de ressources sont utilisées car on fait tourner l'hyperviseur et
+          le système d'exploitation en même temps.</p>
+        <p>Le réel intérêt est de pouvoir utiliser la machine comme hyperviseur,
+          mais également pour effectuer ses tâches habituelles.</p>
+        <p>&nbsp;</p>
+        <h3>Solutions open source&nbsp;</h3>
+        <p>&nbsp;</p>
+        <p>Proxmox VE, basé sur Linux KVM → type 1</p>
+        <p>Oracle VirtualBox → type 2</p>
+        <p>&nbsp;</p>
+        <h3>Solutions propriétaire</h3>
+        <p>&nbsp;</p>
+        <p>Microsoft Hyper-V → type 1</p>
+        <p>VMWare ESXi → type 1</p>
+        <p>Citrix XenServer → type 1</p>
+        <p>VMWare Workstation → type 2</p>
+      </div>
+    </div>
+  </body>
+
+</html>

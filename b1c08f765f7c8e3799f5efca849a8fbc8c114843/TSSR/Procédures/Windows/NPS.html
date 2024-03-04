@@ -20,56 +20,56 @@
         <p>On met une adresse IP fixe, on renomme la machine et on désactive les
           mises à jour automatiques.</p>
         <p>
-          <img src="NPS/image.png">
+          <img src="NPS_image.png">
         </p>
         <h3>Installer le rôle Services de certificats Active Directory</h3>
         <p>On active le rôle Services de certificats Active Directory.</p>
         <p>
-          <img src="NPS/1_image.png">
+          <img src="1_NPS_image.png">
         </p>
         <p>Lors de l'installation, on choisit seulement le rôle autorité de certification.</p>
         <p>
-          <img src="NPS/2_image.png">
+          <img src="2_NPS_image.png">
         </p>
         <p>On finit la configuration en laissant tout par défaut.</p>
         <p>&nbsp;</p>
         <h3>Installer le rôle Services de stratégie et d'accès réseau</h3>
         <p>On installe le rôle Services de stratégie et d'accès réseau.</p>
         <p>
-          <img src="NPS/3_image.png">
+          <img src="3_NPS_image.png">
         </p>
         <p>&nbsp;</p>
         <h3>Créer l'utilisateur</h3>
         <p>On crée un utilisateur, qui sera utilisé pour se connecter au réseau.</p>
         <p>
-          <img src="NPS/4_image.png">
+          <img src="4_NPS_image.png">
         </p>
         <h3>Certificats</h3>
         <p>On commence par utiliser la commande Win+R et on tape mmc pour ouvrir
           la console.</p>
         <p>
-          <img class="image_resized" style="width:50%;" src="NPS/5_image.png">
+          <img class="image_resized" style="width:50%;" src="5_NPS_image.png">
         </p>
         <p>On va dans fichier puis Ajouter ou supprimer des composants logiciels
           enfichables.</p>
         <p>
-          <img class="image_resized" style="width:50%;" src="NPS/6_image.png">
+          <img class="image_resized" style="width:50%;" src="6_NPS_image.png">
         </p>
         <p>On fait un clic droit sur Certificats&gt;Personnel&gt;Certificats puis
           on clique sur Toutes les tâches&gt;Demander un nouveau certificat…</p>
         <p>
-          <img class="image_resized" style="width:50%;" src="NPS/7_image.png">
+          <img class="image_resized" style="width:50%;" src="7_NPS_image.png">
         </p>
         <p>On choisit Inscription à Active Directory puis on choisit Administrateur
           et Utilisateur.</p>
         <p>
-          <img class="image_resized" style="width:50%;" src="NPS/8_image.png">
+          <img class="image_resized" style="width:50%;" src="8_NPS_image.png">
         </p>
         <p>&nbsp;</p>
         <h3>Configurer le client RADIUS et les polices de réseau</h3>
         <p>On ouvre la fenêtre NPS.</p>
         <p>
-          <img src="NPS/14_image.png">
+          <img src="14_NPS_image.png">
         </p>
         <p>On crée un nouveau client.</p>
         <p>On lui donne un nom, puis on ajoute l'adresse IP. On ajoute ensuite un
@@ -77,25 +77,25 @@
         <p>L'adresse IP est celle du routeur et le mot de passe choisi devra être
           repris dans la configuration du routeur.</p>
         <p>
-          <img class="image_resized" style="width:50%;" src="NPS/9_image.png">
+          <img class="image_resized" style="width:50%;" src="9_NPS_image.png">
         </p>
         <p>Faire un clic droit sur Stratégies&gt;Stratégies réseau puis cliquer sur
           Nouveau.</p>
         <p>
-          <img class="image_resized" style="width:50%;" src="NPS/10_image.png">
+          <img class="image_resized" style="width:50%;" src="10_NPS_image.png">
         </p>
         <p>On ajoute Groupes Windows en choisissant Utilisateurs du domaine.</p>
         <p>On ajoute également Type de port NAS</p>
         <p>
-          <img src="NPS/12_image.png">
+          <img src="12_NPS_image.png">
         </p>
         <p>On choisit sans fil - IEE 802.11 et Sans fil - Autre.</p>
         <p>
-          <img class="image_resized" style="width:50%;" src="NPS/11_image.png">
+          <img class="image_resized" style="width:50%;" src="11_NPS_image.png">
         </p>
         <p>On coche les cases comme l'image ci-dessous.</p>
         <p>
-          <img src="NPS/13_image.png">
+          <img src="13_NPS_image.png">
         </p>
         <p>Finir l'ajout de la stratégie.</p>
         <p>Redémarrer le service NPS.</p>
@@ -104,10 +104,10 @@
         <p>Pour faire plus simple lors de la mise en place, on désactive entièrement
           le pare-feu.</p>
         <p>
-          <img class="image_resized" style="width:50%;" src="NPS/16_image.png">
+          <img class="image_resized" style="width:50%;" src="16_NPS_image.png">
         </p>
         <p>
-          <img class="image_resized" style="width:50%;" src="NPS/15_image.png">
+          <img class="image_resized" style="width:50%;" src="15_NPS_image.png">
         </p>
         <h3>Configuration du routeur</h3>
         <p>On accède à l'interface de configuration du routeur.</p>
@@ -116,7 +116,7 @@
         <p>On peut alors modifier l'adresse IP du serveur RADIUS (IP du DC), le port
           et le mot de passe (celui choisi lors de l'ajout du client sur le DC).</p>
         <p>
-          <img class="image_resized" style="width:50%;" src="NPS/17_image.png">
+          <img class="image_resized" style="width:50%;" src="17_NPS_image.png">
         </p>
         <p>&nbsp;</p>
         <p>&nbsp;</p>

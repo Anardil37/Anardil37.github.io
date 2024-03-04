@@ -13,7 +13,7 @@
        <h1 data-trilium-h1>Domain Controller</h1>
 
       <div class="ck-content">
-        <p>Renommer la machine</p><pre><code class="language-text-plain">hostnamectl set-hostname dc1</code></pre>
+        <p>Renommer la machine</p><pre><code class="language-text-x-sh">hostnamectl set-hostname dc1</code></pre>
         <p>Ajouter la ligne dans le fichier /etc/hosts à la place de la ligne qui
           pointe vers le dc (127.0.1.1)</p><pre><code class="language-text-plain">/etc/hosts
 
@@ -26,11 +26,7 @@ sudo unlink /etc/resolv.conf</code></pre>
 
 nameserver 192.168.240.10
 
-
-
 nameserver 1.1.1.1
-
-
 
 search tssr.local</code></pre><pre><code class="language-text-plain">chattr +i /etc/resolv.conf</code></pre>
         <p>Installer les paquets</p><pre><code class="language-text-plain">apt update
@@ -56,7 +52,6 @@ cp /var/lib/samba/private/krb5.conf /etc/krb5.conf</code></pre>
 systemctl status samba-ad-dc</code></pre>
         <p>Vérifier le domaine</p><pre><code class="language-text-plain">smbclient //localhost/netlogon -U Administrator -c 'ls'
 host -t A tssr.local
-
 host -t A dc1.tssr.local
 host -t SRV _kerberos._udp.tssr.local
 host -t SRV _ldap._tcp.tssr.local</code></pre>

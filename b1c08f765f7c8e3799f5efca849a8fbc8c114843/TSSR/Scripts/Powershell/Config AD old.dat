@@ -1,0 +1,9 @@
+Rename-Computer -NewName Win-DC -Force
+sc.exe stop wuauserv
+sc.exe config wuauserv start=disabled
+New-NetIPAddress -IPAddress "192.168.1.10" -PrefixLength "24" -InterfaceIndex (Get-NetAdapter).ifIndex -DefaultGateway "192.168.1.1"
+Set-DnsClientServerAddress -InterfaceIndex (Get-NetAdapter).ifIndex -ServerAddresses ("127.0.0.1")
+Restart-Computer
+
+
+Add-Computer -DomainName tssr.local -NewName Win-CLI -Restart

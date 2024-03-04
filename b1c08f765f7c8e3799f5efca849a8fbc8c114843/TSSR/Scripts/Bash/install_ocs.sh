@@ -1,0 +1,30 @@
+#!/bin/bash
+
+apt update && apt upgrade;
+apt install apache2 mariadb-server php -y;
+mysql -u root --password=root -Bse "CREATE DATABASE ocsweb";
+mysql -u root --password=root -Bse "GRANT ALL PRIVILEGES ON ocsweb.* TO ocs@localhost IDENTIFIED BY \"ocs\"";
+mysql -u root --password=root -Bse "FLUSH PRIVILEGES";
+mysql -u root --password=root -Bse "EXIT";
+echo "#### INFORMATIONS DE LA BASE DE DONNEES OCS ####";
+echo "##                                            ##";
+echo "##  NOM DE LA BASE :   ocsweb                 ##";
+echo "##  UTILISATEUR :      ocs                    ##";
+echo "##  MOT DE PASSE :     ocs                    ##";
+echo "##                                            ##";
+echo "################################################";
+sleep 5;
+apt install php-pclzip php-mbstring php-soap php-mysql php-curl php-xml php-zip php-gd -y;
+apt install gnupg2 curl wget -y;
+curl -sS http://deb.ocsinventory-ng.org/pubkey.gpg | gpg --dearmor -o /etc/apt/trusted.gpg.d/ocs.gpg;
+echo "deb http://deb.ocsinventory-ng.org/debian/ bullseye main" | tee /etc/apt/sources.list.d/ocsinventory.list;
+perl -MCPAN -e 'install XML::Entities';
+apt update;
+apt install ocsinventory -y;
+nano /etc/apache2/conf-available/z-ocsinventory-server.conf;
+nano /etc/apache2/conf-available/zz-ocsinventory-restapi.conf;
+nano /etc/ocsinventory-reports/dbconfig.inc.php;
+nano /etc/php/*/apache2/php.ini;
+chmod -R 766 /usr/share/ocsinventory-reports;
+chown -R www-data:www-data /usr/share/ocsinventory-reports /var/lib/ocsinventory-reports;
+systemctl restart apache2;

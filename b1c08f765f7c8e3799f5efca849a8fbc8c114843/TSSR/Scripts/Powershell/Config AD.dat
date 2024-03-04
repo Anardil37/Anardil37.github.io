@@ -1,0 +1,27 @@
+# Stopper les mises à jour
+sc.exe stop wuauserv
+sc.exe config wuauserv start=disabled
+
+# Modifier l'adresse IP
+$InterfaceAlias = "Ethernet"  # Remplacez par le nom de votre interface réseau
+$NewIPAddress = "192.168.240.10"
+$PrefixLength = 24
+$DefaultGateway = "192.168.240.2"
+
+# Modifier l'adresse IP
+New-NetIPAddress -InterfaceIndex (Get-NetAdapter).ifIndex -IPAddress $NewIPAddress -PrefixLength $PrefixLength -DefaultGateway $DefaultGateway
+# New-NetIPAddress -InterfaceAlias $InterfaceAlias -IPAddress $NewIPAddress -PrefixLength $PrefixLength -DefaultGateway $DefaultGateway
+
+# Ajouter le serveur DNS
+$DNSServer = "127.0.0.1"  # Remplacez par l'adresse IP de votre serveur DNS
+Set-DnsClientServerAddress -InterfaceIndex (Get-NetAdapter).ifIndex -ServerAddresses $DNSServer
+
+# Modifier le nom de la machine
+$NewComputerName = "NouveauNomDeMachine"
+Rename-Computer -NewName $NewComputerName
+
+# Redémarrer l'ordinateur pour appliquer les modifications
+Restart-Computer
+
+
+Add-Computer -DomainName tssr.local -NewName Win-CLI -Restart

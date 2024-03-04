@@ -1,0 +1,49 @@
+# Importer le CSV
+$CSVFile = "C:\Scripts\50usersV2.csv"
+$CSVData = Import-CSV -Path $CSVFile -Delimiter ";" -Encoding UTF8
+
+# Pour chaque utilisateur
+Foreach($Utilisateur in $CSVData){
+    # On formate les donnees
+    $UtilisateurPrenom = $Utilisateur.Prenom
+    $UtilisateurNom = $Utilisateur.Nom
+    $UtilisateurLogin = $UtilisateurNom.ToLower()
+    $UtilisateurOU = $Utilisateur.Ou
+    $UtilisateurMotDePasse = "Greta37!"
+
+    # Verifier la presence de l'utilisateur dans l'AD
+    if (Get-ADUser -Filter {SamAccountName -eq $UtilisateurLogin}){
+        Write-Warning "L'identifiant $UtilisateurLogin existe deja dans l'AD"
+    }
+    else{
+        $OUName = "Name -like '$($UtilisateurOU)'"
+            # Verifier si l'OU existe
+            if([bool](Get-ADOrganizationalUnit -Filter $OUName)) {
+                Write-Host "L'OU $UtilisateurOU existe deja"
+            } else {
+                # Ajouter l'OU
+                New-ADOrganizationalUnit -Name $UtilisateurOU -Path "DC=tssr,DC=local"
+            }
+            
+        # Ajouter l'utilisateur dans l'AD
+        Try {
+            New-ADUser -Name "$UtilisateurNom $UtilisateurPrenom" `
+            -DisplayName "$UtilisateurNom $UtilisateurPrenom" `
+            -GivenName $UtilisateurPrenom `
+            -Surname $UtilisateurNom `
+            -SamAccountName $UtilisateurLogin `
+            -UserPrincipalName "$UtilisateurLogin@tssr.local" `
+            -Path "OU=$UtilisateurOU,DC=tssr,DC=local" `
+            -AccountPassword(ConvertTo-SecureString $UtilisateurMotDePasse -AsPlainText -Force) `
+            -ChangePasswordAtLogon $false `
+            -Enabled $true
+            
+            Write-Output "Creation de l'utilisateur : $UtilisateurLogin ($UtilisateurNom $UtilisateurPrenom)"
+        }
+        Catch{
+            Write-Output "La creation de l'utilisateur $UtilisateurLogin a échouée"
+        }
+       
+
+    }
+}

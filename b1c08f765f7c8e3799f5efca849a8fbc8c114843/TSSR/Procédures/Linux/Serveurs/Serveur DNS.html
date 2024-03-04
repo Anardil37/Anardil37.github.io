@@ -28,10 +28,10 @@ zone “240.168.192.in-addr.arpa”{
 cp /etc/bind/db.127 /var/cache/bind/db.ip</code></pre>
         <p>&nbsp;</p><pre><code class="language-text-plain">nano /var/cache/bind/db.domain</code></pre>
         <p>
-          <img src="Serveur%20DNS/image.png">
+          <img src="Serveur DNS_image.png">
         </p><pre><code class="language-text-plain">nano /var/cache/bind/db.ip</code></pre>
         <p>
-          <img src="Serveur%20DNS/1_image.png">
+          <img src="1_Serveur DNS_image.png">
         </p><pre><code class="language-text-plain">nano /etc/resolv.conf
 
 nameserver	192.168.240.132</code></pre><pre><code class="language-text-plain">systemctl bind9 restart</code></pre><pre><code class="language-text-plain">dig tssr.local</code></pre>

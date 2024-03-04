@@ -1,0 +1,95 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Back-up</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Back-up</h1>
+
+      <div class="ck-content">
+        <p>Sauvegarde complète:</p>
+        <ul>
+          <li>Sauvegarde toutes les données du serveur, y compris les apps et l'OS</li>
+          <li>Inclut l'état du système</li>
+          <li>Permet une restauration sur un matériel différent, cependant il est recommandé
+            que le matériel ait la même configuration</li>
+          <li>Sauvegardes plus importantes si beaucoup de données et d'applications</li>
+          <li>Préférable pour restaurer l'ensemble du serveur sur le même serveur ou
+            sur un autre serveur</li>
+          <li>Permet de réinstaller facilement le système d'exploitation et d'utiliser
+            la sauvegarde</li>
+        </ul>
+        <p>Sauvegarde sur un disque → disque dédié pour le stockage des sauvegardes</p>
+        <p>Sauvegarde sur un volume → par exemple une partition, mais performances
+          du disque réduites</p>
+        <p>Sauvegarde sur un dossier partagé → sauvegarde à distance</p>
+        <p>&nbsp;</p>
+        <p>La sauvegarde complète d'un Active Directory est une tâche essentielle
+          pour la sécurité et la stabilité d'un réseau. Voici un résumé des points
+          clés :</p>
+        <p>1. Pourquoi sauvegarder l'Active Directory ?: L'Active Directory est un
+          élément central et critique dans une entreprise. Si l'Active Directory
+          est hors ligne, les conséquences peuvent être désastreuses car les services
+          d'authentification sont inopérants¹. Il est donc indispensable de réaliser
+          une sauvegarde de l'Active Directory pour se protéger contre les cyberattaques
+          et les incidents majeurs.</p>
+        <p>2. Comment sauvegarder l'Active Directory ? : Pour sauvegarder l'Active
+          Directory, on peut utiliser Windows Server Backup, des outils tiers comme
+          Veeam, Nakivo, HornetSecurity (Altaro), etc., et Azure Backup pour une
+          sauvegarde externalisée dans Azure. La sauvegarde d’un serveur Active Directory
+          doit être effectuée en ligne et doit être effectuée lorsque les services
+          de domaine Active Directory sont installés.</p>
+        <p>3. Sauvegarde avec Windows Server Backup : Windows Server Backup est capable
+          de sauvegarder les données d'une machine et l'état du système¹. C'est un
+          outil maintenu par Microsoft, et donc pris en charge par Microsoft.</p>
+        <p>4. Restauration d’un serveur Active Directory : La restauration d’un serveur
+          Active Directory est toujours effectuée hors connexion. Il est important
+          de noter que la restauration de l’état du système doit se produire dans
+          un ordre spécifique.</p>
+        <p>&nbsp;</p>
+        <p>1. Sauvegarde en ligne : La sauvegarde d'un serveur Active Directory doit
+          être effectuée en ligne et doit être effectuée lorsque les services de
+          domaine Active Directory sont installés. Les services de domaine Active
+          Directory reposent sur une base de données spéciale et exportent un ensemble
+          de fonctions de sauvegarde qui fournissent l'interface de sauvegarde par
+          programmation.</p>
+        <p>2. Sauvegardes incrémentielles : La sauvegarde ne prend pas en charge
+          les sauvegardes incrémentielles lors de l'utilisation de l'utilitaire de
+          Sauvegarde Windows intégré.</p>
+        <p>3. Restauration hors ligne : La restauration d'un serveur Active Directory
+          est toujours effectuée hors connexion.</p>
+        <p>4. Ordre de restauration : La restauration de l’état du système doit se
+          produire dans l’ordre suivant :
+          <br>&nbsp; &nbsp;- Restaurez les fichiers de démarrage.
+          <br>&nbsp; &nbsp;- Restaurez SysVol, serveur de certificats, base de données
+          de cluster et base de données d’inscription de classe COM+, le cas échéant.
+          <br>&nbsp; &nbsp;- Restaurez le serveur Active Directory.
+          <br>&nbsp; &nbsp;- Restaurez le Registre.</p>
+        <p>5. Recommandations pour la sauvegarde d’Active Directory : Il est recommandé
+          de sauvegarder au moins deux contrôleurs de domaine, au moins une fois
+          par jour.</p>
+        <p>6. Utilisation conjointe d'outils de sauvegarde : Il peut être intéressant
+          d'utiliser conjointement Windows Server Backup et des outils tiers de chez
+          Veeam, Nakivo, HornetSecurity (Altaro), etc., ainsi qu'Azure Backup pour
+          une sauvegarde externalisée dans Azure.</p>
+        <figure class="image">
+          <img src="Back-up_image.png">
+        </figure>
+        <figure class="image">
+          <img src="1_Back-up_image.png">
+        </figure>
+        <figure class="image">
+          <img src="2_Back-up_image.png">
+        </figure>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

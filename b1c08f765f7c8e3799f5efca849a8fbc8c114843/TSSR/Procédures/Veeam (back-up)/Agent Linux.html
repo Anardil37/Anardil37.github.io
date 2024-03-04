@@ -1,0 +1,42 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Agent Linux</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Agent Linux</h1>
+
+      <div class="ck-content">
+        <p>Il faut récupérer le fichier veeam-release-deb_1.0.8_amd64.deb</p>
+        <p>On utilise ce fichier pour ajouter des sources:</p><pre><code class="language-text-plain">dpkg -i veeam-release-deb_1.0.8_amd64.deb &amp;&amp; apt update</code></pre>
+        <p>&nbsp;</p>
+        <p>On installe les paquets puis on redémarre</p><pre><code class="language-text-plain">apt install -y veeam blksnap
+
+reboot</code></pre>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>L'agent est maintenant installé, pour y accéder, on utilise la commande:</p><pre><code class="language-text-plain">veeam</code></pre>
+        <p>&nbsp;</p>
+        <p>On accepte les termes de la licence</p>
+        <p>
+          <img class="image_resized" style="width:50%;" src="Agent Linux_image.png">
+        </p>
+        <p>On choisit Next puis Finish sans rien changer sur les pages suivantes</p>
+        <p>&nbsp;</p>
+        <p>L'agent est maintenant installé</p>
+        <p>
+          <img class="image_resized" style="width:50%;" src="1_Agent Linux_image.png">
+        </p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,31 @@
+# Importer le CSV
+$CSVFile = "C:\Scripts\mock_data.csv"
+$CSVData = Import-CSV -Path $CSVFile -Delimiter ";" -Encoding UTF8
+
+# Pour chaque utilisateur
+Foreach($Utilisateur in $CSVData){
+   # On formate les données
+   $UtilisateurPrenom = $Utilisateur.Prenom
+   $UtilisateurNom = $Utilisateur.Nom
+   $UtilisateurLogin = $UtilisateurNom.ToLower()
+   $UtilisateurMotDePasse = "Greta37!"
+   # Vérifier la présence de l'utilisateur dans l'AD
+   if (Get-ADUser -Filter {SamAccountName -eq $UtilisateurLogin}){
+       Write-Warning "L'identifiant $UtilisateurLogin existe déjà dans l'AD"
+   }
+   else{
+       # Ajouter l'utilisateur dans l'AD
+       New-ADUser -Name "$UtilisateurNom $UtilisateurPrenom" `
+                  -DisplayName "$UtilisateurNom $UtilisateurPrenom" `
+                  -GivenName $UtilisateurPrenom `
+                  -Surname $UtilisateurNom `
+                  -SamAccountName $UtilisateurLogin `
+                  -UserPrincipalName "$UtilisateurLogin@tssr.local" `
+                  -Path "OU=Utilisateurs,DC=tssr,DC=local" `
+                  -AccountPassword(ConvertTo-SecureString $UtilisateurMotDePasse -AsPlainText -Force) `
+                  -ChangePasswordAtLogon $false `
+                  -Enabled $true
+
+       Write-Output "Création de l'utilisateur : $UtilisateurLogin ($UtilisateurNom $UtilisateurPrenom)"
+   }
+}

@@ -1,0 +1,3 @@
+Add-WindowsFeature AD-Domain-Services
+Install-WindowsFeature -name AD-Domain-Services -IncludeManagementTools
+Install-ADDSForest -DomainName tssr.info -InstallDNS

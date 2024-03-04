@@ -95,14 +95,14 @@
         <p>Ce sont les trois éléments minimums qu'il faut pour créer une règle.</p>
         <p>Création sur linux avec iptables :&nbsp;</p>
         <p>
-          <img src="Firewall/2_image.png">
+          <img src="2_Firewall_image.png">
         </p>
         <p>Création sur le pare-feu de windows :&nbsp;</p><pre><code class="language-text-plain">New-NetFirewallRule -DisplayName "Allow Inbound Telnet" -Direction Inbound -Program %SystemRoot%\System32\tlntsvr.exe -RemoteAddress LocalSubnet -Action Allow</code></pre>
         <h3><strong>Comment la lire ?</strong></h3>
         <p>Dans le cas de l'ouverture des ports HTTP et HTTPS :&nbsp;</p>
         <p>Voici une règle qui autoriserait le trafic HTTP et HTTPS :</p>
         <p>
-          <img class="image_resized" style="width:50%;" src="Firewall/image.png">
+          <img class="image_resized" style="width:50%;" src="Firewall_image.png">
         </p>
         <p>Les deux premières règles autorisent tout le monde à se diriger vers une
           autre adresse, vers le port 80 ou 443.</p>
@@ -110,7 +110,7 @@
         <p>Si maintenant, on veut autoriser la connexion au serveur en utilisant
           le protocole SSH :</p>
         <p>
-          <img class="image_resized" style="width:50%;" src="Firewall/1_image.png">
+          <img class="image_resized" style="width:50%;" src="1_Firewall_image.png">
         </p>
         <p>On autorise donc ici le trafic depuis la machine de l'administrateur vers
           le serveur sur le port 22.</p>

@@ -1,0 +1,33 @@
+Add-PSSnapin Microsoft.Exchange.Management.PowerShell.SnapIn;
+Import-Module ActiveDirectory
+# Importer le CSV
+$CSVFile = "C:\Scripts\mock_data_full.csv"
+$CSVData = Import-CSV -Path $CSVFile -Delimiter ";" -Encoding UTF8
+$UtilisateurMotDePasse = Read-Host -Prompt "Mot de Passe "
+$UtilisateurOu = Read-Host -Prompt "OU "
+
+# Pour chaque utilisateur
+Foreach($Utilisateur in $CSVData){
+    # On formate les données
+    $UtilisateurPrenom = $Utilisateur.Prenom
+    $UtilisateurNom = $Utilisateur.Nom
+    $UtilisateurLogin = $UtilisateurNom.ToLower()
+	$UtilisateurIdentite = $UtilisateurNom + " " + $UtilisateurPrenom
+	$UtilisateurMail = $Utilisateur.Mail
+
+		New-Mailbox -UserPrincipalName $UtilisateurMail `
+					-Name "$UtilisateurNom $UtilisateurPrenom" `
+					-DisplayName "$UtilisateurNom $UtilisateurPrenom" `
+					-FirstName $UtilisateurPrenom `
+					-Lastname $UtilisateurNom `
+					-OrganizationalUnit $UtilisateurOu `
+					-Password (ConvertTo-SecureString $UtilisateurMotDePasse -AsPlainText -Force) `
+					-ResetPasswordOnNextLogon $false `
+                    -SamAccountName $UtilisateurLogin `
+
+        Write-Output "Création de l'utilisateur : $UtilisateurLogin ($UtilisateurNom $UtilisateurPrenom)"
+
+}
+Read-Host -Prompt "Press Enter to exit"
+
+
