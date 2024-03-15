@@ -1,0 +1,137 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>DMZ</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>DMZ</h1>
+
+      <div class="ck-content">
+        <h3>Qu'est-ce qu'une DMZ ?</h3>
+        <p>&nbsp;</p>
+        <p>Tout d'abord, il faut savoir que DMZ, ça signifie en anglais <i><strong>D</strong>e<strong>M</strong>ilitarized <strong>Z</strong>one</i>,
+          et en français<strong> zone démilitarisée</strong>.&nbsp;</p>
+        <p>Pour comprendre l'origine de ce terme, il faut s'intéresser à l'histoire,
+          non pas à l'histoire de l'informatique, mais à l'histoire de la Corée et
+          à la Guerre Froide. La zone démilitarisée Coréenne est une zone tampon
+          (<i>représentée par des terres inhabitées et où l'accès est très limité</i>)
+          qui sert de frontière entre la Corée du Nord et la Corée du Sud.</p>
+        <p><strong>Quel est le rapport entre la DMZ entre les deux Corée et une DMZ en informatique ?</strong> Et
+          bien, si l'on compare la situation des deux Corée avec un réseau informatique,
+          on peut voir quelques similitudes et imaginer que :</p>
+        <ul>
+          <li>La Corée du Nord, c'est le réseau Internet (ou le réseau local, comme
+            vous voulez)</li>
+          <li>La Corée du Sud, c'est le réseau local (ou Internet)</li>
+          <li>La zone démilitarisée est une séparation entre les deux qui est là pour
+            des raisons de sécurité</li>
+        </ul>
+        <p>Réseau local = zone sécurisée</p>
+        <p>Réseau internet = zone risquée</p>
+        <p>En informatique,<strong> la DMZ est un sous-réseau isolé à la fois du réseau local et de l'internet</strong>,
+          c'est en quelque sorte une zone tampon, entre un réseau sécurisé et un
+          réseau non sécurisé. Bien sûr, le réseau non sécurisé c'est Internet, car
+          on sait qu'Internet est dangereux.</p>
+        <p>&nbsp;</p>
+        <p><strong>Mais, alors, qu'est-ce que l'on en fait de cette DMZ ?</strong>
+        </p>
+        <p>Dans la DMZ, on va venir connecter des serveurs avec des rôles spécifiques.
+          Plus précisément, en <strong>DMZ on va connecter des serveurs qui ont besoin d'accéder à Internet et d'être joignables depuis Internet.</strong> Par
+          exemple, un serveur Web si vous hébergez un site Internet, ou alors un
+          serveur de messagerie pour l'envoi et la réception d'e-mails. On peut aussi
+          positionner <strong>un serveur proxy</strong> qui sert de relais pour la
+          navigation à Internet entre les postes de travail et Internet.</p>
+        <p>&nbsp;</p>
+        <p>Depuis quelques années maintenant, <strong>il est très courant d'utiliser un reverse proxy</strong> plutôt
+          que d'exposer directement les serveurs, que ce soit les serveurs Web ou
+          les serveurs de messagerie. Ce serveur va gérer les connexions entrantes,
+          en provenance d'Internet, pour les relayer vers le(s) bon(s) serveur(s).</p>
+        <p><strong>L'objectif étant de ne jamais exposer directement sur Internet les serveurs et postes de travail connectés au réseau local de l'entreprise.</strong> Les
+          flux de ces équipements doivent passer par la DMZ, et donc par la zone
+          tampon, afin de contrôler, relayer et filtrer les échanges entre le réseau
+          local et Internet.</p>
+        <p>L'intérêt de la DMZ, c'est de créer une zone étanche dans laquelle sera
+          contenu un pirate informatique en cas de compromission d'un serveur. En
+          théorie, car cela dépend aussi de la configuration en place et notamment
+          du<strong> firewall (pare-feu) car c'est bien lui qui crée la séparation entre les différentes zones : le réseau local (LAN), Internet et la DMZ.</strong>
+        </p>
+        <p>&nbsp;</p>
+        <h3>Architecture réseau d'une DMZ</h3>
+        <p>&nbsp;</p>
+        <p>Pour mettre en place une zone démilitarisée au sein d'une architecture
+          réseau, vous avez besoin d'un firewall (c'est-à-dire un pare-feu). On peut
+          créer une DMZ avec un seul firewall, mais dans certains cas il y a deux
+          firewalls.</p>
+        <p>&nbsp;</p>
+        <h4>DMZ avec un seul pare-feu</h4>
+        <p>&nbsp;</p>
+        <p>Prenons l'exemple le plus courant : <strong>la création d'une DMZ avec un seul et unique firewall</strong>.
+          Avec cette configuration, il faut imaginer un pare-feu avec trois zones
+          déclarées où chaque zone dispose de sa propre adresse IP. Ainsi, une machine
+          dans le réseau local passera par le pare-feu pour accéder à la DMZ (ou
+          à Internet, selon la politique en place).</p>
+        <p>On peut imaginer que le serveur en DMZ soit le serveur de messagerie de
+          l'entreprise. On le positionne en DMZ car il est exposé sur Internet :
+          il doit accéder à Internet pour envoyer les e-mails, mais aussi être joignable
+          depuis Internet pour recevoir les e-mails. De ce fait, il représente un
+          risque en termes de sécurité.</p>
+        <p>Depuis le réseau, on autorise les machines à contacter le serveur de messagerie,
+          en DMZ, via quelques protocoles et ports seulement : <a href="https://www.it-connect.fr/messagerie-decouverte-des-protocoles-smtp-pop-imap-et-mapi/">SMTP</a> pour
+          l'envoi des e-mails et IMAP pour la réception des e-mails.</p>
+        <p>Éventuellement, on peut ajouter le protocole HTTPS pour accéder au Webmail.
+          Par contre, le serveur de messagerie n'est pas autorisé à réaliser un
+          <a
+          href="https://www.it-connect.fr/le-ping-pour-les-debutants/">ping</a>vers le réseau local, ni à établir une connexion Bureau à distance
+            ou un transfert de fichiers vers une machine du réseau local, etc. Le pare-feu
+            devra refuser les flux des autres protocoles (ICMP, <a href="https://www.it-connect.fr/cours/comprendre-et-maitriser-ssh/">SSH</a>,
+            RDP, etc.) pour des raisons de sécurité.</p>
+        <p>&nbsp;</p>
+        <figure class="image">
+          <img style="aspect-ratio:424/436;" src="DMZ/Schema%20DMZ%20pare-feu.svg"
+          width="424" height="436">
+        </figure>
+        <p>&nbsp;</p>
+        <h4>DMZ avec deux pare-feu</h4>
+        <p>Si vous avez un peu plus d'argent, vous pouvez mettre en œuvre une DMZ
+          basée sur deux niveaux de pare-feu. De cette façon, la DMZ est créée grâce
+          à la zone tampon située entre les deux pare-feu.</p>
+        <p>L'idéal c'est de <strong>mettre en place un serveur proxy en DMZ pour que la connexion Internet de tous les équipements du réseau local passe par ce serveur proxy situé en DMZ</strong>,
+          ce dernier sera alors un relais. De cette façon, les machines du réseau
+          local ne sont jamais en contact direct avec Internet. Attention, la mise
+          en place d'un proxy est tout à fait possible lorsqu'il n'y a qu'un seul
+          pare-feu.</p>
+        <p>&nbsp;</p>
+        <p>Avec deux pare-feu, on peut appliquer la configuration suivante :</p>
+        <ul>
+          <li>Le pare-feu n°1 autorise seulement les communications entre Internet et
+            la DMZ</li>
+          <li>Le pare-feu n°2 autorise seulement les communications entre le réseau
+            local et la DMZ</li>
+        </ul>
+        <p>Dans les deux cas, avec des protocoles et des ports spécifiques. Si un
+          attaquant parvient à passe-outre la politique de sécurité du pare-feu n°1
+          et prendre la main du serveur situé en DMZ, il devra passer une seconde
+          barrière : le pare-feu n°2, afin d'accéder au réseau et aux serveurs connectés
+          directement sur ce segment du réseau.</p>
+        <p>Dans cet exemple, je montre uniquement le flux lié à la messagerie, mais
+          si vous souhaitez que vos utilisateurs accèdent à Internet en direct (sans
+          passer par votre éventuel proxy), il faudra bien sûr autoriser les protocoles
+          HTTP/HTTPS.</p>
+        <p><strong>Que ce soit avec un ou deux pare-feu, gardez à l'esprit que l'objectif sera de protéger notre réseau de confiance, à savoir le réseau local, grâce à la zone démilitarisée.</strong>
+        </p>
+        <p>&nbsp;</p>
+        <figure class="image">
+          <img style="aspect-ratio:270/576;" src="DMZ/Schema%20DMZ%202%20pare-feu.svg"
+          width="270" height="576">
+        </figure>
+      </div>
+    </div>
+  </body>
+
+</html>

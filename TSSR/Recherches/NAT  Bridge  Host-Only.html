@@ -1,0 +1,42 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>NAT / Bridge / Host-Only</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>NAT / Bridge / Host-Only</h1>
+
+      <div class="ck-content">
+        <p>Les différences entre les modes NAT, Bridge et Host-Only sont les suivantes
+          :</p>
+        <p>1. Host-Only : Ce mode ne permet que les opérations réseau avec le système
+          d'exploitation hôte. C'est-à-dire que la machine virtuelle ne peut communiquer
+          qu'avec l'hôte et non avec le réseau externe. Toutes les machines virtuelles
+          connectées à un réseau hôte uniquement seront visibles pour l'hôte et l'autre.</p>
+        <p>2. NAT : Le mode NAT masque toute l'activité du réseau comme si elle provenait
+          de votre système d'exploitation hôte, bien que la machine virtuelle puisse
+          accéder à des ressources externes. En d'autres termes, la machine virtuelle
+          utilise une adresse IP distribuée par l'application de virtualisation via
+          un serveur DHCP, puis elle utilisera votre hôte physique comme passerelle
+          pour sortir du réseau.</p>
+        <p>3. Bridge : Ce mode permet à la machine virtuelle de se connecter directement
+          sur le réseau physique sur lequel est branchée la carte réseau physique
+          de l'hôte. La machine virtuelle recevra sa propre adresse IP si le DHCP
+          est activé dans le réseau. C'est en quelque sorte un partage de carte réseau,
+          où le système d'exploitation de votre hôte physique partage sa carte physique
+          avec le système d'exploitation de votre ou vos machines virtuelles.</p>
+        <p>Ces modes sont des alias sur des commutateurs réseau virtuels spécifiques
+          ("VMnets") préconfigurés pour les différents comportements. Comme pour
+          un commutateur de réseau normal, toutes les machines connectées au même
+          commutateur sont visibles l'une l'autre.</p>
+      </div>
+    </div>
+  </body>
+
+</html>

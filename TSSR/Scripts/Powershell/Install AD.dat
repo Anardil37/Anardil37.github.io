@@ -1,0 +1,69 @@
+Add-WindowsFeature AD-Domain-Services
+
+
+# Création du domaine Active Directory
+$CreateDnsDelegation = $false
+$DomainName = "tssr.local"
+$NetbiosName = "TSSR"
+$DomainMode = "Default"
+$InstallDNS = $true
+$ForestMode = "Default"
+$NoRebootOnCompletion = $false
+$SafeModeClearPassword = "Greta37!"
+$SafeModeAdministratorPassword = ConvertTo-SecureString $SafeModeClearPassword -AsPlaintext -Force
+
+Install-WindowsFeature -name AD-Domain-Services -IncludeManagementTools
+Install-ADDSForest -CreateDnsDelegation:$CreateDnsDelegation `
+    -DomainName $DomainName `
+    -DomainMode $DomainMode `
+    -DomainNetbiosName $NetbiosName `
+    -ForestMode $ForestMode `
+    -InstallDNS:$InstallDNS `
+    -NoRebootOnCompletion:$NoRebootOnCompletion `
+    -SafeModeAdministratorPassword $SafeModeAdministratorPassword `
+    -Force:$true
+
+
+
+
+
+Import-Module ADDSDeployment
+Install-ADDSDomainController `
+-NoGlobalCatalog:$false `
+-CreateDnsDelegation:$false `
+-Credential (Get-Credential) `
+-CriticalReplicationOnly:$false `
+-DatabasePath "C:\Windows\NTDS" `
+-DomainName "tssr.local" `
+-InstallDns:$true `
+-LogPath "C:\Windows\NTDS" `
+-NoRebootOnCompletion:$false `
+-ReplicationSourceDC "Win-DC.tssr.local" `
+-SiteName "Default-First-Site-Name" `
+-SysvolPath "C:\Windows\SYSVOL" `
+-Force:$true
+
+
+
+
+
+
+
+
+Import-Module ADDSDeployment
+Install-ADDSDomainController `
+-AllowPasswordReplicationAccountName @("TSSR\Groupe de réplication dont le mot de passe RODC est autorisé") `
+-NoGlobalCatalog:$false `
+-Credential (Get-Credential) `
+-CriticalReplicationOnly:$false `
+-DatabasePath "C:\Windows\NTDS" `
+-DenyPasswordReplicationAccountName @("BUILTIN\Administrateurs", "BUILTIN\Opérateurs de serveur", "BUILTIN\Opérateurs de sauvegarde", "BUILTIN\Opérateurs de compte", "TSSR\Groupe de réplication dont le mot de passe RODC est refusé") `
+-DomainName "tssr.local" `
+-InstallDns:$true `
+-LogPath "C:\Windows\NTDS" `
+-NoRebootOnCompletion:$false `
+-ReadOnlyReplica:$true `
+-ReplicationSourceDC "Win-DC.tssr.local" `
+-SiteName "Default-First-Site-Name" `
+-SysvolPath "C:\Windows\SYSVOL" `
+-Force:$true

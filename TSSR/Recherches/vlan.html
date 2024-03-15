@@ -1,0 +1,46 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>vlan</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>vlan</h1>
+
+      <div class="ck-content">
+        <h4>Qu'est-ce que c'est ?</h4>
+        <p>Un vlan est un sous réseau logique créé à l'intérieur d'un réseau physique.</p>
+        <p>Contrairement à un réseau local, ou tous les appareils sont sur un même
+          segment de réseau, un VLAN permet de regrouper des appareils en fonction
+          de critères (localisation, fonction, ..)</p>
+        <p>Leur fonctionnement repose sur l’étiquetage des trames Ethernet, imaginé
+          en 1998 par la Digital Equipment Corporation (DEC) avec la publication
+          du protocole IEEE 802.1Q.</p>
+        <p>Chaque trame est marquée avec une étiquette spécifique qui indique à quel
+          VLAN elle appartient. Les commutateurs réseau utilisent ces étiquettes,
+          afin d’acheminer les trames uniquement vers les ports appropriés.</p>
+        <p>Ceci garantit que seuls les appareils du même VLAN puissent communiquer
+          entre eux. Il s’agit d’une méthode efficace d’isolation logique des groupes
+          d’appareils au sein du réseau.</p>
+        <p>&nbsp;</p>
+        <h4>Comment ça fonctionne ?</h4>
+        <p>La mise en place des VLAN requiert des commutateurs réseau compatibles,
+          pour prendre en charge l’étiquetage des trames Ethernet.&nbsp;Les routeurs
+          utilisés dans le réseau doivent également prendre en charge les VLAN
+          <span
+          style="color:var(--e-global-color-text);">et les protocoles de routage compatibles.</span>
+        </p>
+        <p>Par la suite, une configuration logicielle appropriée est nécessaire.
+          Ce processus implique la création des VLAN, l’attribution des ports et
+          la configuration des adresses IP pour chacun. L’interface de gestion du
+          commutateur ou du routeur permet d’effectuer ces réglages.</p>
+      </div>
+    </div>
+  </body>
+
+</html>

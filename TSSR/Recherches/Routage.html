@@ -1,0 +1,92 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Routage</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Routage</h1>
+
+      <div class="ck-content">
+        <h4>Qu'est-ce que le routage&nbsp;?</h4>
+        <p>Le routage réseau est le processus de sélection d'un chemin à travers
+          un ou plusieurs réseaux. Les principes de routage peuvent s'appliquer à
+          tous les types de réseaux, des réseaux téléphoniques aux transports publics.
+          Dans les réseaux à commutation de paquets, comme Internet, le routage sélectionne
+          les chemins que doivent emprunter les paquets IP pour se rendre de leur
+          origine à leur destination. Ces décisions de routage Internet sont prises
+          par des périphériques réseau spécialisés appelés routeurs.</p>
+        <p>&nbsp;</p>
+        <h4>Comment fonctionne le routage ?</h4>
+        <p>Les routeurs s'appuient sur des tables de routage internes pour prendre
+          des décisions concernant l'acheminement des paquets le long des chemins
+          réseau. Une table de routage enregistre les chemins que les paquets doivent
+          emprunter pour atteindre chaque destination dont le routeur est responsable.
+          L'ensemble fonctionne un peu sur le même principe que les horaires ferroviaires
+          que les passagers consultent pour décider quel train prendre. Les tables
+          de routage sont similaires, mais s'attachent aux chemins réseau plutôt
+          qu'aux trains.</p>
+        <p>Les routeurs fonctionnent de la manière suivante&nbsp;: lorsqu'un routeur
+          reçoit un paquet, il lit les en-têtes* du paquet pour voir la destination
+          prévue, à l'instar d'un contrôleur qui consulte le billet d'un passager
+          sur un quai pour lui indiquer quel train prendre. Il détermine ensuite
+          où acheminer le paquet en fonction des informations contenues dans ses
+          tables de routage.</p>
+        <p>Les routeurs effectuent ces opérations des millions de fois par seconde,
+          avec des millions de paquets. Lorsqu'un paquet se rend vers sa destination,
+          il peut être acheminé plusieurs fois par différents routeurs.</p>
+        <p>Les tables de routage peuvent être statiques ou dynamiques. Les statiques
+          ne changent pas et sont établies manuellement par un administrateur réseau.
+          Dans les grandes lignes, elles fixent les itinéraires que les paquets de
+          données empruntent sur le réseau, à moins que l'administrateur ne mette
+          à jour les tables de manière manuelle.</p>
+        <p>Les tables de routage dynamiques se mettent à jour automatiquement. Les
+          routeurs dynamiques s'appuient sur divers protocoles de routage (voir ci-dessous)
+          pour déterminer les chemins les plus courts et les plus rapides. Ils déterminent
+          également le temps nécessaire aux paquets pour atteindre leur destination
+          (un peu comme Google Maps, Waze et les autres services GPS) afin de déterminer
+          les meilleurs itinéraires en fonction de vos habitudes de trafic et des
+          conditions de circulation actuelles.</p>
+        <p>Le routage dynamique nécessite une plus grande puissance de calcul, c'est
+          pourquoi les petits réseaux s'appuient plutôt sur le routage statique.
+          En revanche, le routage dynamique se révèle beaucoup plus efficace pour
+          les réseaux de tailles moyenne et grande.</p>
+        <p>&nbsp;</p>
+        <h4>Quels sont les principaux protocoles de routage ?</h4>
+        <p>Pour les réseaux, un protocole constitue un ensemble de règles normalisées
+          de formatage des données conçu pour permettre à n'importe quel ordinateur
+          connecté de comprendre les données. Un protocole de routage est un protocole
+          utilisé pour identifier ou annoncer les chemins réseau.</p>
+        <p>Les protocoles suivants aident les paquets de données à trouver leur chemin
+          sur Internet&nbsp;:</p>
+        <p><strong>IP :</strong> l'Internet Protocol ou protocole Internet (IP) spécifie
+          l'origine et la destination de chaque paquet de données. Les routeurs inspectent
+          l'en-tête IP de chaque paquet pour savoir où les envoyer.</p>
+        <p><strong>BGP&nbsp;:</strong> le protocole de routage BGP (Border Gateway
+          Protocol) sert à annoncer quels réseaux contrôlent quelles adresses IP
+          et quels réseaux se connectent entre eux. (Les grands réseaux qui effectuent
+          ces annonces BGP sont appelés systèmes autonomes, ou AS). Le BGP est un
+          protocole de routage dynamique.</p>
+        <p>Les protocoles ci-dessous acheminent les paquets au sein d'un AS&nbsp;:</p>
+        <p><strong>OSPF :</strong> le protocole OSPF (Open Shortest Path First) est
+          couramment utilisé par les routeurs réseau pour identifier dynamiquement
+          les itinéraires disponibles les plus rapides et les plus courts afin d'envoyer
+          les paquets vers leur destination.</p>
+        <p><strong>RIP :</strong> le protocole RIP (Routing Information Protocol)
+          s'appuie sur le «&nbsp;nombre de sauts&nbsp;» pour trouver le chemin le
+          plus court d'un réseau à un autre. Le «&nbsp;nombre de sauts&nbsp;» désigne
+          ici le nombre de routeurs par lesquels un paquet doit passer pendant son
+          trajet. (Lorsqu'un paquet passe d'un réseau à l'autre, on parle de «&nbsp;saut&nbsp;»).</p>
+        <p>Les autres protocoles de routage interne comprennent l'EIGRP (Enhanced
+          Interior Gateway Routing Protocol, principalement utilisé pour les routeurs
+          Cisco) et l'IS-IS (Intermediate System to Intermediate System).</p>
+      </div>
+    </div>
+  </body>
+
+</html>

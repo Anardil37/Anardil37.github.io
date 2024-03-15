@@ -1,0 +1,44 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>RODC</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>RODC</h1>
+
+      <div class="ck-content">
+        <h4>Qu'est-ce que c'est ?</h4>
+        <p>Un contrôleur de domaine en lecture seule, ou RODC (Read-Only Domain Controller),
+          est un type de contrôleur de domaine introduit à partir de Windows Server
+          2008. Il stocke une copie en lecture seule de la base de données Active
+          Directory.</p>
+        <p>Voici quelques caractéristiques importantes des RODC :</p>
+        <ul>
+          <li>Sécurité renforcée : Un RODC est particulièrement utile pour sécuriser
+            les sites distants. Étant donné que l'on peut déterminer avec précision
+            quels sont les mots de passe à stocker sur le serveur RODC, en cas de corruption
+            ou de vol du serveur, la perte sera moindre.</li>
+          <li>Cache DNS : Les requêtes DNS sont également mises en cache, car le serveur
+            RODC peut avoir le rôle de serveur DNS de cache.</li>
+          <li>Amélioration de l'authentification des utilisateurs : L'objectif est de
+            permettre aux utilisateurs des succursales de se connecter et d'effectuer
+            des tâches telles que le partage de fichiers/imprimantes, même en l'absence
+            de connectivité réseau aux sites hub.</li>
+        </ul>
+        <p>Il est important de noter qu'à l'exception des mots de passe de compte,
+          un RODC contient tous les objets et attributs Active Directory qu'un contrôleur
+          de domaine accessible en écriture contient. De plus, ces informations étant
+          stockées en lecture seule, aucune modification ne peut être initiée depuis
+          un contrôleur de domaine en lecture seule.</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </body>
+
+</html>
