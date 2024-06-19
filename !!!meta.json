@@ -1,6 +1,6 @@
 {
 	"formatVersion": 2,
-	"appVersion": "0.63.3",
+	"appVersion": "0.63.7",
 	"files": [
 		{
 			"noteId": "JLT8K674XFty",
@@ -9,15 +9,23 @@
 			],
 			"isClone": false,
 			"title": "TSSR",
-			"notePosition": 70,
+			"notePosition": 80,
 			"prefix": null,
-			"isExpanded": true,
+			"isExpanded": false,
 			"type": "text",
 			"mime": "text/html",
 			"format": "html",
 			"dirFileName": "TSSR",
 			"noImport": false,
-			"attributes": [],
+			"attributes": [
+				{
+					"type": "label",
+					"name": "mapType",
+					"value": "tree",
+					"isInheritable": false,
+					"position": 10
+				}
+			],
 			"attachments": [],
 			"children": [
 				{
@@ -2354,20 +2362,12 @@
 															"dataFileName": "2_ACL_image.png"
 														},
 														{
-															"attachmentId": "svyMthyZW2xS",
-															"title": "image.png",
-															"role": "image",
-															"mime": "image/png",
-															"position": 10,
-															"dataFileName": "3_ACL_image.png"
-														},
-														{
 															"attachmentId": "ACboJL0tOmCT",
 															"title": "image.png",
 															"role": "image",
 															"mime": "image/png",
 															"position": 10,
-															"dataFileName": "4_ACL_image.png"
+															"dataFileName": "3_ACL_image.png"
 														}
 													]
 												},
@@ -8514,6 +8514,41 @@
 									"dataFileName": "Schéma_canvas-export.svg"
 								}
 							]
+						},
+						{
+							"noteId": "PNYbkSJNgKys",
+							"notePath": [
+								"JLT8K674XFty",
+								"WxX4CbLb7v1M",
+								"PNYbkSJNgKys"
+							],
+							"isClone": false,
+							"title": "Révisions réseau",
+							"notePosition": 210,
+							"prefix": null,
+							"isExpanded": false,
+							"type": "text",
+							"mime": "text/html",
+							"format": "html",
+							"dataFileName": "Révisions réseau.html",
+							"noImport": false,
+							"attributes": [
+								{
+									"type": "relation",
+									"name": "internalLink",
+									"value": "RDGhdjxByZrp",
+									"isInheritable": false,
+									"position": 10
+								},
+								{
+									"type": "relation",
+									"name": "internalLink",
+									"value": "8pE4g2Mhsq2B",
+									"isInheritable": false,
+									"position": 20
+								}
+							],
+							"attachments": []
 						}
 					]
 				},
@@ -9415,7 +9450,7 @@
 					"title": "Scripts",
 					"notePosition": 90,
 					"prefix": null,
-					"isExpanded": false,
+					"isExpanded": true,
 					"type": "text",
 					"mime": "text/html",
 					"format": "html",
@@ -9513,7 +9548,7 @@
 							"title": "Powershell",
 							"notePosition": 40,
 							"prefix": null,
-							"isExpanded": false,
+							"isExpanded": true,
 							"type": "text",
 							"mime": "text/html",
 							"format": "html",

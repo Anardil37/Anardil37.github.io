@@ -1,0 +1,127 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Révisions réseau</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Révisions réseau</h1>
+
+      <div class="ck-content">
+        <h4>Modèle OSI :</h4>
+        <ul>
+          <li>1 : Physique
+            <ul>
+              <li>Transmettre un signal représentant les bits sur le support</li>
+              <li>PDU : bit</li>
+              <li>Répéteur → Concentrateur, Hub</li>
+              <li>Bus, Anneau, Etoile, Etoile étendue</li>
+            </ul>
+          </li>
+          <li>2 : Liaison de données
+            <ul>
+              <li>PDU : trame</li>
+              <li>Définir la politique d'accès au média (MAC)</li>
+              <li>Ethernet (CSMA/CD) (802.3), Token Ring, 802.11 (Wifi) (CSMA/CA)</li>
+              <li>Commutateur</li>
+            </ul>
+          </li>
+        </ul>
+        <p>&nbsp;</p>
+        <p>VLAN : Plusieurs réseaux de niveau 2 sur un même switch</p>
+        <p>1 VLAN = 1 réseau L2 (très généralement un réseau L3)</p>
+        <p>&nbsp;</p>
+        <p>routage dynamique RIP</p><pre><code class="language-text-plain">Router(config)# router rip
+Router(config-router)# version 2
+Router(config-router)# network 192.168.3.0
+Router(config-router)# network 192.168.254.0
+Router(config-router)# network 192.168.255.0
+Router(config-router)# passive-interface g0/0
+
+Router2(config)# router rip
+Router2(config-router)# version 2
+Router(config-router)# network 192.168.1.0
+Router(config-router)# network 192.168.2.0
+Router2(config-router)# network 192.168.254.0
+Router2(config-router)# network 192.168.255.0
+Router2(config-router)# passive-interface g0/0
+
+Router3(config)# ip route 0.0.0.0 0.0.0.0 s0/3/1
+Router3(config)# router rip
+Router3(config)# default-information originate</code></pre>
+        <p>routage dynamique OSPF</p><pre><code class="language-text-plain">Router(config)# router ospf 10
+Router(config-router)# router-id 1.1.1.1
+Router(config-router)# network 192.168.3.254 0.0.0.0 area 0
+Router(config-router)# network 192.168.254.254 0.0.0.0 area 0
+Router(config-router)# network 192.168.255.254 0.0.0.0 area 0
+Router(config-router)# passive-interface g0/0
+
+Router2(config)# router ospf 10
+Router2(config-router)# router-id 2.2.2.2
+Router2(config-router)# network 192.168.1.254 0.0.0.0 area 0
+Router2(config-router)# network 192.168.2.254 0.0.0.0 area 0
+Router2(config-router)# network 192.168.254.1 0.0.0.0 area 0
+Router2(config-router)# network 192.168.255.1 0.0.0.0 area 0
+Router2(config-router)# passive-interface g0/0</code></pre>
+        <p>&nbsp;</p><pre><code class="language-text-plain">Switch(config)# vlan 421
+Switch(config)# interface g0/1
+Switch(config-if)# switchport mode trunk
+Switch(config-if)# switchport trunk native vlan 421</code></pre>
+        <p>&nbsp;</p>
+        <p>VTP</p><pre><code class="language-text-plain">Switch(config-if)# switchport mode dynamic desirable
+Command rejected: Conflict between 'nonegotiate' and 'dynamic' status.
+Switch(config-if)# no switchport nonegotiate
+Switch(config-if)# switchport mode dynamic desirable
+Switch(config-if)# no shutdown
+Switch(config-if)# show interfaces trunk
+</code></pre><pre><code class="language-text-plain">Switch(config)# vtp version 2
+Switch(config)# vtp domain Dom
+Switch(config)# vtp password Dom
+Switch(config)# vtp mode server
+
+Switch2(config)# vtp version 2
+Switch2(config)# vtp domain Dom
+Switch2(config)# vtp password Dom
+Switch2(config)# vtp mode server</code></pre>
+        <p>&nbsp;</p>
+        <p>Ether-channel</p><pre><code class="language-text-plain">Switch&gt; en
+
+Switch# cont f
+
+Switch(config)# interface range g0/1-2
+
+Switch(config-if)# shutdown
+
+Switch(config-if)# channel-group 1 mode active
+
+Switch# show ip interface brief
+
+Switch(config)# interface po1
+
+Switch(config-if)# switchport mode access
+
+Switch(config-if)# switchport nonegotiate
+
+Switch(config-if)# switchport mode trunk
+
+Switch(config-if)# no shutdown
+
+
+faire la même chose sur l’autre switch et ensuite no shutdown sur les interfaces physiques</code></pre>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p><a class="reference-link" href="R%C3%A9seau.html">Réseau</a>
+        </p>
+        <p><a class="reference-link" href="A%20savoir%20OSI.html">A savoir OSI</a>
+        </p>
+      </div>
+    </div>
+  </body>
+
+</html>
