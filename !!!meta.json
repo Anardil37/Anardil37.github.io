@@ -9437,6 +9437,26 @@
 							"noImport": false,
 							"attributes": [],
 							"attachments": []
+						},
+						{
+							"noteId": "6DnEh3n5532M",
+							"notePath": [
+								"JLT8K674XFty",
+								"10EELAYA859N",
+								"6DnEh3n5532M"
+							],
+							"isClone": false,
+							"title": "IPv6",
+							"notePosition": 320,
+							"prefix": null,
+							"isExpanded": false,
+							"type": "text",
+							"mime": "text/html",
+							"format": "html",
+							"dataFileName": "IPv6.html",
+							"noImport": false,
+							"attributes": [],
+							"attachments": []
 						}
 					]
 				},
@@ -9450,7 +9470,7 @@
 					"title": "Scripts",
 					"notePosition": 90,
 					"prefix": null,
-					"isExpanded": true,
+					"isExpanded": false,
 					"type": "text",
 					"mime": "text/html",
 					"format": "html",
@@ -9548,7 +9568,7 @@
 							"title": "Powershell",
 							"notePosition": 40,
 							"prefix": null,
-							"isExpanded": true,
+							"isExpanded": false,
 							"type": "text",
 							"mime": "text/html",
 							"format": "html",

@@ -1,0 +1,280 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../style.css">
+    <base target="_parent">
+    <title data-trilium-title>IPv6</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>IPv6</h1>
+
+      <div class="ck-content">
+        <h2>Règles d'écriture</h2>
+        <p>Suite à la pénurie d'adresses IPv4, il a fallu trouver un moyen de ne
+          plus être limité. L'adresse IPv6 est comme l'IPv4, une adresse IP.</p>
+        <p>Sa longueur est de 128 bits, soit 16 octets. On dispose d'environ 2**128
+          adresses possibles.</p>
+        <p>La notation décimale utilisée par l'IPv4 est abandonnée au profit d'une
+          écriture hexadécimale où les huit groupes de deux octets sont séparés par
+          “:”.&nbsp;</p><pre><code class="language-text-plain">1987:0c02:0000:84c2:0000:0000:cf2a:9077</code></pre>
+        <p>Cependant, on peut omettre les 0 non significatifs.</p><pre><code class="language-text-plain">1987:c02:0:84c2:0:0:cf2a:9077</code></pre>
+        <p>Ensuite, une suite de 1 à n groupes consécutifs de 16 bits tous nuls peut
+          également être omise, en conservant malgré tout les signes “:” de chaque
+          côté de la partie effacée.</p><pre><code class="language-text-plain">1987:c02:0:84c2::cf2a:9077</code></pre>
+        <p>Etant donné que le caractère ":" est utilisé pour séparer les groupes
+          d’octets, il apporte également de la confusion quant à l’écriture des url
+          web. En effet, ce même caractère ":" désigne aussi la séparation de l’adresse
+          IP et de son port de service. Pour palier à ce problème, il a donc été
+          décidé d’écrire l’adresse IPv6 d’une url entre crochets.</p><pre><code class="language-text-plain">http://[ 2002:400:2A41:378::34A2:36]&nbsp;:8080</code></pre>
+        <p>L’expression des adresses IPv4, dans le formalisme IPv6, peuvent être
+          écrites en utilisant la représentation décimale pointée, précédée de la
+          chaîne "::" :</p><pre><code class="language-text-plain">::192.168.1.5</code></pre>
+        <p><strong>ATTENTION&nbsp;</strong>: par contre, on ne peut en aucun cas
+          supprimer une seconde série de bits à zéro. Il n’est autorisé d’en éliminer
+          qu’une seule série. Ainsi, la séquence ‘::’ signifie qu’il faut combler
+          tout ce qu’il manque par des zéro. Il existe ainsi plusieurs façons différentes
+          de représenter une adresse IPv6. C’est la RFC5952 qui décrit&nbsp; une
+          représentation canonique.</p>
+        <p>&nbsp;</p>
+        <h2>Les types d'adresses IPv6</h2>
+        <p>Une adresse IPv6 non spécifiée est alors abrégée en&nbsp;::0.0.0.0 ou
+          de façon canonisée en&nbsp;::. Tout comme en IPv4, il existe plusieurs
+          catégories d’adresses, chacune jouant des rôles particuliers, décrits au
+          sein des RFC5156, RFC4291 et RFC3587.</p>
+        <figure class="table">
+          <table>
+            <tbody>
+              <tr>
+                <td>Préfixe d'adresse IPv6</td>
+                <td>Description</td>
+              </tr>
+              <tr>
+                <td>::/8</td>
+                <td>Adresses réservées</td>
+              </tr>
+              <tr>
+                <td>2000::/3</td>
+                <td>Adresses unicast, routables sur Internet</td>
+              </tr>
+              <tr>
+                <td>fc00::/7</td>
+                <td>Adresses locales uniques</td>
+              </tr>
+              <tr>
+                <td>fe80::/10</td>
+                <td>Adresses locales de lien</td>
+              </tr>
+              <tr>
+                <td>ff00::/8</td>
+                <td>Adresses multicast</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <h4>&nbsp;</h4>
+        <h4>Adresses réservées</h4>
+        <p>Parmi les adresses réservées de cette classe, certaines sont assez particulières
+          et se distinguent des autres par leurs rôles&nbsp;:</p>
+        <ul>
+          <li><strong>Adresse ::/128</strong>&nbsp;: il s’agit d’une adresse non spécifiée
+            qui n’est jamais assignée à un serveur, mais peut être utilisée comme adresse
+            source en acquisition d’adresse IPv6.</li>
+          <li><strong>Adresse ::1/128</strong>&nbsp;: c’est l’adresse de loopback équivalent
+            à l’adresse 127.0.0.1 du protocole IPv4.</li>
+          <li><strong>Adresses 64:ff9b::/96</strong>&nbsp;: il s’agit d’adresses réservées
+            pour les traducteurs de protocoles définit dans la RFC6052.</li>
+          <li><strong>Adresses&nbsp;::ffff:0:0/96</strong>&nbsp;: il s’agit d’une représentation
+            d’adresses IPv4 dans une structure particulière d’IPv6. Ces adresses sont
+            utilisées par des logiciels, mais elles ne doivent pas être présentes sur
+            le réseau.</li>
+          <li><strong>Adresses&nbsp;::ffff:0:0:0/96</strong>&nbsp;: ce sont des adresses
+            IPv4 traduites pour un usage particulier, décrit par la RFC2765.</li>
+        </ul>
+        <h4>Adresses globales unicast</h4>
+        <p>Ces adresses représentent 1/8ème de l’espace d’adressage total du protocole
+          IPv6. Parmi ces adresses on distingue la plage d’adresses 2001::/16 qui
+          sont celles ouvertes à la réservation depuis 1999. Ces adresses sont allouées
+          par bloc /23 à /12 (on parle ici aussi de blocs, comme pour ceux de la
+          notation CIDR), par l’IANA à un registre International régional.</p>
+        <p>Ces blocs sont, pour la plupart sont réservés à des usages particuliers,
+          parmi lesquels on peut citer&nbsp;:</p>
+        <ul>
+          <li>2001:2::/48 utilisées pour des tests de performance, décrits par la RFC5180.</li>
+          <li>2001:db8::/32 réservées pour la documentation et décrit par la RFC3849.</li>
+        </ul>
+        <p>Il y a également des adresses 2002::/16 qui permettent d’acheminer les
+          flux IPv6 au travers d’un ou plusieurs réseaux IPv4. On verra un peu plus
+          loin que ces adresses sont essentielles car elles participent à la transition
+          IPv4/IPv6 afin de résoudre le crucial inconvénient de l’incompatibilité
+          entre les adresses IPv4 et celles d’IPv6.</p>
+        <p><strong>IMPORTANT&nbsp;</strong>: les autres adresses routables sont actuellement
+          réservées à des usages ultérieurs. Cela représente environ les trois quarts
+          de la plage d’adresses routables.</p>
+        <p>&nbsp;</p>
+        <h4>Adresses locales uniques</h4>
+        <p>Ces adresses notifiées par fc00::/7, sont généralement utilisées pour
+          des communications locales et ne sont pas routables, sauf sur les sites
+          qui le souhaitent. C’est l’équivalent des adresses privées décrites par
+          la RFC1918, de l’espace d’adressage IPv4, étendues à IPv6.</p>
+        <p><strong>NOTE&nbsp;</strong>: Le 8ème bit est actuellement fixé à 1, ainsi
+          cela donne le préfixe de plage d’adresses fd00::/8, permettant d’assigner
+          cette plage d’adresses à un usage local. Cette adresse comprend alors un
+          préfixe pseudo-aléatoire de 40bits afin d’éviter les conflits, lors de
+          l’interconnexion à d’autres réseaux privés.</p>
+        <p>&nbsp;</p>
+        <h4>Adresses locales de lien</h4>
+        <p>Ce type d’adresses, préfixées par fc00::/7, utilisable uniquement au sein
+          d’un réseau local de niveau 2, sont non routables et appartiennent à la
+          plage fe80::/64. Les adresses ne sont uniques que sur un lien et une machine
+          peut donc disposer de plusieurs interfaces avec la même adresse locale
+          de lien. Il suffit de préciser l’interface pour lever l’ambiguïté.</p>
+        <p>&nbsp;</p>
+        <h4>Adresses multicast</h4>
+        <p>Il faut bien comprendre que, pour le protocole IPv6, il n’existe aucune
+          adresse de broadcast. Cette notion est remplacée par des adresses multicast,
+          propres à l’application associée. Cette plage est préfixée par ff00::/8.
+          Parmi cette plage, il existe l’adresse ff02::1 qui est un peu particulière.
+          Elle est limitée au lien local. Mais, son utilisation par les applications
+          est dépréciée, voire même découragée.</p>
+        <p>Exemple&nbsp;: utilisation de l’adresse multicast <strong>ff02::1:ff00:0/104 par NDP*[2]</strong>
+        </p>
+        <p>&nbsp;</p>
+        <h2>Paramètres des adresses</h2>
+        <p>La portée d’une adresse IPv6 (on parle alors d’<i>IPv6 Address Scope</i>),
+          est représentée à la fois par son domaine de validité et par son unicité.
+          On distingue donc trois grandes familles d’adresses&nbsp;:</p>
+        <ul>
+          <li><strong>Les adresses unicast</strong>
+          </li>
+        </ul>
+        <p>Ce type d’adresses regroupe les adresses loopback, dont la portée est
+          limitée à l’hôte, les adresses locales de lien et les adresses locales
+          uniques (aussi appelées ULA). Ces dernières, ont une portée globale et
+          possède le découpage suivant&nbsp;:</p>
+        <figure class="table">
+          <table>
+            <tbody>
+              <tr>
+                <td>champ</td>
+                <td>préfixe</td>
+                <td>L</td>
+                <td>ID globale</td>
+                <td>Subnet</td>
+                <td>Interface</td>
+              </tr>
+              <tr>
+                <td>bits</td>
+                <td>7</td>
+                <td>1</td>
+                <td>40</td>
+                <td>16</td>
+                <td>64</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <p>Cela signifie que les adresses sont uniques dans le monde, et peuvent
+          être utilisées pour communiquer avec d’autres adresses également globalement
+          uniques, ou avec des adresses locales de lien, pour des liens, bien évidemment,
+          directement &nbsp;connectés.</p>
+        <p><strong>REMARQUE&nbsp;</strong>: le modèle géographique est le même que
+          celui du réseau Internet actuel, dans lequel les fournisseurs n’interviennent
+          guère. C’est dans ce cadre que le protocole IPv6 permet de gérer les deux
+          types d’adresses&nbsp;: adresses unicast locales et adresses de liens locaux.
+          Ces dernières ont le découpage ci-dessous&nbsp;:</p>
+        <figure class="table">
+          <table>
+            <tbody>
+              <tr>
+                <td>champ</td>
+                <td>préfixe</td>
+                <td>zéro</td>
+                <td>interface</td>
+              </tr>
+              <tr>
+                <td>bits</td>
+                <td>10</td>
+                <td>54</td>
+                <td>64</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <p>Toutes ces adresses, lorsqu’elles passent par la procédure de création
+          automatique, on t généralement 8 octets représentant le réseau et 8 autres
+          octets décrivant l’interface utilisée sur ce réseau.</p>
+        <ul>
+          <li><strong>Les adresses anycast</strong>
+          </li>
+        </ul>
+        <p>Ce type d’adresse possède une portée identique à celle des adresses unicast
+          globales ci-dessus. Cette technique est similaire à la diffusion multidestinataire
+          multicast&nbsp;: l’adresse de destination est alors un groupe d’adresses.
+          Mais, au lieu d’essayer de délivrer le datagramme à tous les membres du
+          groupe, IPv6 tente de le livrer à un de ses membres, généralement le plus
+          proche ou le plus à même de recevoir le paquet. Le découpage est le suivant&nbsp;:</p>
+        <figure
+        class="table">
+          <table>
+            <tbody>
+              <tr>
+                <td>champ</td>
+                <td>préfixe</td>
+                <td>sous-réseau</td>
+                <td>interface</td>
+              </tr>
+              <tr>
+                <td>bits</td>
+                <td>48</td>
+                <td>16</td>
+                <td>64</td>
+              </tr>
+            </tbody>
+          </table>
+          </figure>
+          <ul>
+            <li><strong>Les adresses multicast</strong>
+            </li>
+          </ul>
+          <p>Pour cette catégorie, ce sont les 4 bits les moins significatifs du second
+            octet (soit ff0&lt;s&gt;::) qui identifient la portée de l’adresse où &lt;s&gt;
+            varie de la façon suivante&nbsp;:</p>
+          <p>Pour s=1, l’adresse multicast est locale à l’équipement.</p>
+          <p>Pour s=2, l’adresse est locale au lien.</p>
+          <p>Pour s=5, l’adresse est locale au site.</p>
+          <p>Pour s=8, l’adresse est locale à l’organisation.</p>
+          <p>Pour s=e, l’adresse devient globale.</p>
+          <p>Les adresses de diffusion multidestinataire possèdent un champ Flag (sur
+            4bits) et un champ concernant la portée (également sur 4bits) suivi d’un
+            champ d’identification du groupe (sur 112 bits). C’est l’un des bits du
+            champ Flag qui permet de distinguer les groupes permanents des groupes
+            transitoires.</p>
+          <figure class="table">
+            <table>
+              <tbody>
+                <tr>
+                  <td>champ</td>
+                  <td>préfixe</td>
+                  <td>drap.</td>
+                  <td>portée</td>
+                  <td>groupe</td>
+                </tr>
+                <tr>
+                  <td>bits</td>
+                  <td>8</td>
+                  <td>4</td>
+                  <td>4</td>
+                  <td>112</td>
+                </tr>
+              </tbody>
+            </table>
+          </figure>
+      </div>
+    </div>
+  </body>
+
+</html>
